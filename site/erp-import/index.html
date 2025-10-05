@@ -1,0 +1,3651 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete administrator guide for EPMware configuration, security, and workflow management">
+      
+      
+        <meta name="author" content="EPMware, Inc.">
+      
+      
+        <link rel="canonical" href="https://tkiratsous.github.io/epmware-user/erp-import/">
+      
+      
+        <link rel="prev" href="../administration/application-migration/">
+      
+      
+        <link rel="next" href="../appendices/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>ERP Import - EPMware Administrator's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#erp-import" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="EPMware Administrator's Guide" class="md-header__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EPMware Administrator's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ERP Import
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="EPMware Administrator's Guide" class="md-nav__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    EPMware Administrator's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#about-this-guide" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About This Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#key-topics" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Key Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#prerequisites" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prerequisites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../configuration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Applications
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dimensions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dimensions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/dimensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dimension Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Member Properties
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/member-properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Email Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/email-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Global Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/global-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Lookups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/lookups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../security/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-model" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-rules" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#roles" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#users" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#groups" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-classes" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-provisioning" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Provisioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#sso-configuration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSO Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#report-security" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Report Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Workflow
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/#workflow-tasks" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/#workflow-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/#workflow-stages" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Stages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../deployment/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/#deployment-manager" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/#deployment-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/#scheduling-deployments" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../export/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Export Metadata
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Export Metadata
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-profile" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-details" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-format" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-execution" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Execution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-book" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Book
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../logic-builder/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Logic Builder
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Logic Builder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#script-management" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#creating-scripts" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#script-types" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#script-editor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#api-reference" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#script-examples" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration Points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../administration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Administration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3">
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Application Migration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Application Migration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/application-migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application migration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    ERP Import
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            ERP Import
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#erp-import-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#erp-import-mapping" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Mapping
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#erp-import-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#erp-integration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#scheduling-and-automation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scheduling and Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../appendices/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/oracle-epm-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix A - Oracle EPM Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/oracle-fusion-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix B - Oracle Fusion GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/validations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix C - Out of Box Validations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/onestream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix D - OneStream Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/oracle-ebs-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix E - Oracle EBS GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="erp-import">ERP Import</h1>
+<p>The ERP Import module automates metadata import from ERP source systems into EPMware through configurable interfaces. It enables seamless integration with enterprise systems to maintain synchronized metadata across financial and operational applications.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/erp-import-overview.png" data-desc-position="bottom"><img alt="ERP Import Overview" src="../assets/images/erp-import/erp-import-overview.png"></a><br>
+<em>ERP Import module showing Builder, Mapping, and Monitor components</em></p>
+<h2 id="overview">Overview</h2>
+<p>ERP Import provides automated data synchronization between source ERP systems and EPMware-managed applications through:</p>
+<ul>
+<li><strong><a href="#erp-import-builder">ERP Import Builder</a></strong> - Create and configure import definitions</li>
+<li><strong><a href="#erp-import-mapping">ERP Import Mapping</a></strong> - Map source data to target properties</li>
+<li><strong><a href="#erp-import-monitor">ERP Import Monitor</a></strong> - Track execution status and troubleshoot</li>
+</ul>
+<p>The module supports multiple integration patterns:
+- Interface table-based integration
+- File-based imports (CSV, Excel)
+- REST API integration (Cloud deployments)
+- Scheduled batch processing
+- Real-time synchronization</p>
+<h2 id="quick-links">Quick Links</h2>
+<div class="grid cards">
+  <div class="card">
+    <h3>🔧 Builder</h3>
+    <p>Configure import definitions and settings</p>
+    <a href="#erp-import-builder" class="md-button">Build Imports →</a>
+  </div>
+
+  <div class="card">
+    <h3>🔗 Mapping</h3>
+    <p>Map source fields to EPMware properties</p>
+    <a href="#erp-import-mapping" class="md-button">Configure Mapping →</a>
+  </div>
+
+  <div class="card">
+    <h3>📊 Monitor</h3>
+    <p>Track import execution and status</p>
+    <a href="#erp-import-monitor" class="md-button">View Monitor →</a>
+  </div>
+
+  <div class="card">
+    <h3>⚡ Integration</h3>
+    <p>Connect to Oracle, SAP, and other ERPs</p>
+    <a href="#erp-integration-patterns" class="md-button">Setup Integration →</a>
+  </div>
+</div>
+
+<hr>
+<h3 id="erp-import-architecture">ERP Import Architecture</h3>
+<p>Understanding the ERP Import data flow helps in designing efficient integrations:</p>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[ERP Source System] --&gt; B{Integration Type}
+    B --&gt;|Database| C[Interface Tables]
+    B --&gt;|File| D[CSV/Excel Files]
+    B --&gt;|API| E[REST Services]
+    C --&gt; F[ERP Import Builder]
+    D --&gt; F
+    E --&gt; F
+    F --&gt; G[Field Mapping]
+    G --&gt; H[Data Validation]
+    H --&gt; I{Validation Result}
+    I --&gt;|Pass| J[Request Creation]
+    I --&gt;|Fail| K[Error Log]
+    J --&gt; L[Workflow Processing]
+    L --&gt; M[Metadata Deployment]
+</code></pre></div>
+<h3 id="integration-components">Integration Components</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Source System</strong></td>
+<td>ERP data origin</td>
+<td>External</td>
+</tr>
+<tr>
+<td><strong>Interface Layer</strong></td>
+<td>Data staging</td>
+<td>Database/Files</td>
+</tr>
+<tr>
+<td><strong>Import Engine</strong></td>
+<td>Processing logic</td>
+<td>EPMware</td>
+</tr>
+<tr>
+<td><strong>Validation Layer</strong></td>
+<td>Data quality</td>
+<td>Logic Builder</td>
+</tr>
+<tr>
+<td><strong>Request Engine</strong></td>
+<td>Change management</td>
+<td>Workflow</td>
+</tr>
+<tr>
+<td><strong>Deployment</strong></td>
+<td>Target update</td>
+<td>Applications</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="erp-import-builder">ERP Import Builder</h2>
+<p>The Builder creates and manages import configurations that define how data flows from source systems into EPMware.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/erp-import-builder-grid.png" data-desc-position="bottom"><img alt="ERP Import Builder Grid" src="../assets/images/erp-import/erp-import-builder-grid.png"></a><br>
+<em>ERP Import Builder showing configured imports</em></p>
+<h3 id="creating-import-configurations">Creating Import Configurations</h3>
+<h4 id="basic-configuration">Basic Configuration</h4>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/create-erp-import-dialog.png" data-desc-position="bottom"><img alt="Create ERP Import Dialog" src="../assets/images/erp-import/create-erp-import-dialog.png"></a><br>
+<em>Create ERP Import configuration dialog</em></p>
+<ol>
+<li>Navigate to <strong>Administration → ERP Import → Builder</strong></li>
+<li>Click the <strong>+</strong> icon</li>
+<li>Configure import settings:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Interface Name</strong></td>
+<td>Yes</td>
+<td>Unique identifier</td>
+<td>GL_ACCOUNT_IMPORT</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>No</td>
+<td>Import purpose</td>
+<td>Monthly GL account updates</td>
+</tr>
+<tr>
+<td><strong>Application</strong></td>
+<td>Yes</td>
+<td>Target application</td>
+<td>HFM_PROD</td>
+</tr>
+<tr>
+<td><strong>Dimension</strong></td>
+<td>Yes</td>
+<td>Target dimension</td>
+<td>Account</td>
+</tr>
+<tr>
+<td><strong>Workflow Priority</strong></td>
+<td>Yes</td>
+<td>Request priority</td>
+<td>High/Medium/Low</td>
+</tr>
+<tr>
+<td><strong>Workflow</strong></td>
+<td>Yes</td>
+<td>Processing workflow</td>
+<td>Auto_Approval</td>
+</tr>
+</tbody>
+</table>
+<h4 id="advanced-settings">Advanced Settings</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Partial Allowed</strong></td>
+<td>No</td>
+<td>Continue on errors</td>
+<td>Allows partial success</td>
+</tr>
+<tr>
+<td><strong>Enabled</strong></td>
+<td>Yes</td>
+<td>Active status</td>
+<td>Controls visibility</td>
+</tr>
+<tr>
+<td><strong>Ignore Records That Have Not Changed</strong></td>
+<td>No</td>
+<td>Skip unchanged data</td>
+<td>Reduces processing</td>
+</tr>
+<tr>
+<td><strong>Launch Workflow</strong></td>
+<td>Yes</td>
+<td>Auto-start workflow</td>
+<td>Immediate processing</td>
+</tr>
+<tr>
+<td><strong>Interface Table Name</strong></td>
+<td>ew_if_lines</td>
+<td>Source table</td>
+<td>Data location</td>
+</tr>
+</tbody>
+</table>
+<h4 id="script-integration">Script Integration</h4>
+<p>Configure pre and post-processing scripts:</p>
+<table>
+<thead>
+<tr>
+<th>Script Type</th>
+<th>Purpose</th>
+<th>Example Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pre-Execution</strong></td>
+<td>Data preparation</td>
+<td>Validate source data</td>
+</tr>
+<tr>
+<td><strong>Post-Execution</strong></td>
+<td>Cleanup/Archive</td>
+<td>Move processed records</td>
+</tr>
+</tbody>
+</table>
+<p>Example Pre-Execution Script:
+</p><div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">validateGLData</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Check for required fields</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">(</span>
+<span class="w">        </span><span class="s2">"SELECT COUNT(*) cnt FROM ew_if_lines WHERE member_name IS NULL"</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">errors</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">cnt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">"Found records with missing member names"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Validate account codes</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">invalid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">(</span>
+<span class="w">        </span><span class="s2">"SELECT member_name FROM ew_if_lines WHERE NOT REGEXP_LIKE(member_name, '^[0-9]{6}$')"</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">invalid</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">context</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"ERROR"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Invalid account codes found"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">"FAILED"</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">"Invalid account format"</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div><p></p>
+<h4 id="email-configuration">Email Configuration</h4>
+<p>Set up notifications:</p>
+<table>
+<thead>
+<tr>
+<th>Template</th>
+<th>When Used</th>
+<th>Recipients</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Email on Success</strong></td>
+<td>Import completes</td>
+<td>Administrators</td>
+</tr>
+<tr>
+<td><strong>Email on Error</strong></td>
+<td>Import fails</td>
+<td>Support team</td>
+</tr>
+</tbody>
+</table>
+<h3 id="file-based-import">File-Based Import</h3>
+<p>Import data from uploaded files instead of interface tables:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/import-file-dialog.png" data-desc-position="bottom"><img alt="Import File Dialog" src="../assets/images/erp-import/import-file-dialog.png"></a><br>
+<em>File upload for direct import</em></p>
+<h4 id="file-upload-process">File Upload Process</h4>
+<ol>
+<li>Click upload icon (📁) on import row</li>
+<li>Browse and select file (CSV/Excel)</li>
+<li>Click <strong>Upload</strong></li>
+<li>System displays field mapping screen</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/field-mapping-dialog.png" data-desc-position="bottom"><img alt="Field Mapping Dialog" src="../assets/images/erp-import/field-mapping-dialog.png"></a><br>
+<em>Map file columns to properties</em></p>
+<h4 id="supported-file-formats">Supported File Formats</h4>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Extension</th>
+<th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CSV</strong></td>
+<td>.csv</td>
+<td>Header row required</td>
+</tr>
+<tr>
+<td><strong>Excel</strong></td>
+<td>.xlsx, .xls</td>
+<td>First sheet used</td>
+</tr>
+<tr>
+<td><strong>Tab-delimited</strong></td>
+<td>.txt, .tsv</td>
+<td>Tab separator</td>
+</tr>
+<tr>
+<td><strong>Pipe-delimited</strong></td>
+<td>.txt</td>
+<td>Pipe separator</td>
+</tr>
+</tbody>
+</table>
+<h4 id="file-structure-example">File Structure Example</h4>
+<div class="highlight"><pre><span></span><code>MEMBER_NAME,PARENT,DESCRIPTION,CURRENCY,STATUS
+100000,Total_Revenue,Product Revenue,USD,Active
+100100,100000,Hardware Sales,USD,Active
+100200,100000,Software Sales,USD,Active
+100300,100000,Services Revenue,USD,Active
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Cloud Deployment</p>
+<p>EPMware Cloud uses REST API for file uploads, not direct database access to ew_if_lines table.</p>
+</div>
+<h3 id="managing-import-configurations">Managing Import Configurations</h3>
+<h4 id="edit-import">Edit Import</h4>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/edit-erp-import-dialog.png" data-desc-position="bottom"><img alt="Edit ERP Import Dialog" src="../assets/images/erp-import/edit-erp-import-dialog.png"></a><br>
+<em>Edit import configuration</em></p>
+<ol>
+<li>Right-click on import row</li>
+<li>Select <strong>Edit Properties</strong></li>
+<li>Modify settings</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<h4 id="delete-import">Delete Import</h4>
+<ol>
+<li>Right-click on import row</li>
+<li>Select <strong>Delete</strong></li>
+<li>Confirm deletion</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Active Import Deletion</p>
+<p>Cannot delete imports with pending executions. Complete or cancel active jobs first.</p>
+</div>
+<hr>
+<h2 id="erp-import-mapping">ERP Import Mapping</h2>
+<p>Mapping defines how source data fields correspond to EPMware properties for both request headers and line items.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/erp-import-mapping-screen.png" data-desc-position="bottom"><img alt="ERP Import Mapping Screen" src="../assets/images/erp-import/erp-import-mapping-screen.png"></a><br>
+<em>Import mapping configuration interface</em></p>
+<h3 id="mapping-types">Mapping Types</h3>
+<p>The system supports two mapping levels:</p>
+<h4 id="header-mapping">Header Mapping</h4>
+<p>Maps source fields to request header attributes:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/create-header-mapping.png" data-desc-position="bottom"><img alt="Create Header Mapping" src="../assets/images/erp-import/create-header-mapping.png"></a><br>
+<em>Header mapping configuration</em></p>
+<p><strong>Common Header Mappings:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Source Column</th>
+<th>Target Field</th>
+<th>Mapping Type</th>
+<th>Value/Logic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BATCH_ID</td>
+<td>Request Description</td>
+<td>Import</td>
+<td>Direct from source</td>
+</tr>
+<tr>
+<td>LOAD_DATE</td>
+<td>Due Date</td>
+<td>Constant</td>
+<td>SYSDATE + 7</td>
+</tr>
+<tr>
+<td>SYSTEM</td>
+<td>UDF1</td>
+<td>Import</td>
+<td>Source system name</td>
+</tr>
+<tr>
+<td>USER_ID</td>
+<td>UDF2</td>
+<td>Derived</td>
+<td>Lookup requestor</td>
+</tr>
+<tr>
+<td>PRIORITY</td>
+<td>Priority</td>
+<td>Derived</td>
+<td>Based on record count</td>
+</tr>
+</tbody>
+</table>
+<h4 id="line-mapping">Line Mapping</h4>
+<p>Maps source fields to request line properties:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/create-line-mapping.png" data-desc-position="bottom"><img alt="Create Line Mapping" src="../assets/images/erp-import/create-line-mapping.png"></a><br>
+<em>Line mapping configuration</em></p>
+<p><strong>Common Line Mappings:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Source Column</th>
+<th>Property Name</th>
+<th>Mapping Type</th>
+<th>Value/Logic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACCOUNT_CODE</td>
+<td>Member Name</td>
+<td>Import</td>
+<td>Direct</td>
+</tr>
+<tr>
+<td>PARENT_CODE</td>
+<td>Parent</td>
+<td>Import</td>
+<td>Direct</td>
+</tr>
+<tr>
+<td>ACCOUNT_DESC</td>
+<td>Description</td>
+<td>Import</td>
+<td>Direct</td>
+</tr>
+<tr>
+<td>CURRENCY_CODE</td>
+<td>Currency</td>
+<td>Import</td>
+<td>Direct</td>
+</tr>
+<tr>
+<td>ACTIVE_FLAG</td>
+<td>Status</td>
+<td>Derived</td>
+<td>Y='Active', N='Inactive'</td>
+</tr>
+<tr>
+<td>GL_TYPE</td>
+<td>Account Type</td>
+<td>Import</td>
+<td>Direct</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mapping-configuration-process">Mapping Configuration Process</h3>
+<ol>
+<li><strong>Select Import</strong> - Choose from dropdown</li>
+<li><strong>Choose Level</strong> - Header or Line radio button</li>
+<li><strong>Add Mapping</strong> - Click + icon</li>
+<li><strong>Configure Fields</strong>:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Column Name</strong></td>
+<td>Source field</td>
+<td>From interface table</td>
+</tr>
+<tr>
+<td><strong>Property Name</strong></td>
+<td>Target property</td>
+<td>From dimension</td>
+</tr>
+<tr>
+<td><strong>Mapping Type</strong></td>
+<td>Transformation</td>
+<td>Import/Constant/Derived</td>
+</tr>
+<tr>
+<td><strong>Custom Value</strong></td>
+<td>Static/Formula</td>
+<td>For Constant/Derived</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mapping-types-explained">Mapping Types Explained</h3>
+<h4 id="import-direct">Import (Direct)</h4>
+<p>Copies value directly from source:
+</p><div class="highlight"><pre><span></span><code><span class="k">SOURCE</span><span class="p">.</span><span class="n">FIELD_NAME</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">TARGET</span><span class="p">.</span><span class="n">PROPERTY</span>
+</code></pre></div><p></p>
+<h4 id="constant">Constant</h4>
+<p>Uses fixed value for all records:
+</p><div class="highlight"><pre><span></span><code><span class="s1">'Active'</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">STATUS</span>
+<span class="n">SYSDATE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">DUE_DATE</span>
+<span class="s1">'USD'</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">CURRENCY</span>
+</code></pre></div><p></p>
+<h4 id="derived">Derived</h4>
+<p>Calculates value using logic:
+</p><div class="highlight"><pre><span></span><code><span class="k">CASE</span><span class="w"> </span>
+<span class="w">  </span><span class="k">WHEN</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'High'</span>
+<span class="w">  </span><span class="k">WHEN</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Medium'</span>
+<span class="w">  </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'Low'</span>
+<span class="k">END</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">PRIORITY</span>
+</code></pre></div><p></p>
+<h3 id="advanced-mapping-features">Advanced Mapping Features</h3>
+<h4 id="conditional-mapping">Conditional Mapping</h4>
+<p>Use derived type with CASE logic:
+</p><div class="highlight"><pre><span></span><code><span class="k">CASE</span><span class="w"> </span>
+<span class="w">  </span><span class="k">WHEN</span><span class="w"> </span><span class="n">source_system</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'SAP'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">account_code</span>
+<span class="w">  </span><span class="k">WHEN</span><span class="w"> </span><span class="n">source_system</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Oracle'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'GL'</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">account_code</span>
+<span class="w">  </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'UNKNOWN'</span>
+<span class="k">END</span>
+</code></pre></div><p></p>
+<h4 id="concatenation">Concatenation</h4>
+<p>Combine multiple source fields:
+</p><div class="highlight"><pre><span></span><code><span class="n">entity_code</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">'-'</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">account_code</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">'-'</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">product_code</span>
+</code></pre></div><p></p>
+<h4 id="lookup-tables">Lookup Tables</h4>
+<p>Reference lookup values:
+</p><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">meaning</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ew_lookups</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">source_value</span><span class="p">)</span>
+</code></pre></div><p></p>
+<hr>
+<h2 id="erp-import-monitor">ERP Import Monitor</h2>
+<p>Monitor tracks all import executions, providing visibility into status, errors, and performance.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/erp-import-monitor-grid.png" data-desc-position="bottom"><img alt="ERP Import Monitor Grid" src="../assets/images/erp-import/erp-import-monitor-grid.png"></a><br>
+<em>Import monitor showing execution history</em></p>
+<h3 id="monitor-grid">Monitor Grid</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Execution ID</strong></td>
+<td>Unique job identifier</td>
+<td>Click for details</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>Import configuration</td>
+<td>Link to builder</td>
+</tr>
+<tr>
+<td><strong>Start Time</strong></td>
+<td>Execution start</td>
+<td>Sort/filter</td>
+</tr>
+<tr>
+<td><strong>End Time</strong></td>
+<td>Completion time</td>
+<td>Calculate duration</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Current state</td>
+<td>Filter by status</td>
+</tr>
+<tr>
+<td><strong>Message</strong></td>
+<td>Status details/errors</td>
+<td>View full text</td>
+</tr>
+<tr>
+<td><strong>Log</strong></td>
+<td>Detailed log</td>
+<td>Download/view</td>
+</tr>
+</tbody>
+</table>
+<h3 id="execution-status">Execution Status</h3>
+<h4 id="status-types">Status Types</h4>
+<table>
+<thead>
+<tr>
+<th>Icon</th>
+<th>Status</th>
+<th>Description</th>
+<th>Next Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td><strong>Completed</strong></td>
+<td>All records processed</td>
+<td>Review requests</td>
+</tr>
+<tr>
+<td>⏳</td>
+<td><strong>Pending</strong></td>
+<td>Queued for processing</td>
+<td>Wait</td>
+</tr>
+<tr>
+<td>⚠️</td>
+<td><strong>Partial</strong></td>
+<td>Some records failed</td>
+<td>Review errors</td>
+</tr>
+<tr>
+<td>❌</td>
+<td><strong>Failed</strong></td>
+<td>Import failed</td>
+<td>Check logs</td>
+</tr>
+<tr>
+<td>🔄</td>
+<td><strong>Running</strong></td>
+<td>Currently processing</td>
+<td>Monitor</td>
+</tr>
+</tbody>
+</table>
+<h4 id="status-details">Status Details</h4>
+<p>Click <strong>Execution ID</strong> for detailed information:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/import-status-details.png" data-desc-position="bottom"><img alt="Import Status Details" src="../assets/images/erp-import/import-status-details.png"></a><br>
+<em>Detailed execution status popup</em></p>
+<p><strong>Details Include:</strong>
+- Request IDs created
+- Total records processed
+- Success/failure counts
+- Error messages
+- Processing time
+- Memory usage</p>
+<h3 id="monitor-features">Monitor Features</h3>
+<h4 id="filtering-and-search">Filtering and Search</h4>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/import-monitor-filter.png" data-desc-position="bottom"><img alt="Import Monitor Filter" src="../assets/images/erp-import/import-monitor-filter.png"></a><br>
+<em>Filter options for monitor</em></p>
+<p><strong>Filter Options:</strong>
+- Date range
+- Status (multi-select)
+- Import name
+- Execution ID
+- Error message contains</p>
+<h4 id="auto-refresh">Auto-Refresh</h4>
+<p>Enable automatic grid updates:
+- Default: 60 seconds
+- Configurable in Global Settings
+- Manual refresh button available</p>
+<h4 id="log-analysis">Log Analysis</h4>
+<p>Access detailed logs:</p>
+<ol>
+<li>Click log icon in grid</li>
+<li>Review log sections:</li>
+<li>Initialization</li>
+<li>Validation results</li>
+<li>Record processing</li>
+<li>Error details</li>
+<li>Performance metrics</li>
+</ol>
+<p><strong>Log Example:</strong>
+</p><div class="highlight"><pre><span></span><code>[2024-03-15 10:30:00] INFO: Starting import GL_ACCOUNT_IMPORT
+[2024-03-15 10:30:01] INFO: Found 1,234 records to process
+[2024-03-15 10:30:02] INFO: Validation passed
+[2024-03-15 10:30:05] INFO: Created request REQ-2024-0315
+[2024-03-15 10:30:10] INFO: Processed 1,234 records successfully
+[2024-03-15 10:30:11] INFO: Import completed
+</code></pre></div><p></p>
+<hr>
+<h2 id="erp-integration">ERP Integration</h2>
+<h3 id="oracle-ebs-integration">Oracle EBS Integration</h3>
+<p>For Oracle E-Business Suite integration:</p>
+<h4 id="configuration-requirements">Configuration Requirements</h4>
+<ol>
+<li><strong>Database Objects</strong> (See Appendix E)</li>
+<li>Interface views</li>
+<li>PL/SQL packages</li>
+<li>
+<p>Concurrent programs</p>
+</li>
+<li>
+<p><strong>EPMware Configuration</strong>
+   </p><div class="highlight"><pre><span></span><code>Interface Name: EBS_GL_IMPORT
+Interface Table: xxps_gl_interface_v
+Pre-Script: VALIDATE_EBS_GL
+</code></pre></div><p></p>
+</li>
+<li>
+<p><strong>Mapping Example</strong>
+   </p><div class="highlight"><pre><span></span><code><span class="c1">-- Header Mapping</span>
+<span class="n">LEDGER_NAME</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">UDF1</span>
+<span class="n">PERIOD_NAME</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">UDF2</span>
+
+<span class="c1">-- Line Mapping</span>
+<span class="n">SEGMENT1</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Entity</span>
+<span class="n">SEGMENT2</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Account</span>
+<span class="n">SEGMENT3</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Product</span>
+</code></pre></div><p></p>
+</li>
+</ol>
+<h3 id="oracle-fusion-integration">Oracle Fusion Integration</h3>
+<p>For Oracle Fusion Cloud integration:</p>
+<h4 id="rest-api-configuration">REST API Configuration</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">importFromFusion</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">getSystemProperty</span><span class="p">(</span><span class="s2">"FUSION_REST_URL"</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">auth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">getSystemProperty</span><span class="p">(</span><span class="s2">"FUSION_AUTH_TOKEN"</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">httpRequest</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">endpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">"/fscmRestApi/resources/latest/accounts"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">"Authorization"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Bearer "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">auth</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="c1">// Process response</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">accounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">processAccounts</span><span class="p">(</span><span class="nx">accounts</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="sap-integration">SAP Integration</h3>
+<p>For SAP integration via RFC or IDoc:</p>
+<h4 id="interface-table-structure">Interface Table Structure</h4>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">sap_gl_interface</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">company_code</span><span class="w">    </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+<span class="w">    </span><span class="n">gl_account</span><span class="w">     </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+<span class="w">    </span><span class="n">account_group</span><span class="w">  </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+<span class="w">    </span><span class="n">short_text</span><span class="w">     </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<span class="w">    </span><span class="n">long_text</span><span class="w">      </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="w">    </span><span class="n">currency</span><span class="w">       </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+<span class="w">    </span><span class="n">status</span><span class="w">         </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">load_date</span><span class="w">      </span><span class="nb">DATE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">process_flag</span><span class="w">   </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
+<hr>
+<h2 id="scheduling-and-automation">Scheduling and Automation</h2>
+<h3 id="scheduled-imports">Scheduled Imports</h3>
+<p>Configure automatic import execution:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/erp-import/import-schedule-config.png" data-desc-position="bottom"><img alt="Import Schedule Configuration" src="../assets/images/erp-import/import-schedule-config.png"></a><br>
+<em>Schedule configuration options</em></p>
+<p><strong>Schedule Types:</strong>
+- <strong>Immediate</strong> - Run on file upload
+- <strong>Daily</strong> - Fixed time each day
+- <strong>Weekly</strong> - Specific days
+- <strong>Monthly</strong> - Day of month
+- <strong>Interval</strong> - Every X hours/minutes</p>
+<h3 id="automation-best-practices">Automation Best Practices</h3>
+<ol>
+<li><strong>Off-Peak Processing</strong> - Schedule during low usage</li>
+<li><strong>Incremental Loads</strong> - Process only changes</li>
+<li><strong>Error Recovery</strong> - Auto-retry failed records</li>
+<li><strong>Notification Chain</strong> - Alert on success/failure</li>
+<li><strong>Archive Strategy</strong> - Clean up processed data</li>
+</ol>
+<hr>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-data-quality">1. Data Quality</h3>
+<ul>
+<li><strong>Source Validation</strong> - Check data before import</li>
+<li><strong>Required Fields</strong> - Enforce mandatory attributes</li>
+<li><strong>Format Standards</strong> - Consistent codes/formats</li>
+<li><strong>Duplicate Detection</strong> - Prevent redundant imports</li>
+<li><strong>Referential Integrity</strong> - Validate relationships</li>
+</ul>
+<h3 id="2-performance-optimization">2. Performance Optimization</h3>
+<ul>
+<li><strong>Batch Sizing</strong> - Optimal record counts</li>
+<li><strong>Index Usage</strong> - Index interface tables</li>
+<li><strong>Parallel Processing</strong> - Multiple concurrent imports</li>
+<li><strong>Memory Management</strong> - Configure heap sizes</li>
+<li><strong>Archive Old Data</strong> - Maintain performance</li>
+</ul>
+<h3 id="3-error-handling">3. Error Handling</h3>
+<ul>
+<li><strong>Partial Loads</strong> - Allow continuation on error</li>
+<li><strong>Error Logging</strong> - Detailed error capture</li>
+<li><strong>Retry Logic</strong> - Automatic retry for transient errors</li>
+<li><strong>Notification</strong> - Alert on failures</li>
+<li><strong>Recovery Procedures</strong> - Document recovery steps</li>
+</ul>
+<h3 id="4-security">4. Security</h3>
+<ul>
+<li><strong>Access Control</strong> - Restrict import configuration</li>
+<li><strong>Data Encryption</strong> - Secure sensitive data</li>
+<li><strong>Audit Trail</strong> - Log all import activities</li>
+<li><strong>Credential Management</strong> - Secure storage</li>
+<li><strong>Data Masking</strong> - Hide sensitive values</li>
+</ul>
+<hr>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Import not starting</td>
+<td>Service stopped</td>
+<td>Start ERP Import Service</td>
+</tr>
+<tr>
+<td>Records not found</td>
+<td>Wrong interface table</td>
+<td>Verify table name</td>
+</tr>
+<tr>
+<td>Mapping errors</td>
+<td>Property mismatch</td>
+<td>Check dimension properties</td>
+</tr>
+<tr>
+<td>Validation failures</td>
+<td>Data quality issues</td>
+<td>Review pre-execution script</td>
+</tr>
+<tr>
+<td>Timeout errors</td>
+<td>Large dataset</td>
+<td>Increase timeout, reduce batch</td>
+</tr>
+<tr>
+<td>Duplicate imports</td>
+<td>Multiple executions</td>
+<td>Check execution history</td>
+</tr>
+<tr>
+<td>Workflow not launching</td>
+<td>Configuration issue</td>
+<td>Verify workflow setting</td>
+</tr>
+</tbody>
+</table>
+<h3 id="debugging-queries">Debugging Queries</h3>
+<h4 id="check-interface-table">Check Interface Table</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- View interface records</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">error_message</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ew_if_lines</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">error_message</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+
+<span class="c1">-- Find stuck records</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ew_if_lines</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'PROCESSING'</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">last_update_date</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">SYSDATE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">24</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="monitor-service-status">Monitor Service Status</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Check service health</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">service_name</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">last_run_date</span><span class="p">,</span><span class="w"> </span><span class="n">next_run_date</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ew_services</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">service_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'ERP_IMPORT_SERVICE'</span><span class="p">;</span>
+
+<span class="c1">-- View recent executions</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ew_erp_import_log</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">execution_date</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">SYSDATE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">execution_date</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="clean-up-interface">Clean Up Interface</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Archive processed records</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">ew_if_lines_archive</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ew_if_lines</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'PROCESSED'</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">created_date</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">SYSDATE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+
+<span class="c1">-- Delete archived records</span>
+<span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ew_if_lines</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'PROCESSED'</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">created_date</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">SYSDATE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="performance-tuning">Performance Tuning</h3>
+<ol>
+<li><strong>Global Settings</strong> - Adjust timeouts and intervals</li>
+<li><strong>Database Indexes</strong> - Add indexes on interface tables</li>
+<li><strong>Batch Size</strong> - Optimize record count per execution</li>
+<li><strong>Memory Allocation</strong> - Increase JVM heap if needed</li>
+<li><strong>Parallel Processing</strong> - Configure multiple import threads</li>
+</ol>
+<hr>
+<h2 id="integration-points">Integration Points</h2>
+<h3 id="workflow-integration">Workflow Integration</h3>
+<p>ERP imports seamlessly integrate with workflows:
+- Automatic request creation
+- Workflow selection and launch
+- Priority assignment
+- Due date calculation
+- User assignment</p>
+<h3 id="email-notifications">Email Notifications</h3>
+<p>Configure comprehensive notifications:
+- Import start/completion
+- Error alerts with details
+- Summary statistics
+- File attachments
+- Distribution lists</p>
+<h3 id="logic-builder-scripts">Logic Builder Scripts</h3>
+<p>Enhance imports with custom logic:
+- Data validation
+- Transformation rules
+- Error handling
+- Post-processing
+- Integration calls</p>
+<h3 id="global-settings">Global Settings</h3>
+<p>Configure system-wide parameters:
+</p><div class="highlight"><pre><span></span><code>Maximum # of Minutes for ERP Import Task: 180
+ERP Import Service Sleep Interval: 5 seconds
+Maximum file size for ERP Import: 50 MB
+</code></pre></div><p></p>
+<hr>
+<h2 id="related-topics">Related Topics</h2>
+<ul>
+<li><a href="../administration/#services">Administration Services</a> - Manage ERP Import Service</li>
+<li><a href="../workflow/">Workflow Builder</a> - Configure import workflows</li>
+<li><a href="../logic-builder/">Logic Builder</a> - Create validation scripts</li>
+<li><a href="../email-templates/index.md">Email Templates</a> - Import notifications</li>
+<li><a href="../global-settings/index.md">Global Settings</a> - System parameters</li>
+<li><a href="../appendices/oracle-fusion-gl/">Appendix B: Oracle Fusion GL</a> - Fusion integration guide</li>
+<li><a href="../appendices/oracle-ebs-gl/">Appendix E: Oracle EBS GL</a> - EBS integration guide</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../administration/application-migration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Application migration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Application migration
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../appendices/" class="md-footer__link md-footer__link--next" aria-label="Next: Appendices">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Appendices
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.tooltips", "navigation.footer", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

@@ -1,0 +1,3465 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete administrator guide for EPMware configuration, security, and workflow management">
+      
+      
+        <meta name="author" content="EPMware, Inc.">
+      
+      
+        <link rel="canonical" href="https://tkiratsous.github.io/epmware-user/appendices/oracle-ebs-glOLD/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Oracle EBS GL Integration - EPMware Administrator's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#oracle-ebs-gl-integration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="EPMware Administrator's Guide" class="md-header__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EPMware Administrator's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Oracle EBS GL Integration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="EPMware Administrator's Guide" class="md-nav__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    EPMware Administrator's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#about-this-guide" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About This Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#key-topics" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Key Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#prerequisites" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prerequisites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../configuration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Applications
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dimensions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dimensions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/dimensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dimension Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Member Properties
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/member-properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Email Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/email-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Global Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/global-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Lookups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/lookups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../security/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#security-model" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#security-rules" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#roles" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#users" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#groups" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#security-classes" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#security-provisioning" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Provisioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#sso-configuration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSO Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#report-security" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Report Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Workflow
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/#workflow-tasks" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/#workflow-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/#workflow-stages" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Stages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../deployment/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/#deployment-manager" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/#deployment-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/#scheduling-deployments" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../export/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Export Metadata
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Export Metadata
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-profile" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-details" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-format" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-execution" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Execution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-book" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Book
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../logic-builder/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Logic Builder
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Logic Builder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#script-management" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#creating-scripts" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#script-types" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#script-editor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#api-reference" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#script-examples" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration Points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../administration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Administration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3">
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Application Migration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Application Migration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/application-migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application migration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../erp-import/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ERP Import
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            ERP Import
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#erp-import-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#erp-import-mapping" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Mapping
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#erp-import-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#erp-integration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#scheduling-and-automation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scheduling and Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oracle-epm-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix A - Oracle EPM Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oracle-fusion-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix B - Oracle Fusion GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix C - Out of Box Validations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../onestream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix D - OneStream Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oracle-ebs-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix E - Oracle EBS GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="oracle-ebs-gl-integration">Oracle EBS GL Integration</h1>
+<p>This appendix provides comprehensive instructions for configuring Oracle E-Business Suite General Ledger integration with EPMware, enabling automated metadata deployment through concurrent programs.</p>
+<h2 id="overview">Overview</h2>
+<p>The Oracle EBS GL integration enables EPMware to deploy Chart of Accounts (COA) metadata to Oracle E-Business Suite through a secure SFTP-based file transfer mechanism with concurrent program processing.</p>
+<h2 id="solution-architecture">Solution Architecture</h2>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[EPMware] --&gt;|Deploy Files| B[SFTP Server]
+    B --&gt;|Transfer| C[Concurrent Manager Node]
+    C --&gt;|Process| D[Custom Concurrent Program]
+    D --&gt;|Update| E[GL Value Sets]
+    D --&gt;|Update| F[GL Hierarchies]
+    E --&gt; G[Oracle EBS GL]
+    F --&gt; G
+    G --&gt;|Log Files| B
+    B --&gt;|Retrieve| A
+</code></pre></div>
+<hr>
+<h2 id="prerequisites">Prerequisites</h2>
+<div class="grid cards">
+  <div class="card">
+    <h3>📄 Database Objects</h3>
+    <p>PL/SQL packages and views installed in EBS database</p>
+  </div>
+
+  <div class="card">
+    <h3>⚙️ Concurrent Programs</h3>
+    <p>Custom programs registered in Oracle EBS</p>
+  </div>
+
+  <div class="card">
+    <h3>🔐 SFTP Server</h3>
+    <p>Secure file transfer server accessible by both systems</p>
+  </div>
+
+  <div class="card">
+    <h3>👤 Service Accounts</h3>
+    <p>EBS user with GL responsibilities</p>
+  </div>
+</div>
+
+<hr>
+<h2 id="component-overview">Component Overview</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Supplied By</th>
+<th>Configured By</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Database Code</strong></td>
+<td>EPMware</td>
+<td>Customer DBA</td>
+<td>Process metadata updates</td>
+</tr>
+<tr>
+<td><strong>Concurrent Programs</strong></td>
+<td>EPMware</td>
+<td>GL Administrator</td>
+<td>Execute import/export</td>
+</tr>
+<tr>
+<td><strong>SFTP Server</strong></td>
+<td>Customer</td>
+<td>EPMware</td>
+<td>File transfer</td>
+</tr>
+<tr>
+<td><strong>EPMware Agent</strong></td>
+<td>EPMware</td>
+<td>EPMware</td>
+<td>Orchestrate deployment</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="step-1-install-database-objects">Step 1: Install Database Objects</h2>
+<h3 id="required-objects">Required Objects</h3>
+<p>Install in the following order using APPS schema:</p>
+<ol>
+<li>
+<p><strong>Database View</strong>
+   </p><div class="highlight"><pre><span></span><code><span class="c1">-- xxps_gl_epmware_coa_v.sql</span>
+<span class="c1">-- Provides COA structure view</span>
+<span class="o">@</span><span class="n">xxps_gl_epmware_coa_v</span><span class="p">.</span><span class="k">sql</span>
+</code></pre></div><p></p>
+</li>
+<li>
+<p><strong>Package Specification</strong>
+   </p><div class="highlight"><pre><span></span><code><span class="c1">-- xxps_gl_epmware_coa_pkg.pks</span>
+<span class="c1">-- Defines package interface</span>
+<span class="o">@</span><span class="n">xxps_gl_epmware_coa_pkg</span><span class="p">.</span><span class="n">pks</span>
+</code></pre></div><p></p>
+</li>
+<li>
+<p><strong>Package Body</strong>
+   </p><div class="highlight"><pre><span></span><code><span class="c1">-- xxps_gl_epmware_coa_pkg.pkb</span>
+<span class="c1">-- Contains processing logic</span>
+<span class="o">@</span><span class="n">xxps_gl_epmware_coa_pkg</span><span class="p">.</span><span class="n">pkb</span>
+</code></pre></div><p></p>
+</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Installation Order</p>
+<p>Objects must be installed in the exact order shown above to resolve dependencies.</p>
+</div>
+<h3 id="verification">Verification</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Verify installation</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">object_name</span><span class="p">,</span><span class="w"> </span><span class="n">object_type</span><span class="p">,</span><span class="w"> </span><span class="n">status</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">user_objects</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">object_name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'XXPS_GL_EPMWARE%'</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">object_type</span><span class="p">,</span><span class="w"> </span><span class="n">object_name</span><span class="p">;</span>
+</code></pre></div>
+<hr>
+<h2 id="step-2-configure-concurrent-programs">Step 2: Configure Concurrent Programs</h2>
+<h3 id="option-a-import-via-ldt-files">Option A: Import via LDT Files</h3>
+<p>Quick setup using delivered LDT files:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Import concurrent programs</span>
+FNDLOAD<span class="w"> </span>apps/password<span class="w"> </span><span class="m">0</span><span class="w"> </span>Y<span class="w"> </span>UPLOAD<span class="w"> </span><span class="nv">$FND_TOP</span>/patch/115/import/afcpprog.lct<span class="w"> </span>XXPS_GL_EPMWARE_IMPORT_COA.ldt
+FNDLOAD<span class="w"> </span>apps/password<span class="w"> </span><span class="m">0</span><span class="w"> </span>Y<span class="w"> </span>UPLOAD<span class="w"> </span><span class="nv">$FND_TOP</span>/patch/115/import/afcpprog.lct<span class="w"> </span>XXPS_GL_EPMWARE_EXPORT_COA.ldt
+</code></pre></div>
+<h3 id="option-b-manual-configuration">Option B: Manual Configuration</h3>
+<h4 id="register-executables">Register Executables</h4>
+<p><strong>Executable 1: Export</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Executable Name</strong></td>
+<td>XXPS_GL_EPMWARE_EXPORT_COA</td>
+</tr>
+<tr>
+<td><strong>Short Name</strong></td>
+<td>XXPS_GL_EXP</td>
+</tr>
+<tr>
+<td><strong>Application</strong></td>
+<td>General Ledger</td>
+</tr>
+<tr>
+<td><strong>Execution Method</strong></td>
+<td>PL/SQL Stored Procedure</td>
+</tr>
+<tr>
+<td><strong>Execution File Name</strong></td>
+<td>xxps_gl_epmware_coa_pkg.export_coa</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Executable 2: Import</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Executable Name</strong></td>
+<td>XXPS_GL_EPMWARE_IMPORT_COA</td>
+</tr>
+<tr>
+<td><strong>Short Name</strong></td>
+<td>XXPS_GL_IMP</td>
+</tr>
+<tr>
+<td><strong>Application</strong></td>
+<td>General Ledger</td>
+</tr>
+<tr>
+<td><strong>Execution Method</strong></td>
+<td>PL/SQL Stored Procedure</td>
+</tr>
+<tr>
+<td><strong>Execution File Name</strong></td>
+<td>xxps_gl_epmware_coa_pkg.import_coa</td>
+</tr>
+</tbody>
+</table>
+<h4 id="create-concurrent-programs">Create Concurrent Programs</h4>
+<p><strong>Program 1: Export COA Files</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Program Name</strong></td>
+<td>EPMWARE - Export COA Files</td>
+</tr>
+<tr>
+<td><strong>Short Name</strong></td>
+<td>XXPS_GL_EXPORT</td>
+</tr>
+<tr>
+<td><strong>Application</strong></td>
+<td>General Ledger</td>
+</tr>
+<tr>
+<td><strong>Executable</strong></td>
+<td>XXPS_GL_EPMWARE_EXPORT_COA</td>
+</tr>
+<tr>
+<td><strong>Output Format</strong></td>
+<td>Text</td>
+</tr>
+<tr>
+<td><strong>Save Output</strong></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Program 2: Import COA Files</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Program Name</strong></td>
+<td>EPMWARE - Import COA Files</td>
+</tr>
+<tr>
+<td><strong>Short Name</strong></td>
+<td>XXPS_GL_IMPORT</td>
+</tr>
+<tr>
+<td><strong>Application</strong></td>
+<td>General Ledger</td>
+</tr>
+<tr>
+<td><strong>Executable</strong></td>
+<td>XXPS_GL_EPMWARE_IMPORT_COA</td>
+</tr>
+<tr>
+<td><strong>Output Format</strong></td>
+<td>Text</td>
+</tr>
+<tr>
+<td><strong>Save Output</strong></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="configure-incompatibilities">Configure Incompatibilities</h4>
+<p>Set programs as incompatible with themselves:</p>
+<ol>
+<li>Navigate to concurrent program definition</li>
+<li>Click <strong>Incompatibilities</strong> button</li>
+<li>Add program to its own incompatibility list</li>
+<li>Save</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Critical Setting</p>
+<p>Incompatibility prevents concurrent execution conflicts when multiple requests are submitted.</p>
+</div>
+<hr>
+<h2 id="step-3-configure-parameters">Step 3: Configure Parameters</h2>
+<h3 id="parameter-setup">Parameter Setup</h3>
+<p>Both programs require the following parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>COA Code</strong></td>
+<td>Char(30)</td>
+<td>Your COA</td>
+<td>Chart of Accounts identifier</td>
+</tr>
+<tr>
+<td><strong>Database Directory</strong></td>
+<td>Char(100)</td>
+<td>EW_DATA_DIR</td>
+<td>Oracle directory for files</td>
+</tr>
+<tr>
+<td><strong>Segment Name</strong></td>
+<td>Char(30)</td>
+<td>Specific segment</td>
+<td>GL segment to process</td>
+</tr>
+<tr>
+<td><strong>Send Email</strong></td>
+<td>Char(1)</td>
+<td>N</td>
+<td>Email notification flag</td>
+</tr>
+<tr>
+<td><strong>Email Server</strong></td>
+<td>Char(100)</td>
+<td>smtp.company.com</td>
+<td>SMTP server address</td>
+</tr>
+</tbody>
+</table>
+<h3 id="directory-configuration">Directory Configuration</h3>
+<p>Create Oracle directory:
+</p><div class="highlight"><pre><span></span><code><span class="c1">-- As SYS or SYSTEM user</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="n">DIRECTORY</span><span class="w"> </span><span class="n">EW_DATA_DIR</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s1">'/u01/app/epmware/data'</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">READ</span><span class="p">,</span><span class="w"> </span><span class="k">WRITE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">DIRECTORY</span><span class="w"> </span><span class="n">EW_DATA_DIR</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">APPS</span><span class="p">;</span>
+</code></pre></div><p></p>
+<hr>
+<h2 id="step-4-configure-sftp-server">Step 4: Configure SFTP Server</h2>
+<h3 id="epmware-configuration">EPMware Configuration</h3>
+<ol>
+<li><strong>Create Server Entry</strong>
+   <div class="highlight"><pre><span></span><code>Configuration → Infrastructure → Servers
+</code></pre></div></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Server Name</strong></td>
+<td>ebs-sftp.company.com</td>
+</tr>
+<tr>
+<td><strong>On-Premise</strong></td>
+<td>Unchecked</td>
+</tr>
+<tr>
+<td><strong>User Name</strong></td>
+<td>sftpuser</td>
+</tr>
+<tr>
+<td><strong>Password/Key</strong></td>
+<td>Configure authentication</td>
+</tr>
+<tr>
+<td><strong>Port</strong></td>
+<td>22</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>Test Connection</strong></li>
+<li>Click "Test Connection"</li>
+<li>Verify success message</li>
+</ol>
+<h3 id="directory-structure">Directory Structure</h3>
+<p>Configure on SFTP server:
+</p><div class="highlight"><pre><span></span><code>/sftp/epmware/
+├── inbound/      # EPMware places files here
+├── outbound/     # EBS places log files here
+└── archive/      # Processed files
+</code></pre></div><p></p>
+<hr>
+<h2 id="step-5-application-configuration">Step 5: Application Configuration</h2>
+<h3 id="epmware-application-setup">EPMware Application Setup</h3>
+<ol>
+<li><strong>Application Properties</strong>
+   <div class="highlight"><pre><span></span><code>Configuration → Applications → Configuration
+</code></pre></div></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Application Type</strong></td>
+<td>ORACLE-EBS</td>
+</tr>
+<tr>
+<td><strong>Deployment</strong></td>
+<td>File</td>
+</tr>
+<tr>
+<td><strong>Deployment Server</strong></td>
+<td>SFTP server created above</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>Application-Specific Properties</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FLEX_CODE</code></td>
+<td>GL#</td>
+<td>Flexfield code</td>
+</tr>
+<tr>
+<td><code>FLEXFIELD_STRUCTURE_CODE</code></td>
+<td>OPERATIONS</td>
+<td>Structure identifier</td>
+</tr>
+<tr>
+<td><code>DEPLOYMENT_REMOTE_DIR_INBOUND</code></td>
+<td>./inbound</td>
+<td>SFTP inbound directory</td>
+</tr>
+<tr>
+<td><code>DEPLOYMENT_REMOTE_DIR_OUTBOUND</code></td>
+<td>./outbound</td>
+<td>SFTP outbound directory</td>
+</tr>
+<tr>
+<td><code>DEPLOYMENT_LOG_FILE_RETRIEVE</code></td>
+<td>Y</td>
+<td>Retrieve log files</td>
+</tr>
+<tr>
+<td><code>DEPLOYMENT_LOG_FILE_DELETE_AFTER_RETRIEVAL</code></td>
+<td>Y</td>
+<td>Clean up logs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dimension-properties">Dimension Properties</h3>
+<p>Configure for each GL segment:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OVERRIDE_HIERARCHY_DEPLOY_FILE_NAME</code></td>
+<td>Custom hierarchy file name</td>
+<td><code>&lt;DIM_NAME&gt;_HIERARCHIES_DDMONRRRR.txt</code></td>
+</tr>
+<tr>
+<td><code>OVERRIDE_VALUESET_DEPLOY_FILE_NAME</code></td>
+<td>Custom value set file name</td>
+<td><code>&lt;DIM_NAME&gt;_VALUESET_DDMONRRRR.txt</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Supported Tags</strong>:
+- <code>&lt;DIM_NAME&gt;</code> - Dimension name
+- <code>DDMONRRRR</code> - Date stamp
+- <code>DDMONRRRR_HH24MISS</code> - Date/time stamp</p>
+<hr>
+<h2 id="step-6-schedule-processing">Step 6: Schedule Processing</h2>
+<h3 id="concurrent-request-scheduling">Concurrent Request Scheduling</h3>
+<ol>
+<li><strong>Submit Import Program</strong></li>
+<li>Responsibility: GL Super User</li>
+<li>Program: EPMWARE - Import COA Files</li>
+<li>
+<p>Schedule: Every 15 minutes</p>
+</li>
+<li>
+<p><strong>Scheduling Options</strong></p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Periodicity</strong></td>
+<td>Every 15 minutes</td>
+</tr>
+<tr>
+<td><strong>Start Time</strong></td>
+<td>00:00</td>
+</tr>
+<tr>
+<td><strong>End Date</strong></td>
+<td>No end date</td>
+</tr>
+<tr>
+<td><strong>Save Output</strong></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="file-processing-workflow">File Processing Workflow</h3>
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    participant EPMware
+    participant SFTP
+    participant Script
+    participant ConcMgr
+    participant EBS
+
+    EPMware-&gt;&gt;SFTP: Deploy files
+    Script-&gt;&gt;SFTP: Poll for files
+    Script-&gt;&gt;ConcMgr: Copy files
+    ConcMgr-&gt;&gt;EBS: Process import
+    EBS-&gt;&gt;ConcMgr: Generate log
+    ConcMgr-&gt;&gt;SFTP: Place log file
+    EPMware-&gt;&gt;SFTP: Retrieve log
+</code></pre></div>
+<hr>
+<h2 id="file-specifications">File Specifications</h2>
+<h3 id="deployment-file-format">Deployment File Format</h3>
+<p><strong>Value Set File</strong> (<code>ACCOUNT_VALUESET_20250115.txt</code>):
+</p><div class="highlight"><pre><span></span><code>VALUE,DESCRIPTION,ENABLED_FLAG,START_DATE,END_DATE,SUMMARY_FLAG,POSTING_FLAG
+1000,Cash,Y,01-JAN-2020,,N,Y
+1001,Petty Cash,Y,01-JAN-2020,,N,Y
+</code></pre></div><p></p>
+<p><strong>Hierarchy File</strong> (<code>ACCOUNT_HIERARCHIES_20250115.txt</code>):
+</p><div class="highlight"><pre><span></span><code>PARENT_VALUE,CHILD_VALUE,RANGE_ATTRIBUTE
+ASSETS,1000,S
+ASSETS,1001,S
+</code></pre></div><p></p>
+<h3 id="log-file-format">Log File Format</h3>
+<p>Log files returned by EBS:
+</p><div class="highlight"><pre><span></span><code>LOG_ACCOUNT_VALUESET_20250115.log
+LOG_ACCOUNT_HIERARCHIES_20250115.log
+</code></pre></div><p></p>
+<hr>
+<h2 id="testing-validation">Testing &amp; Validation</h2>
+<h3 id="test-deployment">Test Deployment</h3>
+<ol>
+<li><strong>Create Test Request</strong></li>
+<li>Add new GL value</li>
+<li>Submit through workflow</li>
+<li>
+<p>Approve request</p>
+</li>
+<li>
+<p><strong>Monitor Deployment</strong></p>
+</li>
+<li>Check EPMware deployment monitor</li>
+<li>Verify file on SFTP server</li>
+<li>
+<p>Monitor concurrent request</p>
+</li>
+<li>
+<p><strong>Validate in EBS</strong></p>
+</li>
+<li>Query value set</li>
+<li>Verify hierarchy</li>
+<li>Check effective dates</li>
+</ol>
+<h3 id="validation-queries">Validation Queries</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Check value set values</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">flex_value</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="p">,</span><span class="w"> </span><span class="n">enabled_flag</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">fnd_flex_values_vl</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">flex_value_set_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">flex_value_set_id</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">fnd_flex_value_sets</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">flex_value_set_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'YOUR_VALUE_SET'</span>
+<span class="p">);</span>
+
+<span class="c1">-- Check hierarchies</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">parent_flex_value</span><span class="p">,</span><span class="w"> </span><span class="n">child_flex_value</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">fnd_flex_value_norm_hierarchy</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">flex_value_set_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">flex_value_set_id</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">fnd_flex_value_sets</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">flex_value_set_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'YOUR_VALUE_SET'</span>
+<span class="p">);</span>
+</code></pre></div>
+<hr>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Symptom</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Files not processing</strong></td>
+<td>Files remain on SFTP</td>
+<td>Check concurrent program schedule</td>
+</tr>
+<tr>
+<td><strong>Import errors</strong></td>
+<td>Concurrent request errors</td>
+<td>Review log files for details</td>
+</tr>
+<tr>
+<td><strong>Missing values</strong></td>
+<td>Values not in EBS</td>
+<td>Verify file format and delimiters</td>
+</tr>
+<tr>
+<td><strong>Permission denied</strong></td>
+<td>Directory access errors</td>
+<td>Check Oracle directory grants</td>
+</tr>
+<tr>
+<td><strong>Connection timeout</strong></td>
+<td>SFTP connection fails</td>
+<td>Verify network and credentials</td>
+</tr>
+</tbody>
+</table>
+<h3 id="debug-checklist">Debug Checklist</h3>
+<ol>
+<li><strong>EPMware Side</strong></li>
+<li>[ ] Deployment monitor shows success</li>
+<li>[ ] Files created on SFTP</li>
+<li>[ ] Correct file naming</li>
+<li>
+<p>[ ] Valid file format</p>
+</li>
+<li>
+<p><strong>EBS Side</strong></p>
+</li>
+<li>[ ] Concurrent program enabled</li>
+<li>[ ] Schedule active</li>
+<li>[ ] Directory accessible</li>
+<li>
+<p>[ ] Database objects valid</p>
+</li>
+<li>
+<p><strong>Network/SFTP</strong></p>
+</li>
+<li>[ ] SFTP server accessible</li>
+<li>[ ] Permissions correct</li>
+<li>[ ] Sufficient disk space</li>
+<li>[ ] File transfer complete</li>
+</ol>
+<h3 id="log-analysis">Log Analysis</h3>
+<p>Check concurrent request log:
+</p><div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">request_id</span><span class="p">,</span><span class="w"> </span><span class="n">phase_code</span><span class="p">,</span><span class="w"> </span><span class="n">status_code</span><span class="p">,</span><span class="w"> </span>
+<span class="w">       </span><span class="n">logfile_name</span><span class="p">,</span><span class="w"> </span><span class="n">outfile_name</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">fnd_concurrent_requests</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">concurrent_program_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">concurrent_program_id</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">fnd_concurrent_programs_vl</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">user_concurrent_program_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'EPMWARE - Import COA Files'</span>
+<span class="p">)</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">request_date</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div><p></p>
+<hr>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="security">Security</h3>
+<ul>
+<li>🔐 Use SSH keys for SFTP authentication</li>
+<li>👤 Dedicated service accounts</li>
+<li>📝 Enable audit trails</li>
+<li>🔒 Restrict directory access</li>
+</ul>
+<h3 id="performance">Performance</h3>
+<ul>
+<li>⚡ Process files in batches</li>
+<li>📊 Monitor file sizes</li>
+<li>🕐 Schedule during low usage</li>
+<li>🗂️ Archive processed files</li>
+</ul>
+<h3 id="maintenance">Maintenance</h3>
+<ul>
+<li>📋 Document custom code</li>
+<li>🔄 Regular testing</li>
+<li>🗑️ Cleanup old files</li>
+<li>📈 Monitor disk usage</li>
+</ul>
+<hr>
+<h2 id="quick-reference">Quick Reference</h2>
+<h3 id="file-naming-patterns">File Naming Patterns</h3>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static</td>
+<td><code>ACCOUNT_VALUESET.txt</code></td>
+<td>Fixed name</td>
+</tr>
+<tr>
+<td>Date</td>
+<td><code>ACCOUNT_VALUESET_20250115.txt</code></td>
+<td>With date stamp</td>
+</tr>
+<tr>
+<td>DateTime</td>
+<td><code>ACCOUNT_VALUESET_20250115_143022.txt</code></td>
+<td>With timestamp</td>
+</tr>
+</tbody>
+</table>
+<h3 id="concurrent-program-commands">Concurrent Program Commands</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Check program status</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">user_concurrent_program_name</span><span class="p">,</span><span class="w"> </span><span class="n">enabled_flag</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">fnd_concurrent_programs_vl</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">user_concurrent_program_name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'EPMWARE%'</span><span class="p">;</span>
+
+<span class="c1">-- View recent executions</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">request_id</span><span class="p">,</span><span class="w"> </span><span class="n">actual_start_date</span><span class="p">,</span><span class="w"> </span><span class="n">actual_completion_date</span><span class="p">,</span>
+<span class="w">       </span><span class="n">phase_code</span><span class="p">,</span><span class="w"> </span><span class="n">status_code</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">fnd_concurrent_requests</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">program_application_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">101</span><span class="w">  </span><span class="c1">-- GL application ID</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">concurrent_program_id</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">concurrent_program_id</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">fnd_concurrent_programs</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">concurrent_program_name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'XXPS_GL%'</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">request_id</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<hr>
+<h2 id="migration-checklist">Migration Checklist</h2>
+<h3 id="pre-implementation">Pre-Implementation</h3>
+<ul>
+<li>[ ] Document current COA structure</li>
+<li>[ ] Identify segments to manage</li>
+<li>[ ] Plan deployment schedule</li>
+<li>[ ] Setup test environment</li>
+</ul>
+<h3 id="implementation">Implementation</h3>
+<ul>
+<li>[ ] Install database objects</li>
+<li>[ ] Configure concurrent programs</li>
+<li>[ ] Setup SFTP server</li>
+<li>[ ] Configure EPMware</li>
+</ul>
+<h3 id="testing">Testing</h3>
+<ul>
+<li>[ ] Test file transfer</li>
+<li>[ ] Validate concurrent program</li>
+<li>[ ] Test full deployment</li>
+<li>[ ] Verify in EBS</li>
+</ul>
+<h3 id="go-live">Go-Live</h3>
+<ul>
+<li>[ ] Production deployment</li>
+<li>[ ] Monitor first cycle</li>
+<li>[ ] Document issues</li>
+<li>[ ] Train users</li>
+</ul>
+<hr>
+<h2 id="support-resources">Support Resources</h2>
+<h3 id="epmware-support">EPMware Support</h3>
+<p>📧 <strong>Email</strong>: support@epmware.com<br>
+📞 <strong>Phone</strong>: 408-614-0442</p>
+<h3 id="oracle-resources">Oracle Resources</h3>
+<ul>
+<li>My Oracle Support (MOS)</li>
+<li>EBS Documentation Library</li>
+<li>Oracle Forums</li>
+</ul>
+<h3 id="related-documentation">Related Documentation</h3>
+<ul>
+<li><a href="../../configuration/applications/">Application Configuration</a></li>
+<li><a href="../../deployment/">Deployment Management</a></li>
+<li><a href="../../erp-import/">ERP Import Module</a></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Performance Tip</p>
+<p>For large hierarchies (&gt;10,000 members), consider splitting segments into multiple concurrent programs running in parallel to improve processing time.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.tooltips", "navigation.footer", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

@@ -1,0 +1,185 @@
+# mkdocs.yml - Administrator's Guide
+site_name: EPMware Administrator's Guide
+site_description: Complete administrator guide for EPMware configuration, security, and workflow management
+site_author: EPMware, Inc.
+site_url: https://tkiratsous.github.io/epmware-admin/
+
+validation:
+  nav:
+    omitted_files: info
+    not_found: warn
+    absolute_links: info
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  features:
+  - navigation.top
+  #- navigation.tracking
+  - navigation.indexes
+  - search.highlight
+  - search.share
+  - search.suggest
+  - content.code.copy
+  - content.tooltips
+  - navigation.footer
+  - toc.follow
+  - toc.integrate
+  
+  logo: assets/images/epmware-logo.png
+  favicon: assets/images/favicon.ico
+
+extra_css:
+  - assets/css/custom.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search:
+      lang: en
+  - live-edit:
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+
+# Navigation structure
+nav:
+  - Home:
+    - index.md
+    - About This Guide: /#about-this-guide
+    - Key Topics: /#key-topics
+    - Prerequisites: /#prerequisites
+  
+  - Configuration:
+    - configuration/index.md
+    - Infrastructure:
+      - configuration/infrastructure.md
+      #- Servers: configuration/index.md#servers
+      #- Multi-Environment: configuration/infrastructure.md#multi-environment-configuration
+    - Applications:
+      - configuration/applications.md
+      #- Application Setup: configuration/applications.md#application-create-and-import
+      #- Application Properties: configuration/applications.md#application-properties
+      #- Import Errors: configuration/applications.md#application-import-errors
+    - Dimensions:
+      - configuration/dimensions.md
+     # - Dimension Classes: configuration/dimensions.md#dimension-classes
+     # - Dimension Configuration: configuration/dimensions.md#dimension-configuration
+     # - Dimension Properties: configuration/dimensions.md#dimension-properties
+     # - Dimension Mapping: configuration/dimensions.md#dimension-mapping
+     # - Hierarchy Actions: configuration/dimensions.md#dimension-hierarchy-actions
+    - Member Properties:
+      - configuration/member-properties.md
+     # - Property Configuration: configuration/member-properties.md#property-configuration
+     # - Property Categories: configuration/member-properties.md#property-categories
+     # - Property Mapping: configuration/member-properties.md#property-mapping
+     # - Property Derivation: configuration/member-properties.md#property-derivation
+    - Email Templates:
+      - configuration/email-templates.md
+     # - Custom Tags: configuration/email-templates.md#custom-tags
+     # - Email Body Tables: configuration/email-templates.md#email-body-tables
+    - Global Settings:
+        - configuration/global-settings.md
+    - Lookups:
+        - configuration/lookups.md
+  - Security:
+    - security/index.md
+    - Security Model: security/#security-model
+    - Security Rules: security/#security-rules
+    - Roles: security/#roles
+    - Users: security/#users
+    - Groups: security/#groups
+    - Security Classes: security/#security-classes
+    - Security Provisioning: security/#security-provisioning
+    - SSO Configuration: security/#sso-configuration
+    - Report Security: security/#report-security
+  
+  - Workflow:
+    - workflow/index.md
+    - Workflow Tasks: workflow/#workflow-tasks
+    - Workflow Builder: workflow/#workflow-builder
+    - Workflow Stages: workflow/#workflow-stages
+  
+  - Deployment:
+    - deployment/index.md
+    - Deployment Manager: deployment/#deployment-manager
+    - Deployment Monitor: deployment/#deployment-monitor
+    - Schedule Deployment: deployment/#scheduling-deployments
+  
+  - Export Metadata:
+    - export/index.md
+    - Export Profile: export/#export-profile
+    - Export Details: export/#export-details
+    - Export Format: export/#export-format
+    - Export Execution: export/#export-execution
+    - Export Book: export/#export-book
+  
+  - Logic Builder:
+    - logic-builder/index.md
+    - Script Management: logic-builder/#script-management
+    - Creating Scripts: logic-builder/#creating-scripts
+    - Script Types: logic-builder/#script-types
+    - Script Editor: logic-builder/#script-editor
+    - API Reference: logic-builder/#api-reference
+    - Script Examples: logic-builder/#script-examples
+    - Best Practices: logic-builder/#best-practices
+    - Troubleshooting: logic-builder/#troubleshooting
+    - Integration Points: logic-builder/#integration-points
+    
+  - Administration:
+    - administration/index.md
+    - Services: administration/services.md
+    - Application Migration:
+      - administration/application-migration.md
+      #- Export: administration/application-migration.md#export
+      #- Import: administration/application-migration.md#import
+      #- Monitor: administration/application-migration.md#monitor     
+
+  - ERP Import:
+    - erp-import/index.md
+    - ERP Import Builder: erp-import/#erp-import-builder
+    - ERP Import Mapping: erp-import/#erp-import-mapping
+    - ERP Import Monitor: erp-import/#erp-import-monitor
+    - ERP Integration: erp-import/#erp-integration
+    - Scheduling and Automation: erp-import/#scheduling-and-automation
+    - Best Practices: erp-import/#best-practices
+    - Troubleshooting: erp-import/#troubleshooting
+    - Integration points: erp-import/#integration-points
+    
+  - Appendices:
+    - appendices/index.md
+    - Appendix A - Oracle EPM Cloud: appendices/oracle-epm-cloud.md
+    - Appendix B - Oracle Fusion GL: appendices/oracle-fusion-gl.md
+    - Appendix C - Out of Box Validations: appendices/validations.md
+    - Appendix D - OneStream Configuration: appendices/onestream.md
+    - Appendix E - Oracle EBS GL: appendices/oracle-ebs-gl.md
+
+extra:
+  copyright: |
+    © 2025 EPMware, Inc. All rights reserved. | 
+    <a href="https://www.epmware.com">www.epmware.com</a> | 
+    408-614-0442

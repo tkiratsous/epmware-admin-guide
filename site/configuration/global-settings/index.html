@@ -1,0 +1,4090 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete administrator guide for EPMware configuration, security, and workflow management">
+      
+      
+        <meta name="author" content="EPMware, Inc.">
+      
+      
+        <link rel="canonical" href="https://tkiratsous.github.io/epmware-user/configuration/global-settings/">
+      
+      
+        <link rel="prev" href="../email-templates/">
+      
+      
+        <link rel="next" href="../lookups/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Global Settings - EPMware Administrator's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#global-settings" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="EPMware Administrator's Guide" class="md-header__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EPMware Administrator's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Global Settings
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="EPMware Administrator's Guide" class="md-nav__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    EPMware Administrator's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#about-this-guide" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About This Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#key-topics" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Key Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#prerequisites" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prerequisites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Applications
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dimensions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dimensions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dimensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dimension Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Member Properties
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../member-properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Email Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../email-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Global Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#email-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Email Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Email Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email-service-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Email Service Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Email Service Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-aws-ses-simple-email-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1: AWS SES (Simple Email Service)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-client-smtp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Client SMTP Server
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-email-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editing Email Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Application Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#critical-system-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critical System Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Critical System Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-timeout-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance &amp; Timeout Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-size-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Size Limits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-access-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security &amp; Access Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organization-branding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organization Branding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-monitoring-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug &amp; Monitoring Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Directories
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Display Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-application-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editing Application Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Web Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-web-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editing Web Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-defined-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Defined Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Defined Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#field-configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Field Configuration Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-request-type-field-udf1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Request Type Field (UDF1)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-cost-center-field-udf2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Cost Center Field (UDF2)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-effective-date-field-udf3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Effective Date Field (UDF3)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-list-of-values-lov-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic List of Values (LOV SQL)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dynamic List of Values (LOV SQL)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-1-security-groups-with-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Security Groups with Filter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-requestors-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Requestor's Groups
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-user-defined-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editing User Defined Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases-for-udfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases for UDFs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-email-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Email Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-performance-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Performance Tuning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-security-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Security Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-user-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. User Experience
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#critical-settings-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critical Settings Reference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Help
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migration Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settings-to-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settings to Update
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settings-to-preserve" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settings to Preserve
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Topics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Lookups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lookups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../security/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#security-model" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#security-rules" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#roles" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#users" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#groups" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#security-classes" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#security-provisioning" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Provisioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#sso-configuration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSO Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#report-security" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Report Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Workflow
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/#workflow-tasks" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/#workflow-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/#workflow-stages" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Stages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../deployment/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/#deployment-manager" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/#deployment-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/#scheduling-deployments" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../export/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Export Metadata
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Export Metadata
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-profile" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-details" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-format" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-execution" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Execution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-book" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Book
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../logic-builder/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Logic Builder
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Logic Builder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#script-management" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#creating-scripts" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#script-types" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#script-editor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#api-reference" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#script-examples" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration Points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../administration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Administration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3">
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Application Migration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Application Migration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/application-migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application migration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../erp-import/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ERP Import
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            ERP Import
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#erp-import-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#erp-import-mapping" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Mapping
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#erp-import-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#erp-integration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#scheduling-and-automation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scheduling and Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../appendices/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendices/oracle-epm-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix A - Oracle EPM Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendices/oracle-fusion-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix B - Oracle Fusion GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendices/validations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix C - Out of Box Validations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendices/onestream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix D - OneStream Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendices/oracle-ebs-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix E - Oracle EBS GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="global-settings">Global Settings</h1>
+<p>Global Settings configure system-wide parameters for the entire EPMware application. These settings control email services, application behavior, web interface options, and user-defined fields that affect all modules and users.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/configuration/global-settings-overview.png" data-desc-position="bottom"><img alt="Global Settings Overview" src="../assets/images/configuration/global-settings-overview.png"></a><br>
+<em>Global Settings module with configuration tabs</em></p>
+<h2 id="overview">Overview</h2>
+<p>Navigate to <strong>Configuration → Misc → Global Settings</strong> to configure system-wide settings organized into four main categories:</p>
+<ul>
+<li><strong><a href="#email-settings">Email Settings</a></strong> - Configure email service and notification parameters</li>
+<li><strong><a href="#application-settings">Application Settings</a></strong> - System behavior, performance, and integration options</li>
+<li><strong><a href="#web-settings">Web Settings</a></strong> - User interface and web application configuration</li>
+<li><strong><a href="#user-defined-settings">User Defined Settings</a></strong> - Custom fields for request management</li>
+</ul>
+<h2 id="quick-links">Quick Links</h2>
+<div class="grid cards">
+  <div class="card">
+    <h3>📧 Email Configuration</h3>
+    <p>Set up email service, addresses, and AWS SES integration</p>
+    <a href="#email-settings" class="md-button">Configure Email →</a>
+  </div>
+
+  <div class="card">
+    <h3>⚙️ System Settings</h3>
+    <p>Application behavior, timeouts, and performance tuning</p>
+    <a href="#application-settings" class="md-button">Manage System →</a>
+  </div>
+
+  <div class="card">
+    <h3>🌐 Web Interface</h3>
+    <p>UI preferences and display options</p>
+    <a href="#web-settings" class="md-button">Configure UI →</a>
+  </div>
+
+  <div class="card">
+    <h3>📝 Custom Fields</h3>
+    <p>Define up to 3 user-defined fields for requests</p>
+    <a href="#user-defined-settings" class="md-button">Add Fields →</a>
+  </div>
+</div>
+
+<hr>
+<h2 id="email-settings">Email Settings</h2>
+<p>Email Settings control all global email configuration for workflow notifications and system communications.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/configuration/email-settings-tab.png" data-desc-position="bottom"><img alt="Email Settings Tab" src="../assets/images/configuration/email-settings-tab.png"></a><br>
+<em>Email Settings configuration tab</em></p>
+<h3 id="configuration-options">Configuration Options</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Required</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>From Email Address</strong></td>
+<td>Sender address for all workflow emails</td>
+<td>Yes</td>
+<td>admin@epmware.com</td>
+</tr>
+<tr>
+<td><strong>Override Email Address</strong></td>
+<td>Redirect all emails to single address (testing)</td>
+<td>No</td>
+<td>test@company.com</td>
+</tr>
+<tr>
+<td><strong>Failed Email Forwarding Address</strong></td>
+<td>Receive notifications for failed emails</td>
+<td>No</td>
+<td>it-support@company.com</td>
+</tr>
+<tr>
+<td><strong>Append Fixed value for Email Subject (Prefix)</strong></td>
+<td>Environment identifier prefix</td>
+<td>No</td>
+<td>[TEST] or [PROD]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="email-service-configuration">Email Service Configuration</h3>
+<p>EPMware supports two email service options:</p>
+<h4 id="option-1-aws-ses-simple-email-service">Option 1: AWS SES (Simple Email Service)</h4>
+<p><strong>Configuration Steps:</strong></p>
+<ol>
+<li>Determine sender email address (e.g., <code>finance@company.com</code>)</li>
+<li>Contact EPMware support to initiate AWS verification</li>
+<li>AWS sends verification email to the address</li>
+<li>Complete verification process</li>
+<li>Set verified address in "From Email Address"</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">AWS SES Documentation</p>
+<p>For security team inquiries, refer to: <a href="https://aws.amazon.com/ses/faqs/">AWS SES FAQs</a></p>
+</div>
+<h4 id="option-2-client-smtp-server">Option 2: Client SMTP Server</h4>
+<p><strong>Required Information:</strong>
+- SMTP Server Name
+- SMTP Port
+- SMTP Username<br>
+- SMTP Password</p>
+<h3 id="configuration-example">Configuration Example</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/configuration/email-settings-example.png" data-desc-position="bottom"><img alt="Email Settings Example" src="../assets/images/configuration/email-settings-example.png"></a><br>
+<em>Example email configuration for production environment</em></p>
+<p><strong>Best Practices:</strong></p>
+<ol>
+<li><strong>Environment Prefixes</strong> - Use clear identifiers:</li>
+<li><code>[PROD]</code> for production</li>
+<li><code>[UAT]</code> for user acceptance testing</li>
+<li>
+<p><code>[DEV]</code> for development</p>
+</li>
+<li>
+<p><strong>Override Address</strong> - Only use in non-production environments</p>
+</li>
+<li>
+<p><strong>Failed Email Monitoring</strong> - Always configure for production</p>
+</li>
+</ol>
+<h3 id="editing-email-settings">Editing Email Settings</h3>
+<ol>
+<li>Double-click the <strong>Value</strong> field to enter edit mode</li>
+<li>Enter or modify the setting value</li>
+<li>Update the <strong>Description</strong> if needed</li>
+<li>Click <strong>Save</strong> icon to apply changes</li>
+</ol>
+<hr>
+<h2 id="application-settings">Application Settings</h2>
+<p>Application Settings control system behavior, performance parameters, and operational configurations.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/configuration/application-settings-tab.png" data-desc-position="bottom"><img alt="Application Settings Tab" src="../assets/images/configuration/application-settings-tab.png"></a><br>
+<em>Application Settings with system configuration options</em></p>
+<h3 id="critical-system-settings">Critical System Settings</h3>
+<h4 id="performance-timeout-settings">Performance &amp; Timeout Settings</h4>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Application Import - Total Interval in Seconds before TimeOut</strong></td>
+<td>3000</td>
+<td>Maximum import duration</td>
+<td>Prevents hanging imports</td>
+</tr>
+<tr>
+<td><strong>Application Import - sleep interval in Seconds</strong></td>
+<td>10</td>
+<td>Polling interval during import</td>
+<td>System responsiveness</td>
+</tr>
+<tr>
+<td><strong>Auto Refresh Interval (Seconds)</strong></td>
+<td>60</td>
+<td>Dashboard/monitor refresh rate</td>
+<td>Real-time updates</td>
+</tr>
+<tr>
+<td><strong>Maximum # of Minutes for Deployment Task</strong></td>
+<td>180</td>
+<td>Deployment timeout</td>
+<td>Large deployment handling</td>
+</tr>
+<tr>
+<td><strong>Maximum # of Minutes for ERP Import Task</strong></td>
+<td>180</td>
+<td>ERP import timeout</td>
+<td>Data volume capacity</td>
+</tr>
+<tr>
+<td><strong>Maximum # of Minutes for Export Task</strong></td>
+<td>180</td>
+<td>Export timeout</td>
+<td>Report generation</td>
+</tr>
+</tbody>
+</table>
+<h4 id="file-size-limits">File Size Limits</h4>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default (MB)</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Maximum file size for All Modules</strong></td>
+<td>300</td>
+<td>General file operations</td>
+</tr>
+<tr>
+<td><strong>Maximum file size for ERP Import</strong></td>
+<td>50</td>
+<td>ERP data files</td>
+</tr>
+<tr>
+<td><strong>Maximum file size for Migration Import</strong></td>
+<td>200</td>
+<td>Application migrations</td>
+</tr>
+<tr>
+<td><strong>Maximum file size for Request Attachments</strong></td>
+<td>20</td>
+<td>User document uploads</td>
+</tr>
+</tbody>
+</table>
+<h4 id="security-access-settings">Security &amp; Access Settings</h4>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enable Workflow based Security for Requests Dashboard</strong></td>
+<td>Y</td>
+<td>Restrict dashboard visibility</td>
+</tr>
+<tr>
+<td><strong>User Authentication Directory Type</strong></td>
+<td>LDAP</td>
+<td>LDAP or MSAD</td>
+</tr>
+<tr>
+<td><strong>User Authentication Directory Type option enabled</strong></td>
+<td>Y</td>
+<td>Enable directory integration</td>
+</tr>
+<tr>
+<td><strong>Allow Delete/Cancel of Related Request Lines</strong></td>
+<td>N</td>
+<td>Cascade deletion control</td>
+</tr>
+</tbody>
+</table>
+<h4 id="service-configuration">Service Configuration</h4>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Deployment Service Sleep Interval</strong></td>
+<td>5</td>
+<td>Seconds between deployment checks</td>
+</tr>
+<tr>
+<td><strong>ERP Import Service Sleep Interval</strong></td>
+<td>5</td>
+<td>Seconds between import checks</td>
+</tr>
+<tr>
+<td><strong>Workflow Service Sleep Interval</strong></td>
+<td>5</td>
+<td>Seconds between workflow checks</td>
+</tr>
+<tr>
+<td><strong>SSH port for Agent Service</strong></td>
+<td>22</td>
+<td>Agent communication port</td>
+</tr>
+</tbody>
+</table>
+<h3 id="organization-branding">Organization Branding</h3>
+<p>Configure company logo for emails and reports:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/configuration/organization-logo-settings.png" data-desc-position="bottom"><img alt="Organization Logo Settings" src="../assets/images/configuration/organization-logo-settings.png"></a><br>
+<em>Logo configuration for branding</em></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Example</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Organization Name</strong></td>
+<td>EPMware Inc.</td>
+<td>Company name</td>
+</tr>
+<tr>
+<td><strong>Organization Logo URL</strong></td>
+<td>https://company.com/logo.png</td>
+<td>Public URL required</td>
+</tr>
+<tr>
+<td><strong>Organization Logo Width (Pixels)</strong></td>
+<td>172</td>
+<td>Recommended width</td>
+</tr>
+<tr>
+<td><strong>Organization Logo Height (Pixels)</strong></td>
+<td>25</td>
+<td>Recommended height</td>
+</tr>
+</tbody>
+</table>
+<h3 id="debug-monitoring-settings">Debug &amp; Monitoring Settings</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Debug Level</strong></td>
+<td>3</td>
+<td>1=Error only, 2=Warning, 3=All</td>
+</tr>
+<tr>
+<td><strong>Debug Purge Days</strong></td>
+<td>30</td>
+<td>Retention period for debug logs</td>
+</tr>
+<tr>
+<td><strong>Turn on/off debug messages</strong></td>
+<td>Y</td>
+<td>Master debug switch</td>
+</tr>
+<tr>
+<td><strong>Turn on/off debug messages to table</strong></td>
+<td>Y</td>
+<td>Database logging</td>
+</tr>
+<tr>
+<td><strong>Database Trace identifier</strong></td>
+<td>ew_trace</td>
+<td>Trace session identifier</td>
+</tr>
+<tr>
+<td><strong>Specify prefix for Debug Files</strong></td>
+<td>ew_debug</td>
+<td>Debug file naming</td>
+</tr>
+</tbody>
+</table>
+<h3 id="system-directories">System Directories</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Stage DB Directory</strong></td>
+<td>EW003_STAGE_DB_DIR</td>
+<td>Deployment staging</td>
+</tr>
+<tr>
+<td><strong>Temp DB Directory</strong></td>
+<td>EW003_TEMP_DB_DIR</td>
+<td>Temporary files</td>
+</tr>
+<tr>
+<td><strong>File Archives DB Directory</strong></td>
+<td>EW003_ARCHIVE_DB_DIR</td>
+<td>File archival</td>
+</tr>
+</tbody>
+</table>
+<h3 id="display-configuration">Display Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Date Format</strong></td>
+<td>MM/DD/RRRR</td>
+<td>Global date display</td>
+</tr>
+<tr>
+<td><strong>Show # of nodes per page in Hierarchies</strong></td>
+<td>100</td>
+<td>Pagination size</td>
+</tr>
+<tr>
+<td><strong>Show Member Description by default</strong></td>
+<td>Y</td>
+<td>Hierarchy display</td>
+</tr>
+<tr>
+<td><strong>Show Descendants of parent member for shared instances</strong></td>
+<td>Y</td>
+<td>Shared member handling</td>
+</tr>
+<tr>
+<td><strong>Show or Hide System Generated Request lines</strong></td>
+<td>Y</td>
+<td>Request visibility</td>
+</tr>
+</tbody>
+</table>
+<h3 id="advanced-settings">Advanced Settings</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/configuration/application-settings-advanced.png" data-desc-position="bottom"><img alt="Application Settings Advanced" src="../assets/images/configuration/application-settings-advanced.png"></a><br>
+<em>Advanced application configuration options</em></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Disable All Logic Builder Scripts</strong></td>
+<td>N</td>
+<td>Emergency script disable</td>
+</tr>
+<tr>
+<td><strong>Oracle Character Set</strong></td>
+<td>AL32UTF8</td>
+<td>AL32UTF8 or WE8ISO8859P1</td>
+</tr>
+<tr>
+<td><strong>EPMware Application URL</strong></td>
+<td>https://demo.epmwarecloud.com</td>
+<td>System base URL</td>
+</tr>
+<tr>
+<td><strong>Unzip - Sleep Interval in Seconds</strong></td>
+<td>20</td>
+<td>Archive processing</td>
+</tr>
+<tr>
+<td><strong>Unzip - Total Interval before TimeOut</strong></td>
+<td>1200</td>
+<td>Large archive handling</td>
+</tr>
+</tbody>
+</table>
+<h3 id="editing-application-settings">Editing Application Settings</h3>
+<ol>
+<li>Double-click the <strong>Value</strong> or <strong>Description</strong> field</li>
+<li>Modify the setting as required</li>
+<li>Click <strong>Save</strong> icon to apply changes</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Service Restart</p>
+<p>Some settings may require service restart to take effect. Check with EPMware support before modifying critical system parameters.</p>
+</div>
+<hr>
+<h2 id="web-settings">Web Settings</h2>
+<p>Web Settings configure user interface behavior and display preferences for the web application.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/configuration/web-settings-tab.png" data-desc-position="bottom"><img alt="Web Settings Tab" src="../assets/images/configuration/web-settings-tab.png"></a><br>
+<em>Web Settings configuration options</em></p>
+<h3 id="available-settings">Available Settings</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Theme</strong></td>
+<td>UI color scheme</td>
+<td>Light</td>
+<td>Light/Dark</td>
+</tr>
+<tr>
+<td><strong>Navigation Style</strong></td>
+<td>Menu layout</td>
+<td>Side</td>
+<td>Side/Top</td>
+</tr>
+<tr>
+<td><strong>Grid Lines Per Page</strong></td>
+<td>Default pagination</td>
+<td>25</td>
+<td>10/25/50/100</td>
+</tr>
+<tr>
+<td><strong>Enable Tooltips</strong></td>
+<td>Show help tooltips</td>
+<td>Y</td>
+<td>Y/N</td>
+</tr>
+<tr>
+<td><strong>Animation Speed</strong></td>
+<td>UI transition speed</td>
+<td>Normal</td>
+<td>Slow/Normal/Fast</td>
+</tr>
+<tr>
+<td><strong>Session Timeout Warning</strong></td>
+<td>Minutes before warning</td>
+<td>5</td>
+<td>1-30</td>
+</tr>
+</tbody>
+</table>
+<h3 id="editing-web-settings">Editing Web Settings</h3>
+<ol>
+<li>Double-click the <strong>Value</strong> field to enter edit mode</li>
+<li>Select or enter new value</li>
+<li>Update <strong>Description</strong> if applicable</li>
+<li>Click <strong>Save</strong> icon to commit changes</li>
+</ol>
+<hr>
+<h2 id="user-defined-settings">User Defined Settings</h2>
+<p>User Defined Settings create up to three custom fields (UDF1, UDF2, UDF3) for the Request page, capturing additional business-specific information.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/configuration/udf-settings-tab.png" data-desc-position="bottom"><img alt="User Defined Fields Settings" src="../assets/images/configuration/udf-settings-tab.png"></a><br>
+<em>User Defined Field configuration</em></p>
+<h3 id="field-configuration-options">Field Configuration Options</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enabled</strong></td>
+<td>Activate the field</td>
+<td>On/Off</td>
+</tr>
+<tr>
+<td><strong>Required</strong></td>
+<td>Make field mandatory</td>
+<td>On/Off</td>
+</tr>
+<tr>
+<td><strong>Data Type</strong></td>
+<td>Field data type</td>
+<td>String/Numeric/Date</td>
+</tr>
+<tr>
+<td><strong>Display Type</strong></td>
+<td>Input method</td>
+<td>Input/Lookup</td>
+</tr>
+<tr>
+<td><strong>Display Label</strong></td>
+<td>Field label on request</td>
+<td>Custom text</td>
+</tr>
+<tr>
+<td><strong>Lookup</strong></td>
+<td>Reference lookup table</td>
+<td>Lookup name</td>
+</tr>
+<tr>
+<td><strong>LOV SQL</strong></td>
+<td>Dynamic list of values</td>
+<td>SQL query</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Field help text</td>
+<td>Custom text</td>
+</tr>
+</tbody>
+</table>
+<h3 id="configuration-examples">Configuration Examples</h3>
+<h4 id="example-1-request-type-field-udf1">Example 1: Request Type Field (UDF1)</h4>
+<div class="highlight"><pre><span></span><code>Enabled: On
+Required: On
+Data Type: String
+Display Type: Lookup
+Display Label: Request Type
+Lookup: REQUEST_TYPES
+Description: Select the type of metadata request
+</code></pre></div>
+<h4 id="example-2-cost-center-field-udf2">Example 2: Cost Center Field (UDF2)</h4>
+<div class="highlight"><pre><span></span><code>Enabled: On
+Required: Off
+Data Type: String
+Display Type: Input
+Display Label: Cost Center
+Description: Enter cost center code
+</code></pre></div>
+<h4 id="example-3-effective-date-field-udf3">Example 3: Effective Date Field (UDF3)</h4>
+<div class="highlight"><pre><span></span><code>Enabled: On
+Required: On
+Data Type: Date
+Display Type: Input
+Display Label: Effective Date
+Description: Date when changes should take effect
+</code></pre></div>
+<h3 id="dynamic-list-of-values-lov-sql">Dynamic List of Values (LOV SQL)</h3>
+<p>Instead of static lookups, use SQL to generate dynamic dropdown values:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/configuration/udf-lov-sql.png" data-desc-position="bottom"><img alt="UDF LOV SQL Configuration" src="../assets/images/configuration/udf-lov-sql.png"></a><br>
+<em>LOV SQL configuration for dynamic dropdowns</em></p>
+<h4 id="sql-requirements">SQL Requirements</h4>
+<p>LOV SQL must return four columns:
+1. <strong>lookup_code</strong> - Stored value
+2. <strong>meaning</strong> - Display value
+3. <strong>description</strong> - Optional tooltip
+4. <strong>seq_num</strong> - Sort order</p>
+<h4 id="example-1-security-groups-with-filter">Example 1: Security Groups with Filter</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Show security groups containing 'APPR'</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">lookup_code</span><span class="p">,</span><span class="w"> </span>
+<span class="w">       </span><span class="n">name</span><span class="w"> </span><span class="n">meaning</span><span class="p">,</span><span class="w"> </span>
+<span class="w">       </span><span class="n">description</span><span class="w"> </span><span class="n">description</span><span class="p">,</span>
+<span class="w">       </span><span class="n">rownum</span><span class="w"> </span><span class="n">seq_num</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ew_groups</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'%APPR%'</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">name</span>
+</code></pre></div>
+<h4 id="example-2-requestors-groups">Example 2: Requestor's Groups</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Show groups for current requestor</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">REPLACE</span><span class="p">(</span><span class="n">rg</span><span class="p">.</span><span class="n">group_name</span><span class="p">,</span><span class="s1">'REQUESTORS - '</span><span class="p">,</span><span class="s1">''</span><span class="p">)</span><span class="w"> </span><span class="n">lookup_code</span><span class="p">,</span>
+<span class="w">       </span><span class="k">REPLACE</span><span class="p">(</span><span class="n">rg</span><span class="p">.</span><span class="n">group_name</span><span class="p">,</span><span class="s1">'REQUESTORS - '</span><span class="p">,</span><span class="s1">''</span><span class="p">)</span><span class="w"> </span><span class="n">meaning</span><span class="p">,</span>
+<span class="w">       </span><span class="n">rg</span><span class="p">.</span><span class="n">group_name</span><span class="w"> </span><span class="n">description</span><span class="p">,</span>
+<span class="w">       </span><span class="n">rownum</span><span class="w"> </span><span class="n">seq_num</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ew_user_groups_v</span><span class="w"> </span><span class="n">rg</span><span class="p">,</span>
+<span class="w">     </span><span class="n">ew_request_headers</span><span class="w"> </span><span class="n">h</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">h</span><span class="p">.</span><span class="n">request_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="n">request_id</span><span class="w">  </span><span class="c1">-- Bind variable</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">rg</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">.</span><span class="n">requested_by</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">rg</span><span class="p">.</span><span class="n">group_name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'REQUESTORS - %'</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Bind Variable</p>
+<p>The <code>:request_id</code> bind variable is automatically available in UDF LOV SQL queries.</p>
+</div>
+<h3 id="editing-user-defined-settings">Editing User Defined Settings</h3>
+<ol>
+<li>Double-click field in column to enter edit mode</li>
+<li>Configure field properties</li>
+<li>Test LOV SQL if applicable</li>
+<li>Click <strong>Save</strong> icon to apply changes</li>
+</ol>
+<h3 id="use-cases-for-udfs">Use Cases for UDFs</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Common Uses</th>
+<th>Example Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>UDF1</strong></td>
+<td>Request categorization</td>
+<td>New/Change/Delete</td>
+</tr>
+<tr>
+<td><strong>UDF2</strong></td>
+<td>Business context</td>
+<td>Project codes, regions</td>
+</tr>
+<tr>
+<td><strong>UDF3</strong></td>
+<td>Tracking references</td>
+<td>Ticket numbers, dates</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-email-configuration">1. Email Configuration</h3>
+<ul>
+<li><strong>Verify Sender Address</strong> - Complete AWS SES verification</li>
+<li><strong>Use Environment Prefixes</strong> - Clear identification</li>
+<li><strong>Monitor Failed Emails</strong> - Configure forwarding address</li>
+<li><strong>Test in Non-Production</strong> - Use override address</li>
+</ul>
+<h3 id="2-performance-tuning">2. Performance Tuning</h3>
+<ul>
+<li><strong>Adjust Timeouts</strong> - Based on data volumes</li>
+<li><strong>Optimize Intervals</strong> - Balance performance vs. load</li>
+<li><strong>Set File Limits</strong> - Prevent system overload</li>
+<li><strong>Monitor Services</strong> - Check service intervals</li>
+</ul>
+<h3 id="3-security-settings">3. Security Settings</h3>
+<ul>
+<li><strong>Enable Workflow Security</strong> - Restrict dashboard access</li>
+<li><strong>Configure Authentication</strong> - LDAP/MSAD properly</li>
+<li><strong>Audit Debug Settings</strong> - Control logging levels</li>
+<li><strong>Regular Purging</strong> - Maintain debug retention</li>
+</ul>
+<h3 id="4-user-experience">4. User Experience</h3>
+<ul>
+<li><strong>Consistent Date Format</strong> - Organization-wide standard</li>
+<li><strong>Appropriate Pagination</strong> - Based on data volumes</li>
+<li><strong>Clear UDF Labels</strong> - Business-friendly names</li>
+<li><strong>Helpful Descriptions</strong> - Guide users</li>
+</ul>
+<hr>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Setting to Check</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Emails not sending</td>
+<td>From Email Address</td>
+<td>Verify AWS SES verification</td>
+</tr>
+<tr>
+<td>Import timeouts</td>
+<td>Application Import TimeOut</td>
+<td>Increase timeout value</td>
+</tr>
+<tr>
+<td>Slow dashboard</td>
+<td>Auto Refresh Interval</td>
+<td>Increase interval</td>
+</tr>
+<tr>
+<td>Large file failures</td>
+<td>Maximum file size settings</td>
+<td>Adjust limits</td>
+</tr>
+<tr>
+<td>Missing debug logs</td>
+<td>Debug Level, Turn on debug</td>
+<td>Enable debugging</td>
+</tr>
+<tr>
+<td>Authentication issues</td>
+<td>User Authentication Directory Type</td>
+<td>Verify LDAP/MSAD settings</td>
+</tr>
+</tbody>
+</table>
+<h3 id="critical-settings-reference">Critical Settings Reference</h3>
+<div class="admonition danger">
+<p class="admonition-title">High Impact Settings</p>
+<p>These settings significantly affect system behavior:</p>
+<ul>
+<li><strong>Disable All Logic Builder Scripts</strong> - Stops all automation</li>
+<li><strong>Database Trace</strong> - Performance impact when enabled</li>
+<li><strong>Service Sleep Intervals</strong> - Affects responsiveness</li>
+<li><strong>File Size Limits</strong> - Can block operations</li>
+</ul>
+</div>
+<h3 id="getting-help">Getting Help</h3>
+<p>When contacting support, provide:
+- Current setting values (screenshot)
+- Error messages
+- Debug log excerpts
+- System behavior description</p>
+<hr>
+<h2 id="migration-considerations">Migration Considerations</h2>
+<p>When migrating between environments:</p>
+<h3 id="settings-to-update">Settings to Update</h3>
+<ol>
+<li><strong>Email Settings</strong></li>
+<li>From Email Address (environment-specific)</li>
+<li>Override Email (remove in production)</li>
+<li>
+<p>Subject Prefix (change per environment)</p>
+</li>
+<li>
+<p><strong>Application Settings</strong></p>
+</li>
+<li>EPMware Application URL</li>
+<li>Organization Logo URL</li>
+<li>
+<p>Debug Level (reduce in production)</p>
+</li>
+<li>
+<p><strong>Directory Paths</strong></p>
+</li>
+<li>Stage DB Directory</li>
+<li>Temp DB Directory</li>
+<li>Archive DB Directory</li>
+</ol>
+<h3 id="settings-to-preserve">Settings to Preserve</h3>
+<ul>
+<li>File size limits</li>
+<li>Timeout values</li>
+<li>Service intervals</li>
+<li>User Defined Fields</li>
+<li>Date formats</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Configuration Backup</p>
+<p>Export Global Settings before major changes using the Migration module.</p>
+</div>
+<hr>
+<h2 id="related-topics">Related Topics</h2>
+<ul>
+<li><a href="../email-templates/index.md">Email Templates</a> - Use email settings in templates</li>
+<li><a href="../../workflow/">Workflow Configuration</a> - Workflow security settings</li>
+<li><a href="../../logic-builder/">Logic Builder</a> - Script debugging settings</li>
+<li><a href="../requests/index.md">Request Management</a> - User defined fields in requests</li>
+<li><a href="../administration/migration.md">Migration Module</a> - Export/import settings</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../email-templates/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Email Templates">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Email Templates
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../lookups/" class="md-footer__link md-footer__link--next" aria-label="Next: Lookups">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Lookups
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.tooltips", "navigation.footer", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

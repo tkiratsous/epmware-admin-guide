@@ -1,0 +1,3453 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete administrator guide for EPMware configuration, security, and workflow management">
+      
+      
+        <meta name="author" content="EPMware, Inc.">
+      
+      
+        <link rel="canonical" href="https://tkiratsous.github.io/epmware-user/logic-builder/">
+      
+      
+        <link rel="prev" href="../export/">
+      
+      
+        <link rel="next" href="../administration/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Logic Builder - EPMware Administrator's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#logic-builder" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="EPMware Administrator's Guide" class="md-header__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EPMware Administrator's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Logic Builder
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="EPMware Administrator's Guide" class="md-nav__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    EPMware Administrator's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#about-this-guide" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About This Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#key-topics" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Key Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#prerequisites" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prerequisites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../configuration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Applications
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dimensions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dimensions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/dimensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dimension Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Member Properties
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/member-properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Email Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/email-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Global Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/global-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Lookups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/lookups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../security/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-model" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-rules" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#roles" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#users" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#groups" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-classes" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-provisioning" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Provisioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#sso-configuration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSO Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#report-security" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Report Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Workflow
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/#workflow-tasks" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/#workflow-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/#workflow-stages" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Stages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../deployment/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/#deployment-manager" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/#deployment-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/#scheduling-deployments" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../export/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Export Metadata
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Export Metadata
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-profile" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-details" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-format" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-execution" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Execution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-book" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Book
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    Logic Builder
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Logic Builder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#script-management" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#creating-scripts" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#script-types" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#script-editor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#api-reference" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#script-examples" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration Points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../administration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Administration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3">
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Application Migration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Application Migration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/application-migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application migration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../erp-import/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ERP Import
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            ERP Import
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#erp-import-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#erp-import-mapping" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Mapping
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#erp-import-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#erp-integration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#scheduling-and-automation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scheduling and Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../appendices/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/oracle-epm-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix A - Oracle EPM Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/oracle-fusion-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix B - Oracle Fusion GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/validations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix C - Out of Box Validations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/onestream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix D - OneStream Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/oracle-ebs-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix E - Oracle EBS GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="logic-builder">Logic Builder</h1>
+<p>Logic Builder provides a comprehensive scripting environment for creating, managing, and validating business logic throughout EPMware. Scripts enable custom validations, data transformations, workflow automation, and system integrations across all modules.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/logic-builder/logic-builder-overview.png" data-desc-position="bottom"><img alt="Logic Builder Overview" src="../assets/images/logic-builder/logic-builder-overview.png"></a><br>
+<em>Logic Builder interface showing script grid and editor</em></p>
+<h2 id="overview">Overview</h2>
+<p>Logic Builder serves as the central automation engine for EPMware, enabling:</p>
+<ul>
+<li><strong>Validation Scripts</strong> - Business rule enforcement and data quality checks</li>
+<li><strong>Derivation Scripts</strong> - Dynamic property value calculations</li>
+<li><strong>Workflow Scripts</strong> - Custom task automation and processing</li>
+<li><strong>Integration Scripts</strong> - External system connectivity</li>
+<li><strong>Pre/Post Scripts</strong> - Deployment and export processing</li>
+</ul>
+<p>Scripts integrate seamlessly with all EPMware modules to extend functionality and enforce business requirements.</p>
+<h2 id="quick-links">Quick Links</h2>
+<div class="grid cards">
+  <div class="card">
+    <h3>📝 Script Creation</h3>
+    <p>Create and configure scripts for automation</p>
+    <a href="#creating-scripts" class="md-button">Create Scripts →</a>
+  </div>
+
+  <div class="card">
+    <h3>✏️ Editor</h3>
+    <p>Edit and validate script code</p>
+    <a href="#script-editor" class="md-button">Use Editor →</a>
+  </div>
+
+  <div class="card">
+    <h3>🔧 Script Types</h3>
+    <p>Understand different script categories</p>
+    <a href="#script-types" class="md-button">View Types →</a>
+  </div>
+
+  <div class="card">
+    <h3>📚 API Reference</h3>
+    <p>Available functions and objects</p>
+    <a href="#api-reference" class="md-button">View API →</a>
+  </div>
+</div>
+
+<hr>
+<h2 id="script-management">Script Management</h2>
+<h3 id="script-grid">Script Grid</h3>
+<p>The main Logic Builder grid displays all scripts with management options:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/logic-builder/logic-builder-grid.png" data-desc-position="bottom"><img alt="Logic Builder Grid" src="../assets/images/logic-builder/logic-builder-grid.png"></a><br>
+<em>Logic Builder grid showing script list</em></p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enabled</strong></td>
+<td>Script active status</td>
+<td>Check/uncheck to toggle</td>
+</tr>
+<tr>
+<td><strong>Script Name</strong></td>
+<td>Unique identifier</td>
+<td>Click to load in editor</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Script purpose</td>
+<td>Documentation</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Script category</td>
+<td>Determines usage</td>
+</tr>
+<tr>
+<td><strong>DB Function</strong></td>
+<td>Database function name</td>
+<td>For SQL scripts</td>
+</tr>
+<tr>
+<td><strong>Upload</strong></td>
+<td>File upload</td>
+<td>Import script file</td>
+</tr>
+<tr>
+<td><strong>Actions</strong></td>
+<td>Row operations</td>
+<td>Edit, delete</td>
+</tr>
+</tbody>
+</table>
+<h3 id="navigation-features">Navigation Features</h3>
+<ul>
+<li><strong>Search</strong> - Find scripts by name or description</li>
+<li><strong>Filter</strong> - Show enabled/disabled/all</li>
+<li><strong>Sort</strong> - Order by name, type, or date</li>
+<li><strong>Page</strong> - Navigate through script pages</li>
+</ul>
+<hr>
+<h2 id="creating-scripts">Creating Scripts</h2>
+<h3 id="add-new-script">Add New Script</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/logic-builder/create-script-dialog.png" data-desc-position="bottom"><img alt="Create Script Dialog" src="../assets/images/logic-builder/create-script-dialog.png"></a><br>
+<em>Create Script dialog with configuration options</em></p>
+<ol>
+<li>Click the <strong>+</strong> icon</li>
+<li>Configure script properties:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Script Name</strong></td>
+<td>Yes</td>
+<td>Unique identifier (no spaces)</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>No</td>
+<td>Script purpose and usage</td>
+</tr>
+<tr>
+<td><strong>Script Type</strong></td>
+<td>Yes</td>
+<td>Category determining usage</td>
+</tr>
+<tr>
+<td><strong>DB Function Name</strong></td>
+<td>Conditional</td>
+<td>For database functions</td>
+</tr>
+<tr>
+<td><strong>Enabled</strong></td>
+<td>Yes</td>
+<td>Active status</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Click <strong>Save</strong> to create script</li>
+</ol>
+<h3 id="script-naming-conventions">Script Naming Conventions</h3>
+<p>Follow these patterns for consistency:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Pattern</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Validation</strong></td>
+<td>VAL_{MODULE}_{PURPOSE}</td>
+<td>VAL_HFM_ACCOUNT_CODE</td>
+</tr>
+<tr>
+<td><strong>Derivation</strong></td>
+<td>DER_{PROPERTY}_{LOGIC}</td>
+<td>DER_FULLNAME_CONCAT</td>
+</tr>
+<tr>
+<td><strong>Workflow</strong></td>
+<td>WF_{STAGE}_{ACTION}</td>
+<td>WF_REVIEW_NOTIFY</td>
+</tr>
+<tr>
+<td><strong>Integration</strong></td>
+<td>INT_{SYSTEM}_{OPERATION}</td>
+<td>INT_SAP_EXTRACT</td>
+</tr>
+<tr>
+<td><strong>Custom</strong></td>
+<td>CUST_{FUNCTION}</td>
+<td>CUST_CALCULATE_RATIO</td>
+</tr>
+</tbody>
+</table>
+<h3 id="upload-script-file">Upload Script File</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/logic-builder/upload-script-file.png" data-desc-position="bottom"><img alt="Upload Script File" src="../assets/images/logic-builder/upload-script-file.png"></a><br>
+<em>Upload script file dialog</em></p>
+<ol>
+<li>Click upload icon on script row</li>
+<li>Browse for script file (.js, .sql, .txt)</li>
+<li>Click <strong>Upload</strong> to import</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">File Upload</p>
+<p>Script files can only be uploaded to existing scripts, not during creation.</p>
+</div>
+<hr>
+<h2 id="script-types">Script Types</h2>
+<h3 id="validation-scripts">Validation Scripts</h3>
+<p>Enforce business rules and data quality:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Property validation example</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">validateAccountCode</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">accountCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">propertyValue</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/^[0-9]{4}-[A-Z]{3}-[0-9]{3}$/</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">accountCode</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">valid</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">"Account code format must be: 9999-XXX-999"</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Additional business logic</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">accountCode</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"RES"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">context</span><span class="p">.</span><span class="nx">isRestricted</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">valid</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">"Restricted codes require special approval"</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">valid</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="derivation-scripts">Derivation Scripts</h3>
+<p>Calculate property values dynamically:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Derive concatenated description</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">deriveFullDescription</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">getMemberProperty</span><span class="p">(</span><span class="s2">"Entity"</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">getMemberProperty</span><span class="p">(</span><span class="s2">"Account"</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">currency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">getMemberProperty</span><span class="p">(</span><span class="s2">"Currency"</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">entity</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">account</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">entity</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">" - "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">account</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">" ("</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">currency</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">")"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="workflow-scripts">Workflow Scripts</h3>
+<p>Custom workflow task processing:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Custom approval routing</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">routeToApprover</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">getRequestProperty</span><span class="p">(</span><span class="s2">"AMOUNT"</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">department</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">getRequestProperty</span><span class="p">(</span><span class="s2">"DEPARTMENT"</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Determine approver based on amount</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">approverGroup</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1000000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">approverGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"EXEC_APPROVERS"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">100000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">approverGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"SENIOR_APPROVERS"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">approverGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"DEPT_APPROVERS_"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">department</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Assign to group</span>
+<span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">assignToGroup</span><span class="p">(</span><span class="nx">approverGroup</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Send notification</span>
+<span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">sendEmail</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">template</span><span class="o">:</span><span class="w"> </span><span class="s2">"APPROVAL_REQUIRED"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="nx">approverGroup</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="nx">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">500000</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">"High"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"Normal"</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="prepost-processing-scripts">Pre/Post Processing Scripts</h3>
+<p>Execute before/after deployments or exports:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Pre-deployment backup</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">preDeploymentBackup</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">timestamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/:/g</span><span class="p">,</span><span class="w"> </span><span class="s1">'-'</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">backupName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">applicationName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">"_backup_"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">timestamp</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Create metadata backup</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">executeDBFunction</span><span class="p">(</span><span class="s2">"CREATE_METADATA_BACKUP"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">appName</span><span class="o">:</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">applicationName</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">backupName</span><span class="o">:</span><span class="w"> </span><span class="nx">backupName</span>
+<span class="w">        </span><span class="p">});</span>
+
+<span class="w">        </span><span class="c1">// Log backup creation</span>
+<span class="w">        </span><span class="nx">context</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"INFO"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Backup created: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">backupName</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Validate target system</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">context</span><span class="p">.</span><span class="nx">isTargetAvailable</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">"Target system not responding"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">backup</span><span class="o">:</span><span class="w"> </span><span class="nx">backupName</span>
+<span class="w">        </span><span class="p">};</span>
+
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">context</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"ERROR"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Backup failed: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">"FAILED"</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="integration-scripts">Integration Scripts</h3>
+<p>Connect with external systems:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// REST API integration</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">syncWithExternalSystem</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">getSystemProperty</span><span class="p">(</span><span class="s2">"EXTERNAL_API_URL"</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">apiKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">getSystemProperty</span><span class="p">(</span><span class="s2">"EXTERNAL_API_KEY"</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Prepare data</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">entities</span><span class="o">:</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">getModifiedEntities</span><span class="p">(),</span>
+<span class="w">        </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">(),</span>
+<span class="w">        </span><span class="nx">source</span><span class="o">:</span><span class="w"> </span><span class="s2">"EPMware"</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// Call external API</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">httpRequest</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">endpoint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">"/sync"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">"Authorization"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Bearer "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">apiKey</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">"Content-Type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"application/json"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">200</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">syncId</span><span class="o">:</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">syncId</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">"Sync failed: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr>
+<h2 id="script-editor">Script Editor</h2>
+<p>The built-in editor provides syntax highlighting, validation, and testing capabilities.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/logic-builder/logic-builder-editor.png" data-desc-position="bottom"><img alt="Logic Builder Editor" src="../assets/images/logic-builder/logic-builder-editor.png"></a><br>
+<em>Script editor with syntax highlighting</em></p>
+<h3 id="editor-features">Editor Features</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Syntax Highlighting</strong></td>
+<td>Language-aware coloring</td>
+<td>Automatic</td>
+</tr>
+<tr>
+<td><strong>Auto-complete</strong></td>
+<td>Code suggestions</td>
+<td>Ctrl+Space</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Syntax checking</td>
+<td>Click validate</td>
+</tr>
+<tr>
+<td><strong>Save</strong></td>
+<td>Persist changes</td>
+<td>Ctrl+S</td>
+</tr>
+<tr>
+<td><strong>Copy</strong></td>
+<td>Copy to clipboard</td>
+<td>Ctrl+C</td>
+</tr>
+<tr>
+<td><strong>Format</strong></td>
+<td>Auto-format code</td>
+<td>Ctrl+Shift+F</td>
+</tr>
+</tbody>
+</table>
+<h3 id="using-the-editor">Using the Editor</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/logic-builder/editor-toolbar.png" data-desc-position="bottom"><img alt="Editor Toolbar" src="../assets/images/logic-builder/editor-toolbar.png"></a><br>
+<em>Editor toolbar with action buttons</em></p>
+<ol>
+<li><strong>Load Script</strong> - Click script name in grid</li>
+<li><strong>Edit Code</strong> - Modify in editor pane</li>
+<li><strong>Validate</strong> - Click validate icon (✓)</li>
+<li><strong>Save Changes</strong> - Click save icon</li>
+<li><strong>Copy Code</strong> - Click copy icon</li>
+</ol>
+<h3 id="validation-results">Validation Results</h3>
+<p>Script validation checks:
+- Syntax errors
+- Undefined variables
+- Function signatures
+- Return statements
+- Exception handling</p>
+<div class="admonition tip">
+<p class="admonition-title">Validation Best Practice</p>
+<p>Always validate scripts before saving, especially after major changes.</p>
+</div>
+<hr>
+<h2 id="api-reference">API Reference</h2>
+<h3 id="context-object">Context Object</h3>
+<p>The context object provides access to EPMware data and functions:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Request context</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">requestId</span><span class="w">           </span><span class="c1">// Current request ID</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">userId</span><span class="w">              </span><span class="c1">// Current user ID</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">applicationId</span><span class="w">       </span><span class="c1">// Application ID</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">dimensionId</span><span class="w">        </span><span class="c1">// Dimension ID</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">workflowStage</span><span class="w">      </span><span class="c1">// Current workflow stage</span>
+
+<span class="c1">// Data access</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">getMemberProperty</span><span class="p">(</span><span class="nx">propName</span><span class="p">)</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">getRequestProperty</span><span class="p">(</span><span class="nx">propName</span><span class="p">)</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">getSystemProperty</span><span class="p">(</span><span class="nx">propName</span><span class="p">)</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">getUserProperty</span><span class="p">(</span><span class="nx">propName</span><span class="p">)</span>
+
+<span class="c1">// Operations</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">level</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">sendEmail</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">executeDBFunction</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">)</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">httpRequest</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+<span class="nx">context</span><span class="p">.</span><span class="nx">assignToGroup</span><span class="p">(</span><span class="nx">groupName</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="database-functions">Database Functions</h3>
+<p>Execute SQL and PL/SQL:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Execute query</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">(</span>
+<span class="w">    </span><span class="s2">"SELECT * FROM ew_members WHERE app_id = :appId"</span><span class="p">,</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">appId</span><span class="o">:</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">applicationId</span><span class="w"> </span><span class="p">}</span>
+<span class="p">);</span>
+
+<span class="c1">// Execute stored procedure</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">executeDBFunction</span><span class="p">(</span><span class="s2">"VALIDATE_HIERARCHY"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">p_app_id</span><span class="o">:</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">applicationId</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">p_dim_id</span><span class="o">:</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">dimensionId</span>
+<span class="p">});</span>
+</code></pre></div>
+<h3 id="utility-functions">Utility Functions</h3>
+<p>Common helper functions:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Date formatting</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">formatDate</span><span class="p">(</span><span class="nx">date</span><span class="p">,</span><span class="w"> </span><span class="nx">pattern</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// pattern: "YYYY-MM-DD", "MM/DD/YYYY", etc.</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">formatDate</span><span class="p">(</span><span class="nx">date</span><span class="p">,</span><span class="w"> </span><span class="nx">pattern</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// String manipulation</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">padLeft</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span><span class="w"> </span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="kr">char</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">str</span><span class="p">).</span><span class="nx">padStart</span><span class="p">(</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="kr">char</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Number formatting</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">formatCurrency</span><span class="p">(</span><span class="nx">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Intl</span><span class="p">.</span><span class="nx">NumberFormat</span><span class="p">(</span><span class="s1">'en-US'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="s1">'currency'</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">currency</span><span class="o">:</span><span class="w"> </span><span class="s1">'USD'</span>
+<span class="w">    </span><span class="p">}).</span><span class="nx">format</span><span class="p">(</span><span class="nx">amount</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Array operations</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">unique</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">(</span><span class="nx">array</span><span class="p">)];</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr>
+<h2 id="script-examples">Script Examples</h2>
+<h3 id="example-1-member-name-validation">Example 1: Member Name Validation</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Validate member name format and uniqueness</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">validateMemberName</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">memberName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">propertyValue</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">dimension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">dimensionName</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Check format</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="sr">/^[A-Z][A-Z0-9_]{2,49}$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">memberName</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">valid</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">"Member name must start with letter, 3-50 chars, uppercase/numbers/underscore only"</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Check reserved words</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">reserved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"ALL"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NULL"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DEFAULT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SYSTEM"</span><span class="p">];</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">reserved</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">memberName</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">valid</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="nx">memberName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">" is a reserved word"</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Check uniqueness</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">exists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">(</span>
+<span class="w">        </span><span class="s2">"SELECT COUNT(*) cnt FROM ew_members WHERE member_name = :name AND dim_name = :dim"</span><span class="p">,</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">memberName</span><span class="p">,</span><span class="w"> </span><span class="nx">dim</span><span class="o">:</span><span class="w"> </span><span class="nx">dimension</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">exists</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">cnt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">valid</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">"Member name already exists in "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">dimension</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">valid</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="example-2-hierarchy-level-validation">Example 2: Hierarchy Level Validation</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Ensure hierarchy doesn't exceed maximum depth</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">validateHierarchyDepth</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">maxDepth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">parentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">parentMemberId</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Traverse up to root</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">parentId</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">depth</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">maxDepth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">(</span>
+<span class="w">            </span><span class="s2">"SELECT parent_member_id FROM ew_hierarchy WHERE member_id = :id"</span><span class="p">,</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">parentId</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">parent</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">parentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">parent</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">parent_member_id</span><span class="p">;</span>
+<span class="w">            </span><span class="nx">depth</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">depth</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">maxDepth</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">valid</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">"Hierarchy depth cannot exceed "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">maxDepth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">" levels"</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">valid</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="example-3-email-custom-tags">Example 3: Email Custom Tags</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Add custom tags to email templates</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">addCustomEmailTags</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">requestId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">requestId</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Get request details</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">(</span>
+<span class="w">        </span><span class="s2">"SELECT * FROM ew_request_headers WHERE request_id = :id"</span><span class="p">,</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">requestId</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Calculate custom values</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">customTags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s1">'REQUEST_AGE_DAYS'</span><span class="o">:</span><span class="w"> </span><span class="nx">calculateAgeDays</span><span class="p">(</span><span class="nx">request</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">created_date</span><span class="p">),</span>
+<span class="w">        </span><span class="s1">'TOTAL_CHANGES'</span><span class="o">:</span><span class="w"> </span><span class="nx">getTotalChanges</span><span class="p">(</span><span class="nx">requestId</span><span class="p">),</span>
+<span class="w">        </span><span class="s1">'RISK_LEVEL'</span><span class="o">:</span><span class="w"> </span><span class="nx">calculateRiskLevel</span><span class="p">(</span><span class="nx">requestId</span><span class="p">),</span>
+<span class="w">        </span><span class="s1">'NEXT_REVIEWER'</span><span class="o">:</span><span class="w"> </span><span class="nx">getNextReviewer</span><span class="p">(</span><span class="nx">requestId</span><span class="p">),</span>
+<span class="w">        </span><span class="s1">'ESTIMATED_COMPLETION'</span><span class="o">:</span><span class="w"> </span><span class="nx">estimateCompletion</span><span class="p">(</span><span class="nx">requestId</span><span class="p">)</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">customTags</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">calculateAgeDays</span><span class="p">(</span><span class="nx">createdDate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">created</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="nx">createdDate</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">diffMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">created</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">diffMs</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-code-organization">1. Code Organization</h3>
+<ul>
+<li><strong>Modular Functions</strong> - Small, focused functions</li>
+<li><strong>Clear Naming</strong> - Descriptive function and variable names</li>
+<li><strong>Comments</strong> - Document complex logic</li>
+<li><strong>Constants</strong> - Define at script top</li>
+<li><strong>Error Handling</strong> - Use try-catch blocks</li>
+</ul>
+<h3 id="2-performance">2. Performance</h3>
+<ul>
+<li><strong>Optimize Queries</strong> - Use indexes and limits</li>
+<li><strong>Cache Results</strong> - Store frequently used data</li>
+<li><strong>Batch Operations</strong> - Process in groups</li>
+<li><strong>Async When Possible</strong> - Don't block execution</li>
+<li><strong>Clean Up</strong> - Release resources</li>
+</ul>
+<h3 id="3-testing">3. Testing</h3>
+<ul>
+<li><strong>Unit Tests</strong> - Test individual functions</li>
+<li><strong>Edge Cases</strong> - Handle nulls and extremes</li>
+<li><strong>Error Scenarios</strong> - Test failure paths</li>
+<li><strong>Performance Tests</strong> - Check with large datasets</li>
+<li><strong>Integration Tests</strong> - Verify with connected systems</li>
+</ul>
+<h3 id="4-security">4. Security</h3>
+<ul>
+<li><strong>Input Validation</strong> - Never trust user input</li>
+<li><strong>SQL Injection</strong> - Use parameterized queries</li>
+<li><strong>Access Control</strong> - Check permissions</li>
+<li><strong>Audit Logging</strong> - Log sensitive operations</li>
+<li><strong>Encrypt Sensitive Data</strong> - Protect credentials</li>
+</ul>
+<hr>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Script not appearing</td>
+<td>Disabled</td>
+<td>Enable in grid checkbox</td>
+</tr>
+<tr>
+<td>Validation fails</td>
+<td>Syntax error</td>
+<td>Check error message, fix syntax</td>
+</tr>
+<tr>
+<td>Script not executing</td>
+<td>Not assigned</td>
+<td>Verify script assignment in configuration</td>
+</tr>
+<tr>
+<td>Timeout errors</td>
+<td>Long-running operation</td>
+<td>Optimize queries, add indexes</td>
+</tr>
+<tr>
+<td>Null reference</td>
+<td>Missing data</td>
+<td>Add null checks</td>
+</tr>
+<tr>
+<td>Permission denied</td>
+<td>Access rights</td>
+<td>Check user permissions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="debugging-techniques">Debugging Techniques</h3>
+<h4 id="add-logging">Add Logging</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">debugScript</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"DEBUG"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Starting script execution"</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"DEBUG"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Input: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">context</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Your logic here</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">processData</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">context</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"DEBUG"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Result: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">));</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span><span class="p">;</span>
+
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">context</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"ERROR"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Failed: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">context</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"ERROR"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Stack: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="nx">error</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="test-in-isolation">Test in Isolation</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// Create test harness</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">testScript</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">mockContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">propertyValue</span><span class="o">:</span><span class="w"> </span><span class="s2">"TEST123"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">dimensionName</span><span class="o">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">executeQuery</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Mock database response</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">cnt</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">}];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">validateMemberName</span><span class="p">(</span><span class="nx">mockContext</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Test result:"</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="script-logs">Script Logs</h3>
+<p>Access script execution logs:</p>
+<ol>
+<li>Navigate to <strong>Administration → Logs</strong></li>
+<li>Filter by script name</li>
+<li>Review execution details</li>
+<li>Check error messages</li>
+<li>Analyze performance metrics</li>
+</ol>
+<hr>
+<h2 id="integration-points">Integration Points</h2>
+<h3 id="property-configuration">Property Configuration</h3>
+<p>Scripts integrate with member properties:
+- <strong>Validation Scripts</strong> - Property value checking
+- <strong>Derivation Scripts</strong> - Calculate values
+- <strong>Conditional Display</strong> - Show/hide properties
+- <strong>Default Values</strong> - Set initial values</p>
+<h3 id="workflow-tasks">Workflow Tasks</h3>
+<p>Custom tasks execute Logic Builder scripts:
+- <strong>Review Logic</strong> - Custom review processes
+- <strong>Approval Routing</strong> - Dynamic routing
+- <strong>Notifications</strong> - Enhanced emails
+- <strong>Integration Tasks</strong> - External system calls</p>
+<h3 id="deployment">Deployment</h3>
+<p>Pre/post deployment processing:
+- <strong>Backup Scripts</strong> - Create backups
+- <strong>Validation Scripts</strong> - Check readiness
+- <strong>Transformation Scripts</strong> - Modify data
+- <strong>Notification Scripts</strong> - Alert stakeholders</p>
+<h3 id="export">Export</h3>
+<p>Export processing scripts:
+- <strong>Pre-Export</strong> - Prepare data
+- <strong>Post-Export</strong> - Archive/distribute
+- <strong>Transformation</strong> - Format conversion
+- <strong>Validation</strong> - Quality checks</p>
+<hr>
+<h2 id="related-topics">Related Topics</h2>
+<ul>
+<li><a href="../member-properties/index.md#property-validation">Property Validation</a> - Assign validation scripts</li>
+<li><a href="../member-properties/index.md#property-derivation">Property Derivation</a> - Configure derivation scripts</li>
+<li><a href="../workflow/#workflow-tasks">Workflow Tasks</a> - Custom task scripts</li>
+<li><a href="../deployment/">Deployment Manager</a> - Pre/post deployment scripts</li>
+<li><a href="../export-metadata/index.md">Export Metadata</a> - Export processing scripts</li>
+<li><a href="../email-templates/index.md">Email Templates</a> - Custom email tags</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../export/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Export Metadata">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Export Metadata
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../administration/" class="md-footer__link md-footer__link--next" aria-label="Next: Administration">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Administration
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.tooltips", "navigation.footer", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
