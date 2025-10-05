@@ -2,7 +2,7 @@
 site_name: EPMware Administrator's Guide
 site_description: Complete administrator guide for EPMware configuration, security, and workflow management
 site_author: EPMware, Inc.
-site_url: https://tkiratsous.github.io/epmware-admin/
+site_url: https://tkiratsous.github.io/epmware-admin-guide/
 
 validation:
   nav:
@@ -60,7 +60,7 @@ markdown_extensions:
 plugins:
   - search:
       lang: en
-  - live-edit:
+  #- live-edit:1111
   - glightbox:
       touchNavigation: true
       loop: false
@@ -70,10 +70,6 @@ plugins:
 nav:
   - Home:
     - index.md
-    - About This Guide: /#about-this-guide
-    - Key Topics: /#key-topics
-    - Prerequisites: /#prerequisites
-  
   - Configuration:
     - configuration/index.md
     - Infrastructure:
