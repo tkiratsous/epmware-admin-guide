@@ -2,9 +2,6 @@
 
 The Administration module provides system management capabilities including service monitoring and application migration between environments. These tools enable administrators to maintain system health and move configurations across instances.
 
-![Administration Overview](../assets/images/administration/administration-overview.png)<br/>
-*Administration module showing Services and Migration*
-
 ## Overview
 
 The Administration module consists of two main components:
