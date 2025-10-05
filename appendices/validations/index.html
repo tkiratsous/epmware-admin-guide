@@ -1,0 +1,3861 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete administrator guide for EPMware configuration, security, and workflow management">
+      
+      
+        <meta name="author" content="EPMware, Inc.">
+      
+      
+        <link rel="canonical" href="https://tkiratsous.github.io/epmware-admin/appendices/validations/">
+      
+      
+        <link rel="prev" href="../oracle-fusion-gl/">
+      
+      
+        <link rel="next" href="../onestream/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Appendix C - Out of Box Validations - EPMware Administrator's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#out-of-the-box-validations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="EPMware Administrator's Guide" class="md-header__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EPMware Administrator's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Appendix C - Out of Box Validations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="EPMware Administrator's Guide" class="md-nav__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    EPMware Administrator's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#about-this-guide" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About This Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#key-topics" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Key Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#prerequisites" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prerequisites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../configuration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Applications
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dimensions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dimensions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/dimensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dimension Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Member Properties
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/member-properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Email Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/email-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Global Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/global-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Lookups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/lookups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../security/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#security-model" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#security-rules" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#roles" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#users" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#groups" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#security-classes" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#security-provisioning" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Provisioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#sso-configuration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSO Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/#report-security" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Report Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Workflow
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/#workflow-tasks" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/#workflow-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/#workflow-stages" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Stages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../deployment/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/#deployment-manager" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/#deployment-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/#scheduling-deployments" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../export/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Export Metadata
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Export Metadata
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-profile" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-details" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-format" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-execution" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Execution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export/#export-book" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Book
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../logic-builder/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Logic Builder
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Logic Builder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#script-management" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#creating-scripts" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#script-types" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#script-editor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#api-reference" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#script-examples" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logic-builder/#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration Points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../administration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Administration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3">
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Application Migration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Application Migration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/application-migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application migration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../erp-import/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ERP Import
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            ERP Import
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#erp-import-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#erp-import-mapping" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Mapping
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#erp-import-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#erp-integration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#scheduling-and-automation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scheduling and Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../erp-import/#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oracle-epm-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix A - Oracle EPM Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oracle-fusion-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix B - Oracle Fusion GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Appendix C - Out of Box Validations
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix C - Out of Box Validations
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validation Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-validations-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Validations Work
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Assignment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Applications
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oracle-epm-cloud-validations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oracle EPM Cloud Validations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oracle EPM Cloud Validations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trcs-tax-reporting-cloud-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      TRCS (Tax Reporting Cloud Service)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TRCS (Tax Reporting Cloud Service)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#member-name-alias-validations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Member Name &amp; Alias Validations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prohibited-starting-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prohibited Starting Characters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reserved-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reserved Words
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pcmcs-profitability-cost-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      PCMCS (Profitability &amp; Cost Management)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pbcsplanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      PBCS/Planning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PBCS/Planning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-validations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Validations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#essbase-validations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Essbase Validations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Essbase Validations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aso-specific-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      ASO-Specific Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automation-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automation Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automation Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-configure-data-storage-bso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auto-Configure Data Storage (BSO)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hfm-validations" class="md-nav__link">
+    <span class="md-ellipsis">
+      HFM Validations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HFM Validations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#character-restrictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character Restrictions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icp-validation-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      ICP Validation Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erp-system-validations" class="md-nav__link">
+    <span class="md-ellipsis">
+      ERP System Validations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ERP System Validations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oracle-fusion-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oracle Fusion Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oracle Fusion Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dimension-specific-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dimension-Specific Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onestream" class="md-nav__link">
+    <span class="md-ellipsis">
+      OneStream
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OneStream">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reserved-words_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reserved Words
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-character-restrictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Character Restrictions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fdmee-validations" class="md-nav__link">
+    <span class="md-ellipsis">
+      FDMEE Validations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FDMEE Validations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping-type-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mapping Type Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-validations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Validations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Validations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-custom-validations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Custom Validations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-script-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Script Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validation Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enablingdisabling-validations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enabling/Disabling Validations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Priority
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dos" class="md-nav__link">
+    <span class="md-ellipsis">
+      DO's ✅
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donts" class="md-nav__link">
+    <span class="md-ellipsis">
+      DON'Ts ❌
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-validation-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Validation Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-scripts-by-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Scripts by Application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-enhancement-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional Enhancement Scripts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../onestream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix D - OneStream Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oracle-ebs-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix E - Oracle EBS GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="out-of-the-box-validations">Out of the Box Validations</h1>
+<p>EPMware provides comprehensive standard validations for supported applications, ensuring data integrity and compliance with target system requirements. These validations are automatically applied when applications are configured.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/validations-overview.png" data-desc-position="bottom"><img alt="Standard Validations Overview" src="../assets/images/appendices/validations-overview.png"></a>
+<em>Overview of standard validations in EPMware</em></p>
+<h2 id="overview">Overview</h2>
+<p>All standard validations for supported application types are configured as Logic Scripts in the Logic Builder module. These validations are automatically assigned when an application is registered in EPMware.</p>
+<h3 id="key-features">Key Features</h3>
+<ul>
+<li><strong>Automatic Assignment</strong> - Validations apply immediately upon application configuration</li>
+<li><strong>Property-Based</strong> - Validations target specific member properties</li>
+<li><strong>Application-Specific</strong> - Rules tailored to each target system's requirements</li>
+<li><strong>Customizable</strong> - Clone and modify standard validations as needed</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/logic-builder-validations.png" data-desc-position="bottom"><img alt="Logic Builder Standard Validations" src="../assets/images/appendices/logic-builder-validations.png"></a>
+<em>Logic Builder module showing standard validation scripts with EW prefix</em></p>
+<hr>
+<h2 id="validation-architecture">Validation Architecture</h2>
+<h3 id="how-validations-work">How Validations Work</h3>
+<div class="highlight"><pre><span></span><code>graph LR
+    A[User Request] --&gt; B[Property Validation]
+    B --&gt; C{Valid?}
+    C --&gt;|Yes| D[Process Request]
+    C --&gt;|No| E[Return Error]
+    E --&gt; F[Display Message]
+    D --&gt; G[Deploy to Target]
+</code></pre></div>
+<h3 id="validation-assignment">Validation Assignment</h3>
+<p>When an application is imported or created, EPMware automatically:</p>
+<ol>
+<li>Identifies the application type</li>
+<li>Assigns corresponding validation scripts</li>
+<li>Activates property-level checks</li>
+<li>Enables real-time validation</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/validation-assignment.png" data-desc-position="bottom"><img alt="Validation Assignment Screen" src="../assets/images/appendices/validation-assignment.png"></a>
+<em>Association of standard validations to applications</em></p>
+<hr>
+<h2 id="supported-applications">Supported Applications</h2>
+<div class="grid cards">
+  <div class="card">
+    <h3>☁️ Oracle Cloud EPM</h3>
+    <ul>
+      <li>PBCS - Planning &amp; Budgeting</li>
+      <li>FCCS - Financial Close</li>
+      <li>TRCS - Tax Reporting</li>
+      <li>ARCS - Account Reconciliation</li>
+      <li>PCMCS - Profitability Management</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🏢 On-Premise EPM</h3>
+    <ul>
+      <li>HFM - Financial Management</li>
+      <li>Essbase (ASO/BSO)</li>
+      <li>Planning</li>
+      <li>FDMEE - Data Management</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🔄 ERP Systems</h3>
+    <ul>
+      <li>Oracle Fusion Cloud</li>
+      <li>Oracle EBS GL</li>
+      <li>OneStream XF</li>
+    </ul>
+  </div>
+</div>
+
+<hr>
+<h2 id="oracle-epm-cloud-validations">Oracle EPM Cloud Validations</h2>
+<h3 id="trcs-tax-reporting-cloud-service">TRCS (Tax Reporting Cloud Service)</h3>
+<p><strong>Validation Script</strong>: <code>EW_TRCS_VALIDATIONS</code></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/trcs-validation-config.png" data-desc-position="bottom"><img alt="TRCS Validation Configuration" src="../assets/images/appendices/trcs-validation-config.png"></a>
+<em>TRCS validation configuration in Property Validations</em></p>
+<h4 id="member-name-alias-validations">Member Name &amp; Alias Validations</h4>
+<table>
+<thead>
+<tr>
+<th>Validation</th>
+<th>Rule</th>
+<th>Max Length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Member Name</strong></td>
+<td>No trailing/leading spaces</td>
+<td>76 chars</td>
+</tr>
+<tr>
+<td><strong>Alias</strong></td>
+<td>Unique within alias table</td>
+<td>80 chars</td>
+</tr>
+<tr>
+<td><strong>Special Characters</strong></td>
+<td>Not allowed: <code>" ] [ \t</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Reserved Prefixes</strong></td>
+<td>Cannot start with: OEP_, OFS_, OCX_</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="prohibited-starting-characters">Prohibited Starting Characters</h4>
+<div class="highlight"><pre><span></span><code>@ \ [ ] ( ) , - . / ; = + _ { | } &lt; &gt; "
+</code></pre></div>
+<h4 id="reserved-words">Reserved Words</h4>
+<p>The following words cannot be used as member names:</p>
+<details>
+<summary>Click to expand full list of reserved words</summary>
+
+- ALL, AND, ASSIGN, AVERAGE, CALC, CALCMBR
+- COPYFORWARD, CROSSDIM, CURMBRNAME
+- DIM, DIMNAME, DIV, DYNAMIC
+- EMPTYPARM, EQ, EQOP, EXCEPT, EXP
+- FLOAT, FUNCTION, GE, GEN, GROUP, GT
+- INTEGER, LE, LOCAL, LT
+- MBR, MBRNAME, MINUS, MISSING, MUL
+- NE, NON, NONINPUT, NOT, OR
+- PERCENT, PLUS, RELOP, SET
+- SKIPBOTH, SKIPMISSING, SKIPNONE, SKIPZERO
+- STATUS, TO, TOP, TYPE
+- UMINUS, UPPER, VARORXMBR
+- $$UNIVERSE$$, #MISSING, #MI
+
+</details>
+
+<h3 id="pcmcs-profitability-cost-management">PCMCS (Profitability &amp; Cost Management)</h3>
+<p><strong>Validation Script</strong>: <code>EW_PCMCS_VALIDATIONS</code></p>
+<p>Similar to TRCS with additional rules:
+- Member name max length: 80 characters
+- Supports POV-specific validations
+- Additional cost allocation constraints</p>
+<h3 id="pbcsplanning">PBCS/Planning</h3>
+<p><strong>Validation Script</strong>: <code>EW_HP_VALIDATIONS</code></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/pbcs-validation-rules.png" data-desc-position="bottom"><img alt="PBCS Validation Rules" src="../assets/images/appendices/pbcs-validation-rules.png"></a>
+<em>PBCS and Planning validation rules configuration</em></p>
+<h4 id="key-validations">Key Validations</h4>
+<ol>
+<li><strong>Data Storage Property</strong></li>
+<li>Label Only members cannot be leaf members</li>
+<li>
+<p>Label Only members cannot have formulas</p>
+</li>
+<li>
+<p><strong>Account Type Property</strong></p>
+</li>
+<li>
+<p>If Account Type = Expense, Variance Reporting must be "Expense"</p>
+</li>
+<li>
+<p><strong>Variance Reporting Property</strong></p>
+</li>
+<li>Must align with Account Type settings</li>
+</ol>
+<hr>
+<h2 id="essbase-validations">Essbase Validations</h2>
+<p><strong>Validation Script</strong>: <code>EW_ESSBASE_VALIDATIONS</code></p>
+<h3 id="aso-specific-rules">ASO-Specific Rules</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/essbase-aso-validations.png" data-desc-position="bottom"><img alt="Essbase ASO Validations" src="../assets/images/appendices/essbase-aso-validations.png"></a>
+<em>Essbase ASO-specific validation configuration</em></p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Description</th>
+<th>Applies To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Consolidation</strong></td>
+<td>Stored hierarchies require (+) aggregation</td>
+<td>ASO only</td>
+</tr>
+<tr>
+<td><strong>Member Formula</strong></td>
+<td>Dynamic hierarchies only</td>
+<td>ASO/BSO</td>
+</tr>
+<tr>
+<td><strong>Data Storage</strong></td>
+<td>Parent members use Dynamic Calc</td>
+<td>BSO only</td>
+</tr>
+</tbody>
+</table>
+<h3 id="automation-options">Automation Options</h3>
+<h4 id="auto-configure-data-storage-bso">Auto-Configure Data Storage (BSO)</h4>
+<p><strong>Script</strong>: <code>EW_EB_DATA_STORAGE_PROP</code></p>
+<p>This optional script automatically:
+- Sets parent members to "Dynamic Calc"
+- Sets base members to "Store"
+- Triggers on hierarchy changes</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/data-storage-automation.png" data-desc-position="bottom"><img alt="Data Storage Automation" src="../assets/images/appendices/data-storage-automation.png"></a>
+<em>Configuring automatic Data Storage property for BSO applications</em></p>
+<p><strong>Configuration Steps</strong>:
+1. Navigate to <strong>Configuration → Dimensions → Hierarchy Actions</strong>
+2. Assign script as Post Hierarchy Action
+3. Select "Create Member" action
+4. Apply to dimension</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/hierarchy-actions-assignment.png" data-desc-position="bottom"><img alt="Hierarchy Actions Assignment" src="../assets/images/appendices/hierarchy-actions-assignment.png"></a>
+<em>Assigning post-hierarchy action script to dimension</em></p>
+<hr>
+<h2 id="hfm-validations">HFM Validations</h2>
+<p><strong>Validation Script</strong>: <code>EW_HFM_VALIDATIONS</code></p>
+<h3 id="character-restrictions">Character Restrictions</h3>
+<table>
+<thead>
+<tr>
+<th>Character Type</th>
+<th>Prohibited</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Special Chars</strong></td>
+<td><code>" # * + , - . / ; @ { }</code></td>
+<td>In member names</td>
+</tr>
+<tr>
+<td><strong>Ampersand</strong></td>
+<td>&amp;</td>
+<td>In aliases only</td>
+</tr>
+<tr>
+<td><strong>ICP Rules</strong></td>
+<td>-</td>
+<td>Special validation logic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="icp-validation-rules">ICP Validation Rules</h3>
+<p>If "Is ICP" = Y or R, then "ICP Top Member" must be assigned (cannot be "ICP None")</p>
+<hr>
+<h2 id="erp-system-validations">ERP System Validations</h2>
+<h3 id="oracle-fusion-cloud">Oracle Fusion Cloud</h3>
+<p><strong>Validation Script</strong>: <code>EW_FUSION_VALIDATIONS</code></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/fusion-gl-validations.png" data-desc-position="bottom"><img alt="Fusion GL Validations" src="../assets/images/appendices/fusion-gl-validations.png"></a>
+<em>Oracle Fusion GL validation configuration</em></p>
+<h4 id="dimension-specific-rules">Dimension-Specific Rules</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Validation</th>
+<th>Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Member Length</strong></td>
+<td>Max defined by segment</td>
+<td>Set in dimension properties</td>
+</tr>
+<tr>
+<td><strong>Numeric Members</strong></td>
+<td>Account dimension only</td>
+<td>NUMERIC_MEMBER_NAME = Y</td>
+</tr>
+<tr>
+<td><strong>Summary Flag</strong></td>
+<td>Required for parents</td>
+<td>Auto-set to Y</td>
+</tr>
+<tr>
+<td><strong>Allow Posting</strong></td>
+<td>Disabled for parents</td>
+<td>Auto-set to N</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/fusion-dimension-properties-validation.png" data-desc-position="bottom"><img alt="Fusion Dimension Properties" src="../assets/images/appendices/fusion-dimension-properties-validation.png"></a>
+<em>Dimension properties affecting validation rules</em></p>
+<h3 id="onestream">OneStream</h3>
+<p><strong>Validation Script</strong>: <code>EW_ONESTREAM_VALIDATIONS</code></p>
+<h4 id="reserved-words_1">Reserved Words</h4>
+<ul>
+<li>Account, All, Cons, Consolidation</li>
+<li>Default, DimType, Entity</li>
+<li>Flow, Origin, IC, None, POV, Parent, Root</li>
+<li>All Root*Dim variations</li>
+</ul>
+<h4 id="special-character-restrictions">Special Character Restrictions</h4>
+<div class="highlight"><pre><span></span><code>! # % &amp; * + , - / ; &lt; = &gt; ? @ [ \ ] ^ { | } "
+</code></pre></div>
+<hr>
+<h2 id="fdmee-validations">FDMEE Validations</h2>
+<p><strong>Validation Script</strong>: <code>EW_FDMEE_VALIDATIONS</code></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/fdmee-mapping-validations.png" data-desc-position="bottom"><img alt="FDMEE Mapping Validations" src="../assets/images/appendices/fdmee-mapping-validations.png"></a>
+<em>FDMEE mapping validation rules</em></p>
+<h3 id="mapping-type-rules">Mapping Type Rules</h3>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Validation Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EXPLICIT</strong></td>
+<td>Source and Target required</td>
+</tr>
+<tr>
+<td><strong>BETWEEN</strong></td>
+<td>One comma required in Source</td>
+</tr>
+<tr>
+<td><strong>IN</strong></td>
+<td>No commas allowed in Source</td>
+</tr>
+<tr>
+<td><strong>LIKE</strong></td>
+<td>Must contain * or ? wildcard</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="custom-validations">Custom Validations</h2>
+<h3 id="creating-custom-validations">Creating Custom Validations</h3>
+<ol>
+<li><strong>Clone Standard Validation</strong></li>
+<li>Select standard script in Logic Builder</li>
+<li>Right-click → Clone</li>
+<li>Modify as needed</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/clone-validation-script.png" data-desc-position="bottom"><img alt="Clone Validation Script" src="../assets/images/appendices/clone-validation-script.png"></a>
+<em>Cloning a standard validation script for customization</em></p>
+<ol>
+<li><strong>Create New Validation</strong></li>
+<li>Logic Builder → Create Script</li>
+<li>Type: Property Validation</li>
+<li>
+<p>Write custom logic</p>
+</li>
+<li>
+<p><strong>Assign to Application</strong></p>
+</li>
+<li>Configuration → Property → Validations</li>
+<li>Add validation rule</li>
+<li>Select target properties</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/custom-validation-assignment.png" data-desc-position="bottom"><img alt="Custom Validation Assignment" src="../assets/images/appendices/custom-validation-assignment.png"></a>
+<em>Assigning custom validation to application properties</em></p>
+<h3 id="validation-script-structure">Validation Script Structure</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Example validation script structure</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">validateProperty</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">memberName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">getMemberName</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">propValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">getPropertyValue</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Validation logic</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">propValue</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">80</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">valid</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">"Property exceeds maximum length of 80 characters"</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">valid</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr>
+<h2 id="validation-management">Validation Management</h2>
+<h3 id="enablingdisabling-validations">Enabling/Disabling Validations</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/validation-enable-disable.png" data-desc-position="bottom"><img alt="Validation Enable Disable" src="../assets/images/appendices/validation-enable-disable.png"></a>
+<em>Managing validation status in Property Validations screen</em></p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Steps</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Disable</strong></td>
+<td>Uncheck "Enabled" box</td>
+<td>Validation skipped</td>
+</tr>
+<tr>
+<td><strong>Enable</strong></td>
+<td>Check "Enabled" box</td>
+<td>Validation active</td>
+</tr>
+<tr>
+<td><strong>Delete</strong></td>
+<td>Right-click → Delete</td>
+<td>Permanent removal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="validation-priority">Validation Priority</h3>
+<p>When multiple validations apply:</p>
+<ol>
+<li><strong>Member-level</strong> validations execute first</li>
+<li><strong>Property-specific</strong> validations next</li>
+<li><strong>Dimension-level</strong> validations</li>
+<li><strong>Application-level</strong> validations last</li>
+</ol>
+<hr>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="dos">DO's ✅</h3>
+<ul>
+<li>Test custom validations thoroughly</li>
+<li>Document validation rules</li>
+<li>Use descriptive error messages</li>
+<li>Keep validation logic simple</li>
+<li>Monitor validation performance</li>
+</ul>
+<h3 id="donts">DON'Ts ❌</h3>
+<ul>
+<li>Don't modify standard validations directly</li>
+<li>Don't disable critical validations</li>
+<li>Don't create overlapping rules</li>
+<li>Don't use complex SQL in validations</li>
+<li>Don't ignore validation errors</li>
+</ul>
+<hr>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-validation-issues">Common Validation Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Validation not firing</strong></td>
+<td>Script disabled</td>
+<td>Enable in configuration</td>
+</tr>
+<tr>
+<td><strong>False positives</strong></td>
+<td>Logic error</td>
+<td>Review script logic</td>
+</tr>
+<tr>
+<td><strong>Performance impact</strong></td>
+<td>Complex SQL</td>
+<td>Optimize queries</td>
+</tr>
+<tr>
+<td><strong>Missing validations</strong></td>
+<td>Not assigned</td>
+<td>Check property assignments</td>
+</tr>
+</tbody>
+</table>
+<h3 id="debug-steps">Debug Steps</h3>
+<ol>
+<li><strong>Check Script Status</strong></li>
+<li>Logic Builder → View script</li>
+<li>
+<p>Verify "Enabled" status</p>
+</li>
+<li>
+<p><strong>Review Assignment</strong></p>
+</li>
+<li>Configuration → Property → Validations</li>
+<li>
+<p>Confirm application mapping</p>
+</li>
+<li>
+<p><strong>Test Manually</strong></p>
+</li>
+<li>Create test request</li>
+<li>Trigger specific validation</li>
+<li>Review error messages</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/appendices/validation-debug.png" data-desc-position="bottom"><img alt="Validation Debug Screen" src="../assets/images/appendices/validation-debug.png"></a>
+<em>Debug screen showing validation execution details</em></p>
+<hr>
+<h2 id="quick-reference">Quick Reference</h2>
+<h3 id="validation-scripts-by-application">Validation Scripts by Application</h3>
+<table>
+<thead>
+<tr>
+<th>Application Type</th>
+<th>Script Name</th>
+<th>Auto-Applied</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TRCS</strong></td>
+<td>EW_TRCS_VALIDATIONS</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>PCMCS</strong></td>
+<td>EW_PCMCS_VALIDATIONS</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>PBCS/Planning</strong></td>
+<td>EW_HP_VALIDATIONS</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Essbase</strong></td>
+<td>EW_ESSBASE_VALIDATIONS</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>HFM</strong></td>
+<td>EW_HFM_VALIDATIONS</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>FDMEE</strong></td>
+<td>EW_FDMEE_VALIDATIONS</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Fusion GL</strong></td>
+<td>EW_FUSION_VALIDATIONS</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>OneStream</strong></td>
+<td>EW_ONESTREAM_VALIDATIONS</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="optional-enhancement-scripts">Optional Enhancement Scripts</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Purpose</th>
+<th>Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EW_EB_DATA_STORAGE_PROP</strong></td>
+<td>Auto-set data storage</td>
+<td>Essbase BSO</td>
+</tr>
+<tr>
+<td><strong>EW_DERIVE_CONSOLIDATION</strong></td>
+<td>Calculate consolidation</td>
+<td>All</td>
+</tr>
+<tr>
+<td><strong>EW_SMART_LIST_VALIDATION</strong></td>
+<td>Validate smart lists</td>
+<td>Planning</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="support">Support</h2>
+<p>For validation assistance:</p>
+<p>📧 <strong>Email</strong>: support@epmware.com<br>
+📞 <strong>Phone</strong>: 408-614-0442  </p>
+<h3 id="related-documentation">Related Documentation</h3>
+<ul>
+<li><a href="../../logic-builder/">Logic Builder Guide</a></li>
+<li><a href="../../configuration/member-properties/">Property Configuration</a></li>
+<li><a href="../../configuration/applications/">Application Configuration</a></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Validation Tip</p>
+<p>Always test validation changes in a non-production environment first. Use the Logic Builder's validate function to check syntax before saving.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../oracle-fusion-gl/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Appendix B - Oracle Fusion GL">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Appendix B - Oracle Fusion GL
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../onestream/" class="md-footer__link md-footer__link--next" aria-label="Next: Appendix D - OneStream Configuration">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Appendix D - OneStream Configuration
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.tooltips", "navigation.footer", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

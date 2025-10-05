@@ -1,0 +1,3513 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete administrator guide for EPMware configuration, security, and workflow management">
+      
+      
+        <meta name="author" content="EPMware, Inc.">
+      
+      
+        <link rel="canonical" href="https://tkiratsous.github.io/epmware-admin/deployment/">
+      
+      
+        <link rel="prev" href="../workflow/">
+      
+      
+        <link rel="next" href="../export/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Deployment - EPMware Administrator's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deployment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="EPMware Administrator's Guide" class="md-header__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EPMware Administrator's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deployment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="EPMware Administrator's Guide" class="md-nav__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    EPMware Administrator's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#about-this-guide" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About This Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#key-topics" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Key Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#prerequisites" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prerequisites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../configuration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Applications
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dimensions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dimensions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/dimensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dimension Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Member Properties
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/member-properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Email Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/email-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Global Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/global-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Lookups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/lookups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../security/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-model" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-rules" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#roles" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#users" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#groups" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-classes" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-provisioning" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Provisioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#sso-configuration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSO Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#report-security" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Report Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Workflow
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/#workflow-tasks" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/#workflow-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/#workflow-stages" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Stages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#deployment-manager" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#deployment-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#scheduling-deployments" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../export/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Export Metadata
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Export Metadata
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-profile" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-details" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-format" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-execution" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Execution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../export/#export-book" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Book
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../logic-builder/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Logic Builder
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Logic Builder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#script-management" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#creating-scripts" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#script-types" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#script-editor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#api-reference" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#script-examples" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration Points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../administration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Administration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3">
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Application Migration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Application Migration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/application-migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application migration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../erp-import/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ERP Import
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            ERP Import
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#erp-import-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#erp-import-mapping" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Mapping
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#erp-import-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#erp-integration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#scheduling-and-automation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scheduling and Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../appendices/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/oracle-epm-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix A - Oracle EPM Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/oracle-fusion-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix B - Oracle Fusion GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/validations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix C - Out of Box Validations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/onestream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix D - OneStream Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/oracle-ebs-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix E - Oracle EBS GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="deployment">Deployment</h1>
+<p>The Deployment module manages the automated deployment of approved metadata changes to target applications. It provides centralized control over when and how metadata is deployed, with comprehensive monitoring, scheduling, and multi-environment support.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/deployment-overview.png" data-desc-position="bottom"><img alt="Deployment Overview" src="../assets/images/deployment/deployment-overview.png"></a><br>
+<em>Deployment module showing Manager, Monitor, and Schedule tabs</em></p>
+<h2 id="overview">Overview</h2>
+<p>The Deployment module consists of three integrated components:</p>
+<ul>
+<li><strong><a href="#deployment-manager">Deployment Manager</a></strong> - Create and configure deployment definitions</li>
+<li><strong><a href="#deployment-monitor">Deployment Monitor</a></strong> - Track deployment execution and status</li>
+<li><strong><a href="#deployment-schedule">Deployment Schedule</a></strong> - View and manage scheduled deployments</li>
+</ul>
+<p>Key capabilities include:
+- Direct deployment to target applications
+- File-based deployment for manual processing
+- Interface table deployment for integrations
+- Multi-environment cascade deployments
+- Pre and post-deployment scripting
+- Comprehensive email notifications</p>
+<h2 id="quick-links">Quick Links</h2>
+<div class="grid cards">
+  <div class="card">
+    <h3>⚙️ Manager</h3>
+    <p>Configure deployment types, scripts, and notifications</p>
+    <a href="#deployment-manager" class="md-button">Manage Deployments →</a>
+  </div>
+
+  <div class="card">
+    <h3>📊 Monitor</h3>
+    <p>Track deployment status and view logs</p>
+    <a href="#deployment-monitor" class="md-button">Monitor Status →</a>
+  </div>
+
+  <div class="card">
+    <h3>📅 Schedule</h3>
+    <p>Configure automated deployment timing</p>
+    <a href="#scheduling-deployments" class="md-button">Set Schedule →</a>
+  </div>
+
+  <div class="card">
+    <h3>🔄 Redeployment</h3>
+    <p>Handle failed deployments and retries</p>
+    <a href="#redeployment" class="md-button">Learn More →</a>
+  </div>
+</div>
+
+<hr>
+<h2 id="deployment-manager">Deployment Manager</h2>
+<p>Deployment Manager creates and manages deployment configurations that determine what, when, and how metadata is deployed.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/deployment-manager-grid.png" data-desc-position="bottom"><img alt="Deployment Manager Grid" src="../assets/images/deployment/deployment-manager-grid.png"></a><br>
+<em>Deployment Manager showing configured deployments</em></p>
+<h3 id="deployment-components">Deployment Components</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>Deployment identifier</td>
+<td>User-defined</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Deployment purpose</td>
+<td>Optional text</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Deployment scope</td>
+<td>Application, Workflow, Request</td>
+</tr>
+<tr>
+<td><strong>Pre-Deployment Scripts</strong></td>
+<td>Scripts run before deployment</td>
+<td>Logic Builder scripts</td>
+</tr>
+<tr>
+<td><strong>Post-Deployment Scripts</strong></td>
+<td>Scripts run after deployment</td>
+<td>Logic Builder scripts</td>
+</tr>
+<tr>
+<td><strong>Email Templates</strong></td>
+<td>Success/error notifications</td>
+<td>From Email Templates</td>
+</tr>
+<tr>
+<td><strong>Attachments</strong></td>
+<td>Files to include</td>
+<td>Deployment files, logs</td>
+</tr>
+<tr>
+<td><strong>Environment</strong></td>
+<td>Target environment</td>
+<td>Multi-environment only</td>
+</tr>
+</tbody>
+</table>
+<h3 id="deployment-types">Deployment Types</h3>
+<h4 id="application-deployment">Application Deployment</h4>
+<p>Deploys all approved requests for an entire application:
+- Processes all pending requests
+- Batches changes together
+- Most efficient for regular updates
+- Typically scheduled</p>
+<h4 id="workflow-deployment">Workflow Deployment</h4>
+<p>Deploys approved requests from specific workflows:
+- Workflow-specific processing
+- Useful for different SLAs
+- Segregates by business process
+- Can have different schedules</p>
+<h4 id="request-deployment">Request Deployment</h4>
+<p>Deploys individual or grouped requests:
+- Selective deployment
+- Emergency changes
+- Failed request redeployment
+- Manual control</p>
+<h3 id="creating-deployments">Creating Deployments</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/add-deployment-dialog.png" data-desc-position="bottom"><img alt="Add Deployment Dialog" src="../assets/images/deployment/add-deployment-dialog.png"></a><br>
+<em>Add Deployment configuration dialog</em></p>
+<ol>
+<li>Navigate to <strong>Deployment → Manager</strong></li>
+<li>Click the <strong>+</strong> icon</li>
+<li>Configure deployment:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Deployment Name</strong></td>
+<td>Yes</td>
+<td>Unique identifier</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>No</td>
+<td>Deployment purpose</td>
+</tr>
+<tr>
+<td><strong>Deployment Type</strong></td>
+<td>Yes</td>
+<td>Application/Workflow/Request</td>
+</tr>
+<tr>
+<td><strong>Pre-Deployment Script</strong></td>
+<td>No</td>
+<td>Logic Builder script to run before</td>
+</tr>
+<tr>
+<td><strong>Post-Deployment Script</strong></td>
+<td>No</td>
+<td>Logic Builder script to run after</td>
+</tr>
+<tr>
+<td><strong>Email on Success</strong></td>
+<td>No</td>
+<td>Success notification template</td>
+</tr>
+<tr>
+<td><strong>Email on Error</strong></td>
+<td>No</td>
+<td>Error notification template</td>
+</tr>
+<tr>
+<td><strong>Attach Deployment Files</strong></td>
+<td>No</td>
+<td>Include metadata files</td>
+</tr>
+<tr>
+<td><strong>Attach Log Files</strong></td>
+<td>No</td>
+<td>Include execution logs</td>
+</tr>
+<tr>
+<td><strong>Enabled</strong></td>
+<td>Yes</td>
+<td>Activate deployment</td>
+</tr>
+<tr>
+<td><strong>Environment</strong></td>
+<td>Conditional</td>
+<td>For multi-environment setups</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Click <strong>Save</strong></li>
+</ol>
+<h4 id="example-production-application-deployment">Example: Production Application Deployment</h4>
+<div class="highlight"><pre><span></span><code>Name: PROD_HFM_Daily
+Description: Daily HFM production deployment
+Type: Application
+Pre-Deployment Script: BACKUP_HFM_METADATA
+Post-Deployment Script: REFRESH_ESSBASE_CALC
+Email on Success: DEP_Success_Summary
+Email on Error: DEP_Failed_Alert
+Attach Deployment Files: ✓
+Attach Log Files: ✓
+Enabled: ✓
+</code></pre></div>
+<h3 id="editing-deployments">Editing Deployments</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/deployment-properties-edit.png" data-desc-position="bottom"><img alt="Edit Deployment Dialog" src="../assets/images/deployment/deployment-properties-edit.png"></a><br>
+<em>Deployment Properties edit dialog</em></p>
+<ol>
+<li>Right-click on deployment row</li>
+<li>Select <strong>Edit Properties</strong></li>
+<li>Modify configuration</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<h3 id="request-based-deployment">Request-Based Deployment</h3>
+<p>For selective or failed request redeployment:</p>
+<ol>
+<li>Create Request-type deployment</li>
+<li>Click <strong>Save</strong></li>
+<li>Click "Requests" link in grid</li>
+<li>Select <strong>Ready for Deployment</strong> radio button</li>
+<li>Choose specific requests</li>
+<li>Click <strong>Save</strong></li>
+<li>Schedule deployment</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/request-selection-dialog.png" data-desc-position="bottom"><img alt="Request Selection" src="../assets/images/deployment/request-selection-dialog.png"></a><br>
+<em>Request selection for targeted deployment</em></p>
+<hr>
+<h2 id="scheduling-deployments">Scheduling Deployments</h2>
+<p>Configure when deployments execute automatically.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/schedule-deployment-dialog.png" data-desc-position="bottom"><img alt="Schedule Deployment Dialog" src="../assets/images/deployment/schedule-deployment-dialog.png"></a><br>
+<em>Schedule Deployment configuration options</em></p>
+<h3 id="schedule-types">Schedule Types</h3>
+<h4 id="auto-immediate">Auto (Immediate)</h4>
+<p>Deploys as soon as requests are ready:
+- Real-time processing
+- No delay
+- Best for urgent changes
+- Continuous monitoring</p>
+<h4 id="daily">Daily</h4>
+<p>Runs at specified time each day:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/schedule-daily.png" data-desc-position="bottom"><img alt="Daily Schedule" src="../assets/images/deployment/schedule-daily.png"></a><br>
+<em>Daily schedule configuration</em></p>
+<div class="highlight"><pre><span></span><code>Frequency: Daily
+Time: 11:00 PM
+Days: All days
+</code></pre></div>
+<h4 id="weekly">Weekly</h4>
+<p>Runs on selected days of the week:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/schedule-weekly.png" data-desc-position="bottom"><img alt="Weekly Schedule" src="../assets/images/deployment/schedule-weekly.png"></a><br>
+<em>Weekly schedule with day selection</em></p>
+<div class="highlight"><pre><span></span><code>Frequency: Weekly
+Days: Monday, Wednesday, Friday
+Time: 10:00 PM
+</code></pre></div>
+<h4 id="monthly">Monthly</h4>
+<p>Runs on specific day each month:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/schedule-monthly.png" data-desc-position="bottom"><img alt="Monthly Schedule" src="../assets/images/deployment/schedule-monthly.png"></a><br>
+<em>Monthly schedule configuration</em></p>
+<div class="highlight"><pre><span></span><code>Frequency: Monthly
+Day: Last day of month
+Time: 11:30 PM
+</code></pre></div>
+<h4 id="one-time">One Time</h4>
+<p>Single execution at specified datetime:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/schedule-onetime.png" data-desc-position="bottom"><img alt="One Time Schedule" src="../assets/images/deployment/schedule-onetime.png"></a><br>
+<em>One-time schedule configuration</em></p>
+<div class="highlight"><pre><span></span><code>Frequency: One Time
+Date: 12/31/2024
+Time: 11:59 PM
+</code></pre></div>
+<h4 id="hourly">Hourly</h4>
+<p>Runs every specified number of hours:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/schedule-hourly.png" data-desc-position="bottom"><img alt="Hourly Schedule" src="../assets/images/deployment/schedule-hourly.png"></a><br>
+<em>Hourly schedule interval</em></p>
+<div class="highlight"><pre><span></span><code>Frequency: Hourly
+Interval: Every 4 hours
+Starting: 8:00 AM
+</code></pre></div>
+<h4 id="by-minutes">By Minutes</h4>
+<p>Runs at minute intervals:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/schedule-byminutes.png" data-desc-position="bottom"><img alt="By Minutes Schedule" src="../assets/images/deployment/schedule-byminutes.png"></a><br>
+<em>Minute-based schedule</em></p>
+<div class="highlight"><pre><span></span><code>Frequency: By Minutes
+Interval: Every 15 minutes
+</code></pre></div>
+<h3 id="scheduling-process">Scheduling Process</h3>
+<ol>
+<li>Click schedule icon (📅) for deployment</li>
+<li>Select schedule type</li>
+<li>Configure parameters</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Schedule Best Practices</p>
+<ul>
+<li><strong>Production</strong>: Daily during maintenance window</li>
+<li><strong>UAT</strong>: Hourly or by minutes for testing</li>
+<li><strong>Development</strong>: Auto for immediate feedback</li>
+</ul>
+</div>
+<hr>
+<h2 id="deployment-monitor">Deployment Monitor</h2>
+<p>Monitor deployment execution status and access logs.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/deployment-monitor-grid.png" data-desc-position="bottom"><img alt="Deployment Monitor Grid" src="../assets/images/deployment/deployment-monitor-grid.png"></a><br>
+<em>Deployment Monitor showing execution history</em></p>
+<h3 id="monitor-grid-columns">Monitor Grid Columns</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+<th>Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Deployment Id</strong></td>
+<td>Unique execution ID</td>
+<td>Click for details</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>Deployment name</td>
+<td>From Manager tab</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Deployment description</td>
+<td>User-defined</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Deployment type</td>
+<td>Application/Workflow/Request</td>
+</tr>
+<tr>
+<td><strong>Start Time</strong></td>
+<td>Execution start</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td><strong>End Time</strong></td>
+<td>Execution completion</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Current state</td>
+<td>Running/Completed</td>
+</tr>
+<tr>
+<td><strong>Log</strong></td>
+<td>Execution log</td>
+<td>Click to view</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grid-controls">Grid Controls</h3>
+<h4 id="filter">Filter</h4>
+<p>Filter deployments by criteria:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/deployment-search-filter.png" data-desc-position="bottom"><img alt="Deployment Filter" src="../assets/images/deployment/deployment-search-filter.png"></a><br>
+<em>Deployment search and filter options</em></p>
+<ul>
+<li>Date range</li>
+<li>Status</li>
+<li>Deployment name</li>
+<li>Type</li>
+</ul>
+<h4 id="auto-refresh">Auto Refresh</h4>
+<p>Enable automatic grid updates:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/auto-refresh-control.png" data-desc-position="bottom"><img alt="Auto Refresh" src="../assets/images/deployment/auto-refresh-control.png"></a><br>
+<em>Auto refresh toggle</em></p>
+<ul>
+<li>Updates every 60 seconds (configurable)</li>
+<li>Shows real-time status</li>
+<li>Useful during deployments</li>
+</ul>
+<h3 id="deployment-status-details">Deployment Status Details</h3>
+<p>Click on <strong>Deployment ID</strong> to view detailed status:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/deployment-status-popup.png" data-desc-position="bottom"><img alt="Deployment Status Popup" src="../assets/images/deployment/deployment-status-popup.png"></a><br>
+<em>Deployment Status showing request details</em></p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Request ID</strong></td>
+<td>Request identifier</td>
+</tr>
+<tr>
+<td><strong>Application</strong></td>
+<td>Target application</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Deployment result</td>
+</tr>
+<tr>
+<td><strong>Start/End Time</strong></td>
+<td>Processing times</td>
+</tr>
+<tr>
+<td><strong>Error Message</strong></td>
+<td>Failure details</td>
+</tr>
+</tbody>
+</table>
+<h3 id="status-icons">Status Icons</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/status-legend.png" data-desc-position="bottom"><img alt="Status Legend" src="../assets/images/deployment/status-legend.png"></a><br>
+<em>Deployment status icon legend</em></p>
+<table>
+<thead>
+<tr>
+<th>Icon</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td><strong>Completed</strong></td>
+<td>Successfully deployed</td>
+</tr>
+<tr>
+<td>⏳</td>
+<td><strong>Pending</strong></td>
+<td>Awaiting action</td>
+</tr>
+<tr>
+<td>⚠️</td>
+<td><strong>Partial</strong></td>
+<td>Some items failed</td>
+</tr>
+<tr>
+<td>❌</td>
+<td><strong>Failed</strong></td>
+<td>Deployment failed</td>
+</tr>
+<tr>
+<td>🔄</td>
+<td><strong>Running</strong></td>
+<td>Currently executing</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="redeployment">Redeployment</h2>
+<p>Handle failed or partial deployments through redeployment.</p>
+<h3 id="redeployment-options">Redeployment Options</h3>
+<h4 id="full-deployment-retry">Full Deployment Retry</h4>
+<p>Redeploy all failed requests in a deployment:</p>
+<ol>
+<li>Right-click on deployment row in Monitor</li>
+<li>Select <strong>Redeploy</strong></li>
+<li>Failed requests return to deployment pool</li>
+<li>Wait for next scheduled run</li>
+</ol>
+<h4 id="individual-request-retry">Individual Request Retry</h4>
+<p>Redeploy specific failed requests:</p>
+<ol>
+<li>Click <strong>Deployment ID</strong> in Monitor</li>
+<li>Right-click on failed request</li>
+<li>Select <strong>Redeploy</strong></li>
+<li>Request queued for next run</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Redeployment Behavior</p>
+<p>Redeployed requests are added to the deployment pool and processed during the next scheduled execution.</p>
+</div>
+<h3 id="handling-partial-deployments">Handling Partial Deployments</h3>
+<p>When deployment status shows <strong>Partial</strong>:</p>
+<ol>
+<li><strong>Identify Failed Items</strong>:</li>
+<li>Click Deployment ID</li>
+<li>Review failed request lines</li>
+<li>
+<p>Note error messages</p>
+</li>
+<li>
+<p><strong>Resolution Options</strong>:</p>
+</li>
+<li>Fix data issues and redeploy</li>
+<li>Cancel failed lines</li>
+<li>
+<p>Manually close deployment</p>
+</li>
+<li>
+<p><strong>Prevention</strong>:</p>
+</li>
+<li>Add validation stages</li>
+<li>Improve pre-deployment scripts</li>
+<li>Test in lower environments</li>
+</ol>
+<hr>
+<h2 id="multi-environment-deployment">Multi-Environment Deployment</h2>
+<p>Deploy metadata through multiple environments in sequence.</p>
+<h3 id="configuration-overview">Configuration Overview</h3>
+<div class="highlight"><pre><span></span><code>graph LR
+    A[Approved Request] --&gt; B[Deploy to DEV]
+    B --&gt; C[Deploy to UAT]
+    C --&gt; D[Deploy to PROD]
+</code></pre></div>
+<h3 id="setup-components">Setup Components</h3>
+<ol>
+<li><strong>Shell Applications</strong> - Logical non-production apps</li>
+<li><strong>Environments</strong> - Define tiers (DEV, UAT, PROD)</li>
+<li><strong>Deployment Order</strong> - Sequence of deployments</li>
+<li><strong>Environment Mapping</strong> - Link apps to environments</li>
+</ol>
+<h3 id="example-configuration">Example Configuration</h3>
+<h4 id="define-environments">Define Environments</h4>
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>Deployment Order</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Development</td>
+<td>1</td>
+<td>First deployment</td>
+</tr>
+<tr>
+<td>UAT</td>
+<td>2</td>
+<td>After DEV success</td>
+</tr>
+<tr>
+<td>Production</td>
+<td>3</td>
+<td>Final deployment</td>
+</tr>
+</tbody>
+</table>
+<h4 id="create-environment-specific-deployments">Create Environment-Specific Deployments</h4>
+<div class="highlight"><pre><span></span><code>Deployment 1:
+Name: DEP_Development
+Environment: Development
+Schedule: Auto
+
+Deployment 2:
+Name: DEP_UAT
+Environment: UAT
+Schedule: Daily 6:00 PM
+
+Deployment 3:
+Name: DEP_Production
+Environment: Production
+Schedule: Daily 11:00 PM
+</code></pre></div>
+<hr>
+<h2 id="deployment-scripts">Deployment Scripts</h2>
+<p>Enhance deployments with Logic Builder scripts.</p>
+<h3 id="pre-deployment-scripts">Pre-Deployment Scripts</h3>
+<p>Execute before metadata deployment:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Backup current metadata</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">preDeploymentBackup</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">timestamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">backupName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">applicationName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">"_"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">timestamp</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Create backup</span>
+<span class="w">    </span><span class="nx">backupMetadata</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">applicationId</span><span class="p">,</span><span class="w"> </span><span class="nx">backupName</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Validate target system availability</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">isSystemAvailable</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">targetServer</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">"Target system unavailable"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">backupName</span><span class="o">:</span><span class="w"> </span><span class="nx">backupName</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="post-deployment-scripts">Post-Deployment Scripts</h3>
+<p>Execute after successful deployment:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Refresh dependent systems</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">postDeploymentRefresh</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Refresh Essbase outline</span>
+<span class="w">    </span><span class="nx">refreshEssbaseOutline</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">applicationName</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Clear and reload Smart View</span>
+<span class="w">    </span><span class="nx">clearSmartViewCache</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Send notification to users</span>
+<span class="w">    </span><span class="nx">notifyUsers</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">deploymentId</span><span class="p">,</span><span class="w"> </span><span class="s2">"Deployment completed"</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Update audit log</span>
+<span class="w">    </span><span class="nx">logDeployment</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr>
+<h2 id="deployment-schedule-tab">Deployment Schedule Tab</h2>
+<p>View all scheduled deployments in one place.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/deployment/deployment-schedule-grid.png" data-desc-position="bottom"><img alt="Deployment Schedule Grid" src="../assets/images/deployment/deployment-schedule-grid.png"></a><br>
+<em>Deployment Schedule showing upcoming executions</em></p>
+<h3 id="schedule-grid-information">Schedule Grid Information</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>Deployment name</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Deployment purpose</td>
+</tr>
+<tr>
+<td><strong>Next Deployment Date</strong></td>
+<td>Next execution time</td>
+</tr>
+<tr>
+<td><strong>Frequency</strong></td>
+<td>Schedule type</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Deployment type</td>
+</tr>
+</tbody>
+</table>
+<h3 id="managing-schedules">Managing Schedules</h3>
+<ul>
+<li><strong>Modify</strong>: Change via Manager tab</li>
+<li><strong>Disable</strong>: Uncheck enabled in Manager</li>
+<li><strong>View History</strong>: Check Monitor tab</li>
+<li><strong>Upcoming</strong>: Sort by next deployment date</li>
+</ul>
+<hr>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-deployment-strategy">1. Deployment Strategy</h3>
+<ul>
+<li><strong>Batch Similar Changes</strong> - Group related updates</li>
+<li><strong>Off-Peak Scheduling</strong> - Deploy during maintenance windows</li>
+<li><strong>Environment Progression</strong> - DEV → UAT → PROD</li>
+<li><strong>Backup First</strong> - Always backup before deployment</li>
+<li><strong>Test Scripts</strong> - Validate pre/post scripts</li>
+</ul>
+<h3 id="2-schedule-optimization">2. Schedule Optimization</h3>
+<ul>
+<li><strong>Production</strong> - Daily at 11 PM or later</li>
+<li><strong>UAT</strong> - Multiple times daily</li>
+<li><strong>Development</strong> - Auto or frequent</li>
+<li><strong>Emergency</strong> - One-time deployments</li>
+<li><strong>Batch Size</strong> - Limit requests per deployment</li>
+</ul>
+<h3 id="3-monitoring">3. Monitoring</h3>
+<ul>
+<li><strong>Enable Auto-Refresh</strong> - During deployments</li>
+<li><strong>Check Logs</strong> - Review for warnings</li>
+<li><strong>Track Patterns</strong> - Identify recurring issues</li>
+<li><strong>Set Alerts</strong> - Email on failures</li>
+<li><strong>Archive Logs</strong> - Maintain history</li>
+</ul>
+<h3 id="4-error-handling">4. Error Handling</h3>
+<ul>
+<li><strong>Immediate Notification</strong> - Email on error</li>
+<li><strong>Log Attachment</strong> - Include in notifications</li>
+<li><strong>Redeploy Strategy</strong> - Define retry approach</li>
+<li><strong>Root Cause Analysis</strong> - Track failure patterns</li>
+<li><strong>Rollback Plans</strong> - Document procedures</li>
+</ul>
+<hr>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deployment not running</td>
+<td>Not scheduled or disabled</td>
+<td>Check schedule and enabled status</td>
+</tr>
+<tr>
+<td>Stuck in Running</td>
+<td>Timeout or system issue</td>
+<td>Check logs, restart service</td>
+</tr>
+<tr>
+<td>Partial deployment</td>
+<td>Some requests failed</td>
+<td>Review errors, redeploy failed</td>
+</tr>
+<tr>
+<td>No requests found</td>
+<td>Wrong type or filter</td>
+<td>Verify deployment type configuration</td>
+</tr>
+<tr>
+<td>Email not sent</td>
+<td>Template not configured</td>
+<td>Check email template assignment</td>
+</tr>
+<tr>
+<td>Script error</td>
+<td>Logic Builder issue</td>
+<td>Debug script independently</td>
+</tr>
+<tr>
+<td>Wrong environment</td>
+<td>Mapping incorrect</td>
+<td>Verify environment configuration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="deployment-logs">Deployment Logs</h3>
+<p>Access detailed logs:</p>
+<ol>
+<li>Click log icon in Monitor grid</li>
+<li>Review for:</li>
+<li>Error messages</li>
+<li>Warning indicators</li>
+<li>Processing times</li>
+<li>Request details</li>
+</ol>
+<h3 id="service-management">Service Management</h3>
+<p>Check deployment service:</p>
+<ol>
+<li>Navigate to <strong>Administration → Services</strong></li>
+<li>Verify <strong>Deployment Service</strong> status</li>
+<li>Start/stop as needed</li>
+<li>Check service interval settings</li>
+</ol>
+<h3 id="performance-tuning">Performance Tuning</h3>
+<p>Optimize deployment performance:</p>
+<div class="highlight"><pre><span></span><code>Global Settings → Application Settings:
+- Maximum # of Minutes for Deployment: 180
+- Deployment Service Sleep Interval: 5
+- File Size Limits: Adjust as needed
+</code></pre></div>
+<hr>
+<h2 id="integration-points">Integration Points</h2>
+<h3 id="workflow-integration">Workflow Integration</h3>
+<p>Deploy stages in workflows:
+- Create deploy task
+- Assign to deploy stage
+- Configure environment
+- Link to deployment</p>
+<h3 id="email-templates">Email Templates</h3>
+<p>Deployment notifications:
+- Success templates
+- Error templates
+- Custom variables
+- Table insertions</p>
+<h3 id="logic-builder">Logic Builder</h3>
+<p>Pre/post scripts:
+- Validation logic
+- Backup procedures
+- System integration
+- Custom processing</p>
+<h3 id="multi-environment">Multi-Environment</h3>
+<p>Environment configuration:
+- Infrastructure setup
+- Application mapping
+- Deployment order
+- Shell applications</p>
+<hr>
+<h2 id="related-topics">Related Topics</h2>
+<ul>
+<li><a href="../workflow/">Workflow Builder</a> - Configure deploy stages</li>
+<li><a href="../email-templates/index.md">Email Templates</a> - Deployment notifications</li>
+<li><a href="../logic-builder/">Logic Builder</a> - Pre/post scripts</li>
+<li><a href="../infrastructure/index.md#multi-environment-configuration">Infrastructure</a> - Environment setup</li>
+<li><a href="../global-settings/index.md">Global Settings</a> - Timeout and interval configuration</li>
+<li><a href="../administration/#services">Services</a> - Deployment service management</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../workflow/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Workflow">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Workflow
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../export/" class="md-footer__link md-footer__link--next" aria-label="Next: Export Metadata">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Export Metadata
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.tooltips", "navigation.footer", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

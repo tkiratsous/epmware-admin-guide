@@ -1,0 +1,3412 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete administrator guide for EPMware configuration, security, and workflow management">
+      
+      
+        <meta name="author" content="EPMware, Inc.">
+      
+      
+        <link rel="canonical" href="https://tkiratsous.github.io/epmware-admin/export/">
+      
+      
+        <link rel="prev" href="../deployment/">
+      
+      
+        <link rel="next" href="../logic-builder/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Export Metadata - EPMware Administrator's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#export-metadata" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="EPMware Administrator's Guide" class="md-header__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EPMware Administrator's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Export Metadata
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="orange" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="EPMware Administrator's Guide" class="md-nav__button md-logo" aria-label="EPMware Administrator's Guide" data-md-component="logo">
+      
+  <img src="../assets/images/epmware-logo.png" alt="logo">
+
+    </a>
+    EPMware Administrator's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#about-this-guide" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About This Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#key-topics" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Key Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/#prerequisites" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prerequisites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../configuration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Applications
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dimensions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Dimensions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/dimensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dimension Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Member Properties
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/member-properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Member Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Email Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/email-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Email Templates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Global Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/global-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Lookups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/lookups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lookups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../security/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-model" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-rules" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#roles" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#users" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#groups" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groups
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-classes" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#security-provisioning" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Provisioning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#sso-configuration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSO Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/#report-security" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Report Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Workflow
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/#workflow-tasks" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/#workflow-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/#workflow-stages" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Stages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../deployment/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/#deployment-manager" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/#deployment-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/#scheduling-deployments" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    Export Metadata
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Export Metadata
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#export-profile" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#export-details" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#export-format" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#export-execution" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Execution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#export-book" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Export Book
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../logic-builder/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Logic Builder
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Logic Builder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#script-management" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#creating-scripts" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Scripts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#script-types" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#script-editor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#api-reference" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#script-examples" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Script Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic-builder/#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration Points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../administration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Administration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3">
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Application Migration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Application Migration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/application-migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application migration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../erp-import/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ERP Import
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            ERP Import
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#erp-import-builder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Builder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#erp-import-mapping" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Mapping
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#erp-import-monitor" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Import Monitor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#erp-integration" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#scheduling-and-automation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scheduling and Automation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#best-practices" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#troubleshooting" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erp-import/#integration-points" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration points
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../appendices/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Appendices
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Appendices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/oracle-epm-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix A - Oracle EPM Cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/oracle-fusion-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix B - Oracle Fusion GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/validations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix C - Out of Box Validations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/onestream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix D - OneStream Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/oracle-ebs-gl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix E - Oracle EBS GL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="export-metadata">Export Metadata</h1>
+<p>The Export Metadata module enables extraction of hierarchy and property data from EPMware to various file formats. It provides flexible configuration for exporting metadata to files, database views, or custom formats for reporting, backup, and integration purposes.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/export/export-metadata-overview.png" data-desc-position="bottom"><img alt="Export Metadata Overview" src="../assets/images/export/export-metadata-overview.png"></a><br>
+<em>Export module showing the five configuration tabs</em></p>
+<h2 id="overview">Overview</h2>
+<p>The Export module consists of five integrated components:</p>
+<ul>
+<li><strong><a href="#export-profile">Export Profile</a></strong> - Define export configurations and formats</li>
+<li><strong><a href="#export-details">Export Details</a></strong> - Specify dimensions and properties to export</li>
+<li><strong><a href="#export-format">Export Format</a></strong> - Configure output structure and columns</li>
+<li><strong><a href="#executing-exports">Export</a></strong> - Execute exports and download results</li>
+<li><strong><a href="#export-book">Export Book</a></strong> - Group multiple exports for batch execution</li>
+</ul>
+<p>Key capabilities include:
+- Multiple export formats (Parent-Child, Generations, Custom)
+- Property selection and filtering
+- Pre/post-processing scripts
+- Database view integration
+- Batch export books
+- Multi-environment support</p>
+<h2 id="quick-links">Quick Links</h2>
+<div class="grid cards">
+  <div class="card">
+    <h3>📋 Profiles</h3>
+    <p>Create export configurations with format options</p>
+    <a href="#export-profile" class="md-button">Create Profile →</a>
+  </div>
+
+  <div class="card">
+    <h3>📊 Details</h3>
+    <p>Select dimensions and properties to export</p>
+    <a href="#export-details" class="md-button">Configure Details →</a>
+  </div>
+
+  <div class="card">
+    <h3>📁 Formats</h3>
+    <p>Define output structure and columns</p>
+    <a href="#export-format" class="md-button">Set Format →</a>
+  </div>
+
+  <div class="card">
+    <h3>📚 Books</h3>
+    <p>Create export collections for batch processing</p>
+    <a href="#export-book" class="md-button">Build Books →</a>
+  </div>
+</div>
+
+<hr>
+<h2 id="export-profile">Export Profile</h2>
+<p>Export profiles define the overall configuration for metadata exports, including format type, generation settings, and processing scripts.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/export/export-profile-tab.png" data-desc-position="bottom"><img alt="Export Profile Tab" src="../assets/images/export/export-profile-tab.png"></a><br>
+<em>Export Profile configuration screen</em></p>
+<h3 id="profile-configuration">Profile Configuration</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/export/create-export-profile.png" data-desc-position="bottom"><img alt="Create Export Profile" src="../assets/images/export/create-export-profile.png"></a><br>
+<em>Create Profile dialog with format options</em></p>
+<h4 id="creating-profiles">Creating Profiles</h4>
+<ol>
+<li>Select <strong>Export Profile</strong> tab</li>
+<li>Click the <strong>+</strong> icon</li>
+<li>Configure profile settings:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Profile Name</strong></td>
+<td>Yes</td>
+<td>Unique identifier</td>
+<td>User-defined</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>No</td>
+<td>Profile purpose</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><strong>Export Format</strong></td>
+<td>Yes</td>
+<td>Output structure</td>
+<td>See formats below</td>
+</tr>
+<tr>
+<td><strong># of Generations</strong></td>
+<td>Conditional</td>
+<td>For Generation format</td>
+<td>1-20</td>
+</tr>
+<tr>
+<td><strong>Show Member Name in Generations</strong></td>
+<td>Conditional</td>
+<td>Include names</td>
+<td>Y/N</td>
+</tr>
+<tr>
+<td><strong>Fill Generations</strong></td>
+<td>Conditional</td>
+<td>Fill empty cells</td>
+<td>From dropdown</td>
+</tr>
+<tr>
+<td><strong>Column Delimiter</strong></td>
+<td>Conditional</td>
+<td>Custom format delimiter</td>
+<td>Comma, Tab, Pipe</td>
+</tr>
+<tr>
+<td><strong>Text Qualifier</strong></td>
+<td>Conditional</td>
+<td>Text enclosure</td>
+<td>Quotes, None</td>
+</tr>
+<tr>
+<td><strong>Pre Logic Script</strong></td>
+<td>No</td>
+<td>Pre-processing</td>
+<td>Logic Builder script</td>
+</tr>
+<tr>
+<td><strong>Post Logic Script</strong></td>
+<td>No</td>
+<td>Post-processing</td>
+<td>Logic Builder script</td>
+</tr>
+<tr>
+<td><strong>Database View</strong></td>
+<td>Conditional</td>
+<td>View name</td>
+<td>For DB view format</td>
+</tr>
+<tr>
+<td><strong>Environment</strong></td>
+<td>Conditional</td>
+<td>Target environment</td>
+<td>Multi-environment only</td>
+</tr>
+</tbody>
+</table>
+<h3 id="export-formats">Export Formats</h3>
+<h4 id="parent-child-format">Parent-Child Format</h4>
+<p>Standard hierarchical export:
+</p><div class="highlight"><pre><span></span><code>Parent,Child,Property1,Property2
+Total_Entity,NA_Entity,USA Operations,Active
+NA_Entity,USA,United States,Active
+NA_Entity,Canada,Canada,Active
+</code></pre></div><p></p>
+<h4 id="generations-format">Generations Format</h4>
+<p>Columnar generation/level format:
+</p><div class="highlight"><pre><span></span><code>Gen1,Gen2,Gen3,Property1,Property2
+Total_Entity,NA_Entity,USA,USA Operations,Active
+Total_Entity,NA_Entity,Canada,Canada Operations,Active
+Total_Entity,EMEA_Entity,UK,UK Operations,Active
+</code></pre></div><p></p>
+<p>Configuration options:
+- <strong># of Generations</strong>: Maximum depth to export
+- <strong>Show Member Name</strong>: Include member names in generation columns
+- <strong>Fill Generations</strong>: How to handle empty cells
+  - Leave blank
+  - Repeat parent
+  - Use placeholder</p>
+<h4 id="custom-file-format">Custom File Format</h4>
+<p>User-defined delimited format:
+- Choose delimiter (comma, tab, pipe, custom)
+- Set text qualifiers
+- Configure column order
+- Apply filters</p>
+<h4 id="custom-database-view">Custom Database View</h4>
+<p>Export directly to database view:
+- Select predefined view
+- Map columns to view fields
+- Apply SQL transformations</p>
+<h3 id="profile-examples">Profile Examples</h3>
+<h4 id="example-1-planning-dimension-export">Example 1: Planning Dimension Export</h4>
+<div class="highlight"><pre><span></span><code>Name: PLAN_ENTITY_EXPORT
+Description: Entity dimension for Planning
+Format: Parent-Child
+Pre Script: VALIDATE_ENTITY_EXPORT
+Post Script: ARCHIVE_EXPORT_FILE
+Environment: Production
+</code></pre></div>
+<h4 id="example-2-reporting-generation-export">Example 2: Reporting Generation Export</h4>
+<div class="highlight"><pre><span></span><code>Name: REPORT_ACCOUNT_GEN
+Description: Account hierarchy in generation format
+Format: Generations
+# of Generations: 8
+Show Member Name: Y
+Fill Generations: Repeat Parent
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Performance Optimization</p>
+<p>For large exports, disable Export Tables in the profile to significantly improve execution performance.</p>
+</div>
+<hr>
+<h2 id="export-details">Export Details</h2>
+<p>Export Details specify which dimensions and properties to include in the export.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/export/export-details-tab.png" data-desc-position="bottom"><img alt="Export Details Tab" src="../assets/images/export/export-details-tab.png"></a><br>
+<em>Export Details configuration screen</em></p>
+<h3 id="configuring-details">Configuring Details</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/export/export-details-dialog.png" data-desc-position="bottom"><img alt="Export Details Dialog" src="../assets/images/export/export-details-dialog.png"></a><br>
+<em>Export Details configuration dialog</em></p>
+<ol>
+<li>Select <strong>Export Details</strong> tab</li>
+<li>Select <strong>Export Profile</strong> from dropdown</li>
+<li>Click <strong>+</strong> icon to add dimension</li>
+<li>Configure dimension export:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Application</strong></td>
+<td>Source application</td>
+<td>HFM_PROD</td>
+</tr>
+<tr>
+<td><strong>Dimension</strong></td>
+<td>Dimension to export</td>
+<td>Entity</td>
+</tr>
+<tr>
+<td><strong>Top Level Member</strong></td>
+<td>Starting point</td>
+<td>Total_Entity</td>
+</tr>
+<tr>
+<td><strong>Member Name</strong></td>
+<td>Specific member filter</td>
+<td>US_Operations</td>
+</tr>
+<tr>
+<td><strong>Export Sequence #</strong></td>
+<td>Order in export</td>
+<td>10, 20, 30</td>
+</tr>
+<tr>
+<td><strong>Base Members Only</strong></td>
+<td>Exclude parents</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><strong>Include Shared Members</strong></td>
+<td>Export shared instances</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><strong>Show Properties for Shared</strong></td>
+<td>Properties on shared</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<h3 id="property-selection">Property Selection</h3>
+<p>Click <strong>Properties</strong> hyperlink to select specific properties:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/export/property-selection-dialog.png" data-desc-position="bottom"><img alt="Property Selection Dialog" src="../assets/images/export/property-selection-dialog.png"></a><br>
+<em>Property selection for export</em></p>
+<p>Property options:
+- <strong>Select All</strong> - Include all properties
+- <strong>Select Specific</strong> - Choose individual properties
+- <strong>Categories</strong> - Select by category
+- <strong>Required Only</strong> - Export required properties</p>
+<h3 id="bulk-upload">Bulk Upload</h3>
+<p>Upload multiple dimensions via CSV:</p>
+<ol>
+<li>Click upload icon</li>
+<li>Select CSV file with format:
+<div class="highlight"><pre><span></span><code>Application,Dimension,TopMember,Sequence
+HFM_PROD,Entity,Total_Entity,10
+HFM_PROD,Account,Total_Account,20
+HFM_PROD,Custom1,Total_C1,30
+</code></pre></div></li>
+</ol>
+<h3 id="filtering-options">Filtering Options</h3>
+<p>Apply filters to export specific data:</p>
+<ul>
+<li><strong>Member filters</strong> - Include/exclude patterns</li>
+<li><strong>Property filters</strong> - Based on property values</li>
+<li><strong>Level filters</strong> - Specific generation/level</li>
+<li><strong>Status filters</strong> - Active/inactive members</li>
+</ul>
+<hr>
+<h2 id="export-format">Export Format</h2>
+<p>Define the structure and columns for the export output.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/export/export-format-tab.png" data-desc-position="bottom"><img alt="Export Format Tab" src="../assets/images/export/export-format-tab.png"></a><br>
+<em>Export Format configuration screen</em></p>
+<h3 id="format-configuration">Format Configuration</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/export/export-format-grid.png" data-desc-position="bottom"><img alt="Export Format Grid" src="../assets/images/export/export-format-grid.png"></a><br>
+<em>Format configuration with column mapping</em></p>
+<p>Configure output columns:</p>
+<table>
+<thead>
+<tr>
+<th>Column Type</th>
+<th>Description</th>
+<th>Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hierarchy Columns</strong></td>
+<td>Parent/Child or Generation</td>
+<td>Automatic based on format</td>
+</tr>
+<tr>
+<td><strong>Property Columns</strong></td>
+<td>Member properties</td>
+<td>Select from available</td>
+</tr>
+<tr>
+<td><strong>Calculated Columns</strong></td>
+<td>Derived values</td>
+<td>SQL expressions</td>
+</tr>
+<tr>
+<td><strong>Static Columns</strong></td>
+<td>Fixed values</td>
+<td>Constants</td>
+</tr>
+</tbody>
+</table>
+<h3 id="column-ordering">Column Ordering</h3>
+<p>Control column sequence:
+1. Drag columns to reorder
+2. Hide/show columns
+3. Set column headers
+4. Apply formatting</p>
+<h3 id="custom-transformations">Custom Transformations</h3>
+<p>Apply transformations to column values:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Example: Format member name</span>
+<span class="k">UPPER</span><span class="p">(</span><span class="n">member_name</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">MEMBER_CODE</span>
+
+<span class="c1">-- Example: Concatenate properties</span>
+<span class="n">property1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">'_'</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">property2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">COMBINED_CODE</span>
+
+<span class="c1">-- Example: Conditional value</span>
+<span class="k">CASE</span><span class="w"> </span>
+<span class="w">  </span><span class="k">WHEN</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'A'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Active'</span>
+<span class="w">  </span><span class="k">WHEN</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'I'</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Inactive'</span>
+<span class="w">  </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'Unknown'</span>
+<span class="k">END</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">STATUS_DESC</span>
+</code></pre></div>
+<hr>
+<h2 id="export-execution">Export Execution</h2>
+<p>Run configured exports and download results.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/export/export-execution-tab.png" data-desc-position="bottom"><img alt="Export Execution Tab" src="../assets/images/export/export-execution-tab.png"></a><br>
+<em>Export execution screen with history</em></p>
+<h3 id="running-exports">Running Exports</h3>
+<ol>
+<li>Select <strong>Export</strong> tab</li>
+<li>Choose export type:</li>
+<li><strong>Profile</strong> - Single profile export</li>
+<li><strong>Book</strong> - Export book execution</li>
+<li>Select specific profile or book</li>
+<li>Click <strong>Export</strong> button</li>
+</ol>
+<h3 id="export-progress">Export Progress</h3>
+<p>Monitor export execution:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/export/export-progress-bar.png" data-desc-position="bottom"><img alt="Export Progress Bar" src="../assets/images/export/export-progress-bar.png"></a><br>
+<em>Export progress indicator</em></p>
+<p>Progress indicators:
+- Initialization
+- Data extraction
+- Transformation
+- File generation
+- Completion</p>
+<h3 id="export-history">Export History</h3>
+<p>Each export creates a row in the grid:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Execution ID</strong></td>
+<td>Unique identifier</td>
+</tr>
+<tr>
+<td><strong>Profile/Book</strong></td>
+<td>Export name</td>
+</tr>
+<tr>
+<td><strong>Start Time</strong></td>
+<td>Execution start</td>
+</tr>
+<tr>
+<td><strong>End Time</strong></td>
+<td>Completion time</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Success/Failed</td>
+</tr>
+<tr>
+<td><strong>Records</strong></td>
+<td>Row count</td>
+</tr>
+<tr>
+<td><strong>Download</strong></td>
+<td>File download link</td>
+</tr>
+</tbody>
+</table>
+<h3 id="downloading-results">Downloading Results</h3>
+<ol>
+<li>Click download icon (📥) in grid row</li>
+<li>File downloads to browser</li>
+<li>File naming: <code>ProfileName_YYYYMMDD_HHMMSS.ext</code></li>
+</ol>
+<hr>
+<h2 id="export-book">Export Book</h2>
+<p>Export Books group multiple export profiles for batch execution.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/export/export-book-tab.png" data-desc-position="bottom"><img alt="Export Book Tab" src="../assets/images/export/export-book-tab.png"></a><br>
+<em>Export Book configuration screen</em></p>
+<h3 id="creating-books">Creating Books</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/images/export/create-export-book.png" data-desc-position="bottom"><img alt="Create Export Book" src="../assets/images/export/create-export-book.png"></a><br>
+<em>Create Book dialog</em></p>
+<ol>
+<li>Select <strong>Export Book</strong> tab</li>
+<li>Click <strong>+</strong> icon</li>
+<li>Configure book:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>Book identifier</td>
+<td>MONTHLY_EXPORTS</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Book purpose</td>
+<td>Monthly hierarchy exports</td>
+</tr>
+<tr>
+<td><strong>Enabled</strong></td>
+<td>Active status</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><strong>File Name</strong></td>
+<td>Output pattern</td>
+<td>Export_{DATE}_{TIME}</td>
+</tr>
+<tr>
+<td><strong>Merge Files</strong></td>
+<td>Combine exports</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><strong>Compress Files</strong></td>
+<td>ZIP output</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<h3 id="adding-profiles-to-books">Adding Profiles to Books</h3>
+<ol>
+<li>Select book from grid</li>
+<li>Click <strong>Assign Profiles</strong></li>
+<li>Move profiles from Available to Assigned</li>
+<li>Set execution order</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<h3 id="book-execution">Book Execution</h3>
+<p>Books can:
+- Execute all profiles in sequence
+- Merge results into single file
+- Compress output to ZIP
+- Apply book-level scripts
+- Send consolidated notifications</p>
+<h3 id="example-complete-system-export">Example: Complete System Export</h3>
+<div class="highlight"><pre><span></span><code>Book Name: FULL_SYSTEM_BACKUP
+Description: Complete metadata backup
+Profiles:
+  1. ENTITY_HIERARCHY
+  2. ACCOUNT_HIERARCHY
+  3. CUSTOM_DIMENSIONS
+  4. SECURITY_ASSIGNMENTS
+  5. PROPERTY_MAPPINGS
+Merge Files: Yes
+Compress: Yes
+Output: BACKUP_20240315_230000.zip
+</code></pre></div>
+<hr>
+<h2 id="export-examples">Export Examples</h2>
+<h3 id="example-1-financial-consolidation-export">Example 1: Financial Consolidation Export</h3>
+<p><strong>Profile Configuration:</strong>
+</p><div class="highlight"><pre><span></span><code>Name: FIN_CONSOLIDATION
+Format: Parent-Child
+Description: Financial consolidation hierarchies
+</code></pre></div><p></p>
+<p><strong>Details:</strong>
+</p><div class="highlight"><pre><span></span><code>Application: HFM_PROD
+Dimensions:
+  - Entity (all properties)
+  - Account (selected properties)
+  - Custom1 (base members only)
+</code></pre></div><p></p>
+<p><strong>Output:</strong>
+</p><div class="highlight"><pre><span></span><code>Parent,Child,Description,Currency,Status
+Total_Entity,NA,North America,USD,Active
+NA,USA,United States,USD,Active
+NA,Canada,Canada,CAD,Active
+</code></pre></div><p></p>
+<h3 id="example-2-planning-generations-export">Example 2: Planning Generations Export</h3>
+<p><strong>Profile Configuration:</strong>
+</p><div class="highlight"><pre><span></span><code>Name: PLAN_GENERATIONS
+Format: Generations
+Generations: 6
+Show Member Name: Y
+</code></pre></div><p></p>
+<p><strong>Output:</strong>
+</p><div class="highlight"><pre><span></span><code>Gen1,Gen2,Gen3,Gen4,Gen5,Gen6,Alias,UDA
+Total,Revenue,Product_Rev,Hardware,Servers,Server_A,Server Model A,Critical
+Total,Revenue,Product_Rev,Hardware,Servers,Server_B,Server Model B,Standard
+</code></pre></div><p></p>
+<h3 id="example-3-security-export">Example 3: Security Export</h3>
+<p><strong>Profile Configuration:</strong>
+</p><div class="highlight"><pre><span></span><code>Name: SECURITY_EXPORT
+Format: Custom Database View
+View: VW_SECURITY_EXPORT
+</code></pre></div><p></p>
+<p><strong>Details:</strong>
+</p><div class="highlight"><pre><span></span><code>Include:
+  - Member security classes
+  - Access levels
+  - User assignments
+</code></pre></div><p></p>
+<hr>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-profile-design">1. Profile Design</h3>
+<ul>
+<li><strong>Naming Convention</strong> - Use descriptive, consistent names</li>
+<li><strong>Documentation</strong> - Maintain descriptions</li>
+<li><strong>Reusability</strong> - Create generic profiles</li>
+<li><strong>Version Control</strong> - Track profile changes</li>
+<li><strong>Testing</strong> - Validate in non-production</li>
+</ul>
+<h3 id="2-performance-optimization">2. Performance Optimization</h3>
+<ul>
+<li><strong>Disable Export Tables</strong> - For large exports</li>
+<li><strong>Filter Data</strong> - Export only needed members</li>
+<li><strong>Batch Processing</strong> - Use books for multiple exports</li>
+<li><strong>Off-Peak Execution</strong> - Schedule during low usage</li>
+<li><strong>Compression</strong> - ZIP large files</li>
+</ul>
+<h3 id="3-data-quality">3. Data Quality</h3>
+<ul>
+<li><strong>Validation Scripts</strong> - Pre-export checks</li>
+<li><strong>Property Selection</strong> - Export relevant properties only</li>
+<li><strong>Consistent Format</strong> - Standardize across exports</li>
+<li><strong>Archive Exports</strong> - Maintain history</li>
+<li><strong>Error Handling</strong> - Check logs for issues</li>
+</ul>
+<h3 id="4-integration">4. Integration</h3>
+<ul>
+<li><strong>Scheduling</strong> - Automate regular exports</li>
+<li><strong>File Naming</strong> - Use patterns for downstream systems</li>
+<li><strong>Notifications</strong> - Alert on completion/failure</li>
+<li><strong>Post-Processing</strong> - Transform for target systems</li>
+<li><strong>Security</strong> - Encrypt sensitive exports</li>
+</ul>
+<hr>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Export timeout</td>
+<td>Large data volume</td>
+<td>Increase timeout, disable export tables</td>
+</tr>
+<tr>
+<td>Missing properties</td>
+<td>Not selected</td>
+<td>Check property selection in Details</td>
+</tr>
+<tr>
+<td>Wrong format</td>
+<td>Profile misconfigured</td>
+<td>Verify format settings</td>
+</tr>
+<tr>
+<td>Empty export</td>
+<td>Filters too restrictive</td>
+<td>Review filter criteria</td>
+</tr>
+<tr>
+<td>Generation columns empty</td>
+<td>Depth insufficient</td>
+<td>Increase # of generations</td>
+</tr>
+<tr>
+<td>File not downloading</td>
+<td>Browser blocked</td>
+<td>Check download settings</td>
+</tr>
+<tr>
+<td>Book fails</td>
+<td>Profile error</td>
+<td>Test profiles individually</td>
+</tr>
+</tbody>
+</table>
+<h3 id="performance-tuning">Performance Tuning</h3>
+<p>Optimize export performance:</p>
+<div class="highlight"><pre><span></span><code>Global Settings → Application Settings:
+- Maximum # of Minutes for Export Task: 180
+- Disable Export Tables: For large exports
+- Batch Size: Adjust for memory usage
+</code></pre></div>
+<h3 id="export-logs">Export Logs</h3>
+<p>Review export logs for:
+- Row counts
+- Processing time
+- Warning messages
+- Error details
+- Memory usage</p>
+<h3 id="database-views">Database Views</h3>
+<p>For custom database view exports:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Verify view exists and is accessible</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">user_views</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">view_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'VW_YOUR_EXPORT'</span><span class="p">;</span>
+
+<span class="c1">-- Check view permissions</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">user_tab_privs</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'VW_YOUR_EXPORT'</span><span class="p">;</span>
+
+<span class="c1">-- Test view query</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">VW_YOUR_EXPORT</span><span class="p">;</span>
+</code></pre></div>
+<hr>
+<h2 id="integration-points">Integration Points</h2>
+<h3 id="logic-builder">Logic Builder</h3>
+<p>Pre/post-processing scripts:
+- Data validation
+- File archival
+- Transformation logic
+- Integration calls</p>
+<h3 id="scheduling">Scheduling</h3>
+<p>Automate exports:
+- Regular backups
+- Reporting cycles
+- System integration
+- Compliance requirements</p>
+<h3 id="email-notifications">Email Notifications</h3>
+<p>Export notifications:
+- Completion alerts
+- Error notifications
+- File attachments
+- Distribution lists</p>
+<h3 id="external-systems">External Systems</h3>
+<p>Integration patterns:
+- File-based integration
+- Database views
+- API consumption
+- ETL processes</p>
+<hr>
+<h2 id="related-topics">Related Topics</h2>
+<ul>
+<li><a href="../logic-builder/">Logic Builder</a> - Create pre/post export scripts</li>
+<li><a href="../global-settings/index.md">Global Settings</a> - Export timeout configuration</li>
+<li><a href="../email-templates/index.md">Email Templates</a> - Export notifications</li>
+<li><a href="../administration/migration.md">Migration</a> - Export for environment migration</li>
+<li><a href="../audit/index.md">Report Generation</a> - Export-based reporting</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../deployment/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deployment">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Deployment
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../logic-builder/" class="md-footer__link md-footer__link--next" aria-label="Next: Logic Builder">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Logic Builder
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.tooltips", "navigation.footer", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
