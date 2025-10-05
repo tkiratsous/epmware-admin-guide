@@ -69,11 +69,7 @@ plugins:
 # Navigation structure
 nav:
   - Home:
-    - index.md
-    - About This Guide: /#about-this-guide
-    - Key Topics: /#key-topics
-    - Prerequisites: /#prerequisites
-  
+    - index.md 
   - Configuration:
     - configuration/index.md
     - Infrastructure:
