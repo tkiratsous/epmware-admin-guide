@@ -60,7 +60,7 @@ markdown_extensions:
 plugins:
   - search:
       lang: en
-  #- live-edit:1111
+  #- live-edit:
   - glightbox:
       touchNavigation: true
       loop: false
@@ -69,7 +69,7 @@ plugins:
 # Navigation structure
 nav:
   - Home:
-    - index.md
+    - index.md 
   - Configuration:
     - configuration/index.md
     - Infrastructure:
