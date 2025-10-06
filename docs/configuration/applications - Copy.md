@@ -76,7 +76,7 @@ EPMware can automatically import existing metadata hierarchies from target appli
 
 ![Planning Artifacts](../assets/images/configuration/planning-artifacts.png)<br/>
 
-- Import the "LCM Extract .zip" file
+- Import the “LCM Extract .zip” file
 
 
 **HFM**
@@ -95,58 +95,9 @@ EPMware can automatically import existing metadata hierarchies from target appli
   - See [Appendix D](../appendices/onestream.md) for configuration details
 
 **Generic Application**
-- Manual Import of CSV files - Compress the following files using WinZip:
-  - `<TARGET_APP_NAME>_Props.csv`
-  - `<TARGET_APP_NAME>_Dim_Classes.csv`
-  - `<TARGET_APP_NAME>_Dimensions.csv`
-  - `<TARGET_APP_NAME>_Dim_Props.csv`
-  - `<TARGET_APP_NAME>_Dim_Class_Props.csv`
-  - `<TARGET_APP_NAME>_<Dim_Name>_Hierarchies.csv`
-  - `<TARGET_APP_NAME>_<Dim_Name>_Members.csv`
-  - `<TARGET_APP_NAME>_Lookups.csv`
+- Manual Import of CSV files
 
-!!! note
-    A Generic application can also be configured using Application, Dimension and Property Configuration and no import is necessary.
-
-- **Generation Format** - All Generic Application Types support importing metadata from files with a Generations format. To enable this feature:
-
-  1. Set Application Properties before loading metadata:
-     - Change `GENERATION_FORMAT_APP_IMPORT` from default `N` to `Y`
-     - Configure prefix/suffix (optional) based on file headers:
-       - `GENERATION_MEMBER_COLUMN_PREFIX`
-       - `GENERATION_MEMBER_COLUMN_SUFFIX`
-
-  2. File Header Format:
-     - Use default prefix/suffix or modify EPMware properties to match file headers
-     - Generation # is derived after removing prefix and suffix values
-     - Example headers: `GENERATION_1_MEMBER_NAME`, `GENERATION_2_MEMBER_NAME`
-
-![Generation Format Properties](../assets/images/configuration/generation-format-properties.png)<br/>
-*Application properties for Generation format import*
-
-  3. Member Properties Configuration:
-     - Property column suffix becomes the Property Name
-     - Example: Description Property with `DESC` as Property Name
-
-![Property Configuration](../assets/images/configuration/generation-property-config.png)<br/>
-*Property configuration showing DESC as Property Name*
-
-     - File should have columns: `GENERATION_1_DESC`, `GENERATION_2_DESC`, etc.
-
-#### Generation Format Example
-
-**CSV File Structure:**
-
-![Generation Format CSV](../assets/images/configuration/generation-format-csv.png)<br/>
-*Example CSV file with Generation format structure*
-
-!!! important "Dimension Column"
-    The Dimension column is mandatory and requires a fixed header name to identify the Dimension Name.
-
-**Import Result:**
-
-![Generation Import Result](../assets/images/configuration/generation-import-result.png)<br/>
-*Metadata Explorer showing results after Generation format import*
+  - Application properties, dimension classes, dimensions, hierarchies, members, lookups
 
 **Oracle Fusion GL**
 - Manual Import of Excel and hierarchy files

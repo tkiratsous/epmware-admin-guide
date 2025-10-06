@@ -2,9 +2,6 @@
 
 The Configuration module is the foundation of EPMware administration, providing comprehensive setup and management of all core system components. This module enables administrators to configure infrastructure connections, define applications and dimensions, manage metadata properties, and establish global settings that govern the entire EPMware environment.
 
-![Configuration Overview](../assets/images/configuration/configuration-overview.png)<br/>
-*Configuration module structure and key components*
-
 ## Overview
 
 Configuration establishes the framework for EPMware's master data management capabilities. Proper configuration ensures seamless integration with target EPM systems, accurate metadata management, and efficient workflow processing. The configuration module is organized into logical sections that build upon each other, from infrastructure setup through detailed property definitions.
