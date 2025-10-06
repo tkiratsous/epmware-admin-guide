@@ -6,7 +6,7 @@ Welcome to the EPMware Administrator's Guide. This comprehensive guide provides 
 
 EPMWARE is a master data management and workflow tool that manages master data and enforces your organization's workflow around the everyday processes that surround your metadata changes. This guide is designed for system administrators, implementation specialists, and power users responsible for:
 
-- Configuring and maintaining EPMware applications
+- Configuring and maintaining EPMware applications the correct way
 - Managing security and user access
 - Building and maintaining workflows
 - Monitoring metadata deployments
